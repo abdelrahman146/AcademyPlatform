@@ -1,0 +1,1503 @@
+doctype html
+html(lang='en', dir='ltr')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Luma
+    // Prevent the demo from appearing in search engines
+    meta(name='robots', content='noindex')
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap', rel='stylesheet')
+    // Preloader
+    link(type='text/css', href='/vendor/spinkit.css', rel='stylesheet')
+    // Perfect Scrollbar
+    link(type='text/css', href='/vendor/perfect-scrollbar.css', rel='stylesheet')
+    // Material Design Icons
+    link(type='text/css', href='/css/material-icons.css', rel='stylesheet')
+    // Font Awesome Icons
+    link(type='text/css', href='/css/fontawesome.css', rel='stylesheet')
+    // Preloader
+    link(type='text/css', href='/css/preloader.css', rel='stylesheet')
+    // App CSS
+    link(type='text/css', href='/css/app.css', rel='stylesheet')
+  body.layout-app
+    .preloader
+      .sk-chase
+        .sk-chase-dot
+        .sk-chase-dot
+        .sk-chase-dot
+        .sk-chase-dot
+        .sk-chase-dot
+        .sk-chase-dot
+      //
+        <div class="sk-bounce">
+        <div class="sk-bounce-dot"></div>
+        <div class="sk-bounce-dot"></div>
+        </div>
+      // More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html
+    // Drawer Layout
+    .mdk-drawer-layout.js-mdk-drawer-layout(data-push='', data-responsive-width='992px')
+      .mdk-drawer-layout__content.page-content
+        // Header
+        #default-navbar.navbar.navbar-expand.navbar-light.border-bottom-2(data-primary='')
+          // Navbar toggler
+          button.navbar-toggler.w-auto.mr-16pt.d-block.d-lg-none.rounded-0(type='button', data-toggle='sidebar')
+            span.material-icons short_text
+          // Navbar Brand
+          a.navbar-brand.mr-16pt.d-lg-none(href='index.html')
+            // <img class="navbar-brand-icon" src="/images/logo/white-100@2x.png" width="30" alt="Luma">
+            span.avatar.avatar-sm.navbar-brand-icon.mr-0.mr-lg-8pt
+              span.avatar-title.rounded.bg-primary
+                img.img-fluid(src='/images/illustration/student/128/white.svg', alt='logo')
+            span.d-none.d-lg-block Luma
+          ul.nav.navbar-nav.d-none.d-sm-flex.flex.justify-content-start.ml-8pt
+            li.nav-item.active
+              a.nav-link(href='index.html') Home
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', data-caret='false') Courses
+              .dropdown-menu
+                a.dropdown-item(href='courses.html') Browse Courses
+                a.dropdown-item(href='student-course.html') Preview Course
+                a.dropdown-item(href='student-lesson.html') Preview Lesson
+                a.dropdown-item(href='student-take-course.html')
+                  span.mr-16pt Take Course
+                  |  
+                  span.badge.badge-notifications.badge-accent.text-uppercase.ml-auto Pro
+                a.dropdown-item(href='student-take-lesson.html') Take Lesson
+                a.dropdown-item(href='student-take-quiz.html') Take Quiz
+                a.dropdown-item(href='student-quiz-result-details.html') Quiz Result
+                a.dropdown-item(href='student-dashboard.html') Student Dashboard
+                a.dropdown-item(href='student-my-courses.html') My Courses
+                a.dropdown-item(href='student-quiz-results.html') My Quizzes
+                a.dropdown-item(href='help-center.html') Help Center
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', data-caret='false') Paths
+              .dropdown-menu
+                a.dropdown-item(href='paths.html') Browse Paths
+                a.dropdown-item(href='student-path.html') Path Details
+                a.dropdown-item(href='student-path-assessment.html') Skill Assessment
+                a.dropdown-item(href='student-path-assessment-result.html') Skill Result
+                a.dropdown-item(href='student-paths.html') My Paths
+            li.nav-item
+              a.nav-link(href='pricing.html') Pricing
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', data-caret='false') Teachers
+              .dropdown-menu
+                a.dropdown-item(href='instructor-dashboard.html') Instructor Dashboard
+                a.dropdown-item(href='instructor-courses.html') Manage Courses
+                a.dropdown-item(href='instructor-quizzes.html') Manage Quizzes
+                a.dropdown-item(href='instructor-earnings.html') Earnings
+                a.dropdown-item(href='instructor-statement.html') Statement
+                a.dropdown-item(href='instructor-edit-course.html') Edit Course
+                a.dropdown-item(href='instructor-edit-quiz.html') Edit Quiz
+            li.nav-item.dropdown(data-toggle='tooltip', data-title='Community', data-placement='bottom', data-boundary='window')
+              a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', data-caret='false')
+                i.material-icons people_outline
+              .dropdown-menu
+                a.dropdown-item(href='teachers.html') Browse Teachers
+                a.dropdown-item(href='student-profile.html') Student Profile
+                a.dropdown-item(href='teacher-profile.html') Instructor Profile
+                a.dropdown-item(href='blog.html') Blog
+                a.dropdown-item(href='blog-post.html') Blog Post
+                a.dropdown-item(href='faq.html') FAQ
+                a.dropdown-item(href='help-center.html') Help Center
+                a.dropdown-item(href='discussions.html') Discussions
+                a.dropdown-item(href='discussion.html') Discussion Details
+                a.dropdown-item(href='discussions-ask.html') Ask Question
+          ul.nav.navbar-nav.ml-auto.mr-0
+            li.nav-item
+              a.nav-link(href='login.html', data-toggle='tooltip', data-title='Login', data-placement='bottom', data-boundary='window')
+                i.material-icons lock_open
+            li.nav-item
+              a.btn.btn-outline-dark(href='signup.html') Get Started
+        // // END Header
+        // BEFORE Page Content
+        // // END BEFORE Page Content
+        // Page Content
+        .mdk-box.mdk-box--bg-primary.bg-dark.js-mdk-box.mb-0(data-effects='parallax-background blend-background')
+          .mdk-box__bg
+            .mdk-box__bg-front(style='background-image: url(/images/photodune-4161018-group-of-students-m.jpg);')
+          .mdk-box__content.justify-content-center
+            .hero.container.page__container.text-center.py-112pt
+              h1.text-white.text-shadow Learn to Code
+              p.lead.measure-hero-lead.mx-auto.text-white.text-shadow.mb-48pt
+                | Business, Technology and Creative Skills taught by industry experts. Explore a wide range of skills with our professional tutorials.
+              a.btn.btn-lg.btn-white.btn--raised.mb-16pt(href='courses.html') Browse Courses
+              p.mb-0
+                a.text-white.text-shadow(href='')
+                  strong Are you a teacher?
+        .border-bottom-2.py-16pt.navbar-light.bg-white.border-bottom-2
+          .container.page__container
+            .row.align-items-center
+              .d-flex.col-md.align-items-center.border-bottom.border-md-0.mb-16pt.mb-md-0.pb-16pt.pb-md-0
+                .rounded-circle.bg-primary.w-64.h-64.d-inline-flex.align-items-center.justify-content-center.mr-16pt
+                  i.material-icons.text-white subscriptions
+                .flex
+                  .card-title.mb-4pt 8,000+ Courses
+                  p.card-subtitle.text-70 Explore a wide range of skills.
+              .d-flex.col-md.align-items-center.border-bottom.border-md-0.mb-16pt.mb-md-0.pb-16pt.pb-md-0
+                .rounded-circle.bg-primary.w-64.h-64.d-inline-flex.align-items-center.justify-content-center.mr-16pt
+                  i.material-icons.text-white verified_user
+                .flex
+                  .card-title.mb-4pt By Industry Experts
+                  p.card-subtitle.text-70 Professional development from the best people.
+              .d-flex.col-md.align-items-center
+                .rounded-circle.bg-primary.w-64.h-64.d-inline-flex.align-items-center.justify-content-center.mr-16pt
+                  i.material-icons.text-white update
+                .flex
+                  .card-title.mb-4pt Unlimited Access
+                  p.card-subtitle.text-70 Unlock Library and learn any topic with one subscription.
+        .page-section.border-bottom-2
+          .container.page__container
+            .page-separator
+              .page-separator__text From the blog
+            .row.card-group-row
+              .col-md-6.col-lg-4.card-group-row__col
+                .card.card--elevated.posts-card-popular.overlay.card-group-row__card
+                  img.card-img(src='/images/paths/sketch_430x168.png', alt='')
+                  .fullbleed.bg-primary(style='opacity: .5')
+                  .posts-card-popular__content
+                    .card-body.d-flex.align-items-center
+                      .avatar-group.flex
+                        .avatar.avatar-xs(data-toggle='tooltip', data-placement='top', title='Janell D.')
+                          a(href='')
+                            img.avatar-img.rounded-circle(src='/images/256_luke-porter-261779-unsplash.jpg', alt='Avatar')
+                      a.d-flex.align-items-center(style='text-decoration: none;', href='')
+                        i.material-icons.mr-1(style='font-size: inherit;') remove_red_eye
+                        |  
+                        small 327
+                    .posts-card-popular__title.card-body
+                      small.text-muted.text-uppercase sketch
+                      a.card-title(href='blog-post.html') Merge Duplicates Inconsistent Symbols
+              .col-md-6.col-lg-4.card-group-row__col
+                .card.card--elevated.posts-card-popular.overlay.card-group-row__card
+                  img.card-img(src='/images/paths/invision_430x168.png', alt='')
+                  .fullbleed.bg-primary(style='opacity: .5')
+                  .posts-card-popular__content
+                    .card-body.d-flex.align-items-center
+                      .avatar-group.flex
+                        .avatar.avatar-xs(data-toggle='tooltip', data-placement='top', title='Janell D.')
+                          a(href='')
+                            img.avatar-img.rounded-circle(src='/images/256_michael-dam-258165-unsplash.jpg', alt='Avatar')
+                      a.d-flex.align-items-center(style='text-decoration: none;', href='')
+                        i.material-icons.mr-1(style='font-size: inherit;') remove_red_eye
+                        |  
+                        small 327
+                    .posts-card-popular__title.card-body
+                      small.text-muted.text-uppercase invision
+                      a.card-title(href='blog-post.html') Design Systems Essentials
+              .col-md-6.col-lg-4.card-group-row__col
+                .card.card--elevated.posts-card-popular.overlay.card-group-row__card
+                  img.card-img(src='/images/paths/photoshop_430x168.png', alt='')
+                  .fullbleed.bg-primary(style='opacity: .5')
+                  .posts-card-popular__content
+                    .card-body.d-flex.align-items-center
+                      .avatar-group.flex
+                        .avatar.avatar-xs(data-toggle='tooltip', data-placement='top', title='Janell D.')
+                          a(href='')
+                            img.avatar-img.rounded-circle(src='/images/256_rsz_1andy-lee-642320-unsplash.jpg', alt='Avatar')
+                      a.d-flex.align-items-center(style='text-decoration: none;', href='')
+                        i.material-icons.mr-1(style='font-size: inherit;') remove_red_eye
+                        |  
+                        small 327
+                    .posts-card-popular__title.card-body
+                      small.text-muted.text-uppercase photoshop
+                      a.card-title(href='blog-post.html') Semantic Logo Design
+            .posts-cards
+              .card.posts-card.mb-0
+                .posts-card__content.d-flex.align-items-center.flex-wrap
+                  .avatar.avatar-lg.mr-3
+                    a(href='blog-post.html')
+                      img.avatar-img.rounded(src='/images/paths/invision_200x168.png', alt='avatar')
+                  .posts-card__title.flex.d-flex.flex-column
+                    a.card-title.mr-3(href='blog-post.html') Design Systems Essentials
+                    small.text-50 35 views last week
+                  .d-flex.align-items-center.flex-column.flex-sm-row.posts-card__meta
+                    .mr-3.text-50.text-uppercase.posts-card__tag.d-flex.align-items-center
+                      i.material-icons.text-muted-light.mr-1 folder_open
+                      |  inVision
+                    .mr-3.text-50.posts-card__date
+                      small 11 Nov, 2018 07:46 AM
+                    .media.ml-sm-auto.align-items-center
+                      .media-left.mr-2.avatar-group
+                        .avatar.avatar-xs(data-toggle='tooltip', data-placement='top', title='Janell D.')
+                          img.avatar-img.rounded-circle(src='/images/256_rsz_1andy-lee-642320-unsplash.jpg', alt='Avatar')
+                        .avatar.avatar-xs(data-toggle='tooltip', data-placement='top', title='Janell D.')
+                          img.avatar-img.rounded-circle(src='/images/256_michael-dam-258165-unsplash.jpg', alt='Avatar')
+                        .avatar.avatar-xs(data-toggle='tooltip', data-placement='top', title='Janell D.')
+                          img.avatar-img.rounded-circle(src='/images/256_luke-porter-261779-unsplash.jpg', alt='Avatar')
+                      .media-body
+                        a(href='') +2 more
+        .page-section.border-bottom-2
+          .container.page__container
+            .page-separator
+              .page-separator__text Learning Paths
+            .row.card-group-row
+              .col-sm-4.card-group-row__col
+                .card.js-overlay.card-sm.overlay--primary-dodger-blue.stack.stack--1.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  .card-body.d-flex.flex-column
+                    .d-flex.align-items-center
+                      .flex
+                        .d-flex.align-items-center
+                          .rounded.mr-12pt.z-0.o-hidden
+                            .overlay
+                              img.rounded(src='/images/paths/react_40x40@2x.png', width='40', height='40', alt='Angular')
+                              span.overlay__content.overlay__content-transparent
+                                span.overlay__action.d-flex.flex-column.text-center.lh-1
+                                  small.h6.small.text-white.mb-0(style='font-weight: 500;') 80%
+                          .flex
+                            .card-title React Native
+                            p.flex.text-50.lh-1.mb-0
+                              small 18 courses
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-path.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/react_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title React Native
+                      p.text-50.d-flex.lh-1.mb-0.small 18 courses
+                  p.mt-16pt.text-70
+                    | Learn the fundamentals of working with React Native and how to create basic applications.
+                  .my-32pt
+                    .d-flex.align-items-center.mb-8pt.justify-content-center
+                      .d-flex.align-items-center.mr-8pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 50 minutes left
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                    .d-flex.align-items-center.justify-content-center
+                      a.btn.btn-primary.mr-8pt(href='student-path.html') Resume
+                      a.btn.btn-outline-secondary.ml-0(href='student-path.html') Start over
+                  .d-flex.align-items-center
+                    small.text-50.mr-8pt Your rating
+                    .rating.mr-8pt
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star_border
+                    small.text-50 4/5
+              .col-sm-4.card-group-row__col
+                .card.js-overlay.card-sm.overlay--primary-dodger-blue.stack.stack--1.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  .card-body.d-flex.flex-column
+                    .d-flex.align-items-center
+                      .flex
+                        .d-flex.align-items-center
+                          .rounded.mr-12pt.z-0.o-hidden
+                            .overlay
+                              img.rounded(src='/images/paths/devops_40x40@2x.png', width='40', height='40', alt='Angular')
+                              span.overlay__content.overlay__content-transparent
+                                span.overlay__action.d-flex.flex-column.text-center.lh-1
+                                  small.h6.small.text-white.mb-0(style='font-weight: 500;') 80%
+                          .flex
+                            .card-title Dev Ops
+                            p.flex.text-50.lh-1.mb-0
+                              small 18 courses
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-path.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/devops_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title Dev Ops
+                      p.text-50.d-flex.lh-1.mb-0.small 18 courses
+                  p.mt-16pt.text-70
+                    | Learn the fundamentals of working with Dev Ops and how to create basic applications.
+                  .my-32pt
+                    .d-flex.align-items-center.mb-8pt.justify-content-center
+                      .d-flex.align-items-center.mr-8pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 50 minutes left
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                    .d-flex.align-items-center.justify-content-center
+                      a.btn.btn-primary.mr-8pt(href='student-path.html') Resume
+                      a.btn.btn-outline-secondary.ml-0(href='student-path.html') Start over
+                  .d-flex.align-items-center
+                    small.text-50.mr-8pt Your rating
+                    .rating.mr-8pt
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star_border
+                    small.text-50 4/5
+              .col-sm-4.card-group-row__col
+                .card.js-overlay.card-sm.overlay--primary-dodger-blue.stack.stack--1.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  .card-body.d-flex.flex-column
+                    .d-flex.align-items-center
+                      .flex
+                        .d-flex.align-items-center
+                          .rounded.mr-12pt.z-0.o-hidden
+                            .overlay
+                              img.rounded(src='/images/paths/redis_40x40@2x.png', width='40', height='40', alt='Angular')
+                              span.overlay__content.overlay__content-transparent
+                                span.overlay__action.d-flex.flex-column.text-center.lh-1
+                                  small.h6.small.text-white.mb-0(style='font-weight: 500;') 80%
+                          .flex
+                            .card-title Redis
+                            p.flex.text-50.lh-1.mb-0
+                              small 18 courses
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-path.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/redis_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title Redis
+                      p.text-50.d-flex.lh-1.mb-0.small 18 courses
+                  p.mt-16pt.text-70
+                    | Learn the fundamentals of working with Redis and how to create basic applications.
+                  .my-32pt
+                    .d-flex.align-items-center.mb-8pt.justify-content-center
+                      .d-flex.align-items-center.mr-8pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 50 minutes left
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                    .d-flex.align-items-center.justify-content-center
+                      a.btn.btn-primary.mr-8pt(href='student-path.html') Resume
+                      a.btn.btn-outline-secondary.ml-0(href='student-path.html') Start over
+                  .d-flex.align-items-center
+                    small.text-50.mr-8pt Your rating
+                    .rating.mr-8pt
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star_border
+                    small.text-50 4/5
+            .row.card-group-row.mb-lg-8pt
+              .col-sm-4.card-group-row__col
+                .card.js-overlay.card-sm.overlay--primary-dodger-blue.stack.stack--1.card-group-row__card.mb-lg-0(data-toggle='popover', data-trigger='click')
+                  .card-body.d-flex.flex-column
+                    .d-flex.align-items-center
+                      .flex
+                        .d-flex.align-items-center
+                          .rounded.mr-12pt.z-0.o-hidden
+                            .overlay
+                              img.rounded(src='/images/paths/mailchimp_40x40@2x.png', width='40', height='40', alt='Angular')
+                              span.overlay__content.overlay__content-transparent
+                                span.overlay__action.d-flex.flex-column.text-center.lh-1
+                                  small.h6.small.text-white.mb-0(style='font-weight: 500;') 80%
+                          .flex
+                            .card-title MailChimp
+                            p.flex.text-50.lh-1.mb-0
+                              small 18 courses
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-path.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/mailchimp_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title MailChimp
+                      p.text-50.d-flex.lh-1.mb-0.small 18 courses
+                  p.mt-16pt.text-70
+                    | Learn the fundamentals of working with MailChimp and how to create basic applications.
+                  .my-32pt
+                    .d-flex.align-items-center.mb-8pt.justify-content-center
+                      .d-flex.align-items-center.mr-8pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 50 minutes left
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                    .d-flex.align-items-center.justify-content-center
+                      a.btn.btn-primary.mr-8pt(href='student-path.html') Resume
+                      a.btn.btn-outline-secondary.ml-0(href='student-path.html') Start over
+                  .d-flex.align-items-center
+                    small.text-50.mr-8pt Your rating
+                    .rating.mr-8pt
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star_border
+                    small.text-50 4/5
+              .col-sm-4.card-group-row__col
+                .card.js-overlay.card-sm.overlay--primary-dodger-blue.stack.stack--1.card-group-row__card.mb-lg-0(data-toggle='popover', data-trigger='click')
+                  .card-body.d-flex.flex-column
+                    .d-flex.align-items-center
+                      .flex
+                        .d-flex.align-items-center
+                          .rounded.mr-12pt.z-0.o-hidden
+                            .overlay
+                              img.rounded(src='/images/paths/swift_40x40@2x.png', width='40', height='40', alt='Angular')
+                              span.overlay__content.overlay__content-transparent
+                                span.overlay__action.d-flex.flex-column.text-center.lh-1
+                                  small.h6.small.text-white.mb-0(style='font-weight: 500;') 80%
+                          .flex
+                            .card-title Swift
+                            p.flex.text-50.lh-1.mb-0
+                              small 18 courses
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-path.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/swift_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title Swift
+                      p.text-50.d-flex.lh-1.mb-0.small 18 courses
+                  p.mt-16pt.text-70
+                    | Learn the fundamentals of working with Swift and how to create basic applications.
+                  .my-32pt
+                    .d-flex.align-items-center.mb-8pt.justify-content-center
+                      .d-flex.align-items-center.mr-8pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 50 minutes left
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                    .d-flex.align-items-center.justify-content-center
+                      a.btn.btn-primary.mr-8pt(href='student-path.html') Resume
+                      a.btn.btn-outline-secondary.ml-0(href='student-path.html') Start over
+                  .d-flex.align-items-center
+                    small.text-50.mr-8pt Your rating
+                    .rating.mr-8pt
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star_border
+                    small.text-50 4/5
+              .col-sm-4.card-group-row__col
+                .card.js-overlay.card-sm.overlay--primary-dodger-blue.stack.stack--1.card-group-row__card.mb-lg-0(data-toggle='popover', data-trigger='click')
+                  .card-body.d-flex.flex-column
+                    .d-flex.align-items-center
+                      .flex
+                        .d-flex.align-items-center
+                          .rounded.mr-12pt.z-0.o-hidden
+                            .overlay
+                              img.rounded(src='/images/paths/wordpress_40x40@2x.png', width='40', height='40', alt='Angular')
+                              span.overlay__content.overlay__content-transparent
+                                span.overlay__action.d-flex.flex-column.text-center.lh-1
+                                  small.h6.small.text-white.mb-0(style='font-weight: 500;') 80%
+                          .flex
+                            .card-title WordPress
+                            p.flex.text-50.lh-1.mb-0
+                              small 18 courses
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-path.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/wordpress_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title WordPress
+                      p.text-50.d-flex.lh-1.mb-0.small 18 courses
+                  p.mt-16pt.text-70
+                    | Learn the fundamentals of working with WordPress and how to create basic applications.
+                  .my-32pt
+                    .d-flex.align-items-center.mb-8pt.justify-content-center
+                      .d-flex.align-items-center.mr-8pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 50 minutes left
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                    .d-flex.align-items-center.justify-content-center
+                      a.btn.btn-primary.mr-8pt(href='student-path.html') Resume
+                      a.btn.btn-outline-secondary.ml-0(href='student-path.html') Start over
+                  .d-flex.align-items-center
+                    small.text-50.mr-8pt Your rating
+                    .rating.mr-8pt
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star
+                      span.rating__item
+                        span.material-icons.text-primary star_border
+                    small.text-50 4/5
+        .page-section.border-bottom-2
+          .container.page__container
+            .page-separator
+              .page-separator__text Design Courses
+            .row.card-group-row
+              .col-md-6.col-lg-4.col-xl-3.card-group-row__col
+                .card.card-sm.card--elevated.p-relative.o-hidden.overlay.overlay--primary-dodger-blue.js-overlay.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  a.card-img-top.js-image(href='student-course.html', data-position='', data-height='140')
+                    img(src='/images/paths/sketch_430x168.png', alt='course')
+                    span.overlay__content
+                      span.overlay__action.d-flex.flex-column.text-center
+                        i.material-icons.icon-32pt play_circle_outline
+                        span.card-title.text-white Preview
+                  .card-body.flex
+                    .d-flex
+                      .flex
+                        a.card-title(href='student-course.html') Learn Sketch
+                        small.text-50.font-weight-bold.mb-4pt Elijah Murray
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-course.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                    .d-flex
+                      .rating.flex
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star_border
+                      // <small class="text-50">6 hours</small>
+                  .card-footer
+                    .row.justify-content-between
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/sketch_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title.mb-0 Learn Sketch
+                      p.lh-1.mb-0
+                        span.text-50.small with
+                        span.text-50.small.font-weight-bold Elijah Murray
+                  p.my-16pt.text-70
+                    | Learn the fundamentals of working with Angular and how to create basic applications.
+                  .mb-16pt
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Fundamentals of working with Angular
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Create complete Angular applications
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Working with the Angular CLI
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Understanding Dependency Injection
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Testing with Angular
+                  .row.align-items-center
+                    .col-auto
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt assessment
+                        p.flex.text-50.lh-1.mb-0
+                          small Beginner
+                    .col.text-right
+                      a.btn.btn-primary(href='student-course.html') Watch trailer
+              .col-md-6.col-lg-4.col-xl-3.card-group-row__col
+                .card.card-sm.card--elevated.p-relative.o-hidden.overlay.overlay--primary-dodger-blue.js-overlay.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  a.card-img-top.js-image(href='student-course.html', data-position='', data-height='140')
+                    img(src='/images/paths/flinto_430x168.png', alt='course')
+                    span.overlay__content
+                      span.overlay__action.d-flex.flex-column.text-center
+                        i.material-icons.icon-32pt play_circle_outline
+                        span.card-title.text-white Preview
+                  .card-body.flex
+                    .d-flex
+                      .flex
+                        a.card-title(href='student-course.html') Learn Flinto
+                        small.text-50.font-weight-bold.mb-4pt Elijah Murray
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-course.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                    .d-flex
+                      .rating.flex
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star_border
+                      // <small class="text-50">6 hours</small>
+                  .card-footer
+                    .row.justify-content-between
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/flinto_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title.mb-0 Learn Flinto
+                      p.lh-1.mb-0
+                        span.text-50.small with
+                        span.text-50.small.font-weight-bold Elijah Murray
+                  p.my-16pt.text-70
+                    | Learn the fundamentals of working with Angular and how to create basic applications.
+                  .mb-16pt
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Fundamentals of working with Angular
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Create complete Angular applications
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Working with the Angular CLI
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Understanding Dependency Injection
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Testing with Angular
+                  .row.align-items-center
+                    .col-auto
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt assessment
+                        p.flex.text-50.lh-1.mb-0
+                          small Beginner
+                    .col.text-right
+                      a.btn.btn-primary(href='student-course.html') Watch trailer
+              .col-md-6.col-lg-4.col-xl-3.card-group-row__col
+                .card.card-sm.card--elevated.p-relative.o-hidden.overlay.overlay--primary-dodger-blue.js-overlay.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  a.card-img-top.js-image(href='student-course.html', data-position='', data-height='140')
+                    img(src='/images/paths/photoshop_430x168.png', alt='course')
+                    span.overlay__content
+                      span.overlay__action.d-flex.flex-column.text-center
+                        i.material-icons.icon-32pt play_circle_outline
+                        span.card-title.text-white Preview
+                  .card-body.flex
+                    .d-flex
+                      .flex
+                        a.card-title(href='student-course.html') Learn Photoshop
+                        small.text-50.font-weight-bold.mb-4pt Elijah Murray
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-course.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                    .d-flex
+                      .rating.flex
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star_border
+                      // <small class="text-50">6 hours</small>
+                  .card-footer
+                    .row.justify-content-between
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/photoshop_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title.mb-0 Learn Photoshop
+                      p.lh-1.mb-0
+                        span.text-50.small with
+                        span.text-50.small.font-weight-bold Elijah Murray
+                  p.my-16pt.text-70
+                    | Learn the fundamentals of working with Angular and how to create basic applications.
+                  .mb-16pt
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Fundamentals of working with Angular
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Create complete Angular applications
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Working with the Angular CLI
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Understanding Dependency Injection
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Testing with Angular
+                  .row.align-items-center
+                    .col-auto
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt assessment
+                        p.flex.text-50.lh-1.mb-0
+                          small Beginner
+                    .col.text-right
+                      a.btn.btn-primary(href='student-course.html') Watch trailer
+              .col-md-6.col-lg-4.col-xl-3.card-group-row__col
+                .card.card-sm.card--elevated.p-relative.o-hidden.overlay.overlay--primary-dodger-blue.js-overlay.card-group-row__card(data-toggle='popover', data-trigger='click')
+                  a.card-img-top.js-image(href='student-course.html', data-position='', data-height='140')
+                    img(src='/images/paths/figma_430x168.png', alt='course')
+                    span.overlay__content
+                      span.overlay__action.d-flex.flex-column.text-center
+                        i.material-icons.icon-32pt play_circle_outline
+                        span.card-title.text-white Preview
+                  .card-body.flex
+                    .d-flex
+                      .flex
+                        a.card-title(href='student-course.html') Learn Figma
+                        small.text-50.font-weight-bold.mb-4pt Elijah Murray
+                      a.ml-4pt.material-icons.text-20.card-course__icon-favorite(href='student-course.html', data-toggle='tooltip', data-title='Add Favorite', data-placement='top', data-boundary='window') favorite_border
+                    .d-flex
+                      .rating.flex
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star
+                        span.rating__item
+                          span.material-icons star_border
+                      // <small class="text-50">6 hours</small>
+                  .card-footer
+                    .row.justify-content-between
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .col-auto.d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                .popoverContainer.d-none
+                  .media
+                    .media-left.mr-12pt
+                      img.rounded(src='/images/paths/figma_40x40@2x.png', width='40', height='40', alt='Angular')
+                    .media-body
+                      .card-title.mb-0 Learn Figma
+                      p.lh-1.mb-0
+                        span.text-50.small with
+                        span.text-50.small.font-weight-bold Elijah Murray
+                  p.my-16pt.text-70
+                    | Learn the fundamentals of working with Angular and how to create basic applications.
+                  .mb-16pt
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Fundamentals of working with Angular
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Create complete Angular applications
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Working with the Angular CLI
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Understanding Dependency Injection
+                    .d-flex.align-items-center
+                      span.material-icons.icon-16pt.text-50.mr-8pt check
+                      p.flex.text-50.lh-1.mb-0
+                        small Testing with Angular
+                  .row.align-items-center
+                    .col-auto
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt access_time
+                        p.flex.text-50.lh-1.mb-0
+                          small 6 hours
+                      .d-flex.align-items-center.mb-4pt
+                        span.material-icons.icon-16pt.text-50.mr-4pt play_circle_outline
+                        p.flex.text-50.lh-1.mb-0
+                          small 12 lessons
+                      .d-flex.align-items-center
+                        span.material-icons.icon-16pt.text-50.mr-4pt assessment
+                        p.flex.text-50.lh-1.mb-0
+                          small Beginner
+                    .col.text-right
+                      a.btn.btn-primary(href='student-course.html') Watch trailer
+        .page-section
+          .container.page__container
+            .page-headline.text-center
+              h2 Feedback
+              p.lead.measure-lead.mx-auto.text-70
+                | What other students turned professionals have to say about us after learning with us and reaching their goals.
+            .position-relative.carousel-card.p-0.mx-auto
+              #carousel-feedback.row.d-block.js-mdk-carousel
+                a.carousel-control-next.js-mdk-carousel-control.mt-n24pt(href='#carousel-feedback', role='button', data-slide='next')
+                  span.carousel-control-icon.material-icons(aria-hidden='true') keyboard_arrow_right
+                  span.sr-only Next
+                .mdk-carousel__content
+                  .col-12.col-md-6
+                    .card.card-feedback.card-body
+                      blockquote.blockquote.mb-0
+                        p.text-70.small.mb-0
+                          | A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.
+                    .media.ml-12pt
+                      .media-left.mr-12pt
+                        a.avatar.avatar-sm(href='student-profile.html')
+                          // <img src="/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle">
+                          span.avatar-title.rounded-circle UK
+                      .media-body.media-middle
+                        a.card-title(href='student-profile.html') Umberto Kass
+                        .rating.mt-4pt
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star_border
+                  .col-12.col-md-6
+                    .card.card-feedback.card-body
+                      blockquote.blockquote.mb-0
+                        p.text-70.small.mb-0
+                          | A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.
+                    .media.ml-12pt
+                      .media-left.mr-12pt
+                        a.avatar.avatar-sm(href='student-profile.html')
+                          // <img src="/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle">
+                          span.avatar-title.rounded-circle UK
+                      .media-body.media-middle
+                        a.card-title(href='student-profile.html') Umberto Kass
+                        .rating.mt-4pt
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star_border
+                  .col-12.col-md-6
+                    .card.card-feedback.card-body
+                      blockquote.blockquote.mb-0
+                        p.text-70.small.mb-0
+                          | A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.
+                    .media.ml-12pt
+                      .media-left.mr-12pt
+                        a.avatar.avatar-sm(href='student-profile.html')
+                          // <img src="/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle">
+                          span.avatar-title.rounded-circle UK
+                      .media-body.media-middle
+                        a.card-title(href='student-profile.html') Umberto Kass
+                        .rating.mt-4pt
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star
+                          span.rating__item
+                            span.material-icons star_border
+        // // END Page Content
+        // Footer
+        .bg-white.border-top-2.mt-auto
+          .container.page__container.page-section.d-flex.flex-column
+            p.text-70.brand.mb-24pt
+              img.brand-icon(src='/images/logo/black-70@2x.png', width='30', alt='Luma')
+              |  Luma
+            p.measure-lead-max.text-50.small.mr-8pt
+              | Luma is a beautifully crafted user interface for modern Education Platforms, including Courses &amp; Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.
+            p.mb-8pt.d-flex
+              a.text-70.text-underline.mr-8pt.small(href='') Terms
+              a.text-70.text-underline.small(href='') Privacy policy
+            p.text-50.small.mt-n1.mb-0 Copyright 2019 &copy; All rights reserved.
+        // // END Footer
+      // // END drawer-layout__content
+      // Drawer
+      #default-drawer.mdk-drawer.js-mdk-drawer
+        .mdk-drawer__content
+          .sidebar.sidebar-dark-pickled-bluewood.sidebar-left(data-perfect-scrollbar='')
+            // Sidebar Content
+            .d-flex.align-items-center.navbar-height
+              form.search-form.search-form--black.mx-16pt.pr-0.pl-16pt(action='index.html')
+                input.form-control.pl-0(type='text', placeholder='Search')
+                button.btn(type='submit')
+                  i.material-icons search
+            a.sidebar-brand(href='index.html')
+              // <img class="sidebar-brand-icon" src="/images/illustration/student/128/white.svg" alt="Luma">
+              span.avatar.avatar-xl.sidebar-brand-icon.h-auto
+                span.avatar-title.rounded.bg-primary
+                  img.img-fluid(src='/images/illustration/student/128/white.svg', alt='logo')
+              span Luma
+            .sidebar-heading Student
+            ul.sidebar-menu
+              li.sidebar-menu-item.active
+                a.sidebar-menu-button(href='index.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left home
+                  span.sidebar-menu-text Home
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='courses.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left local_library
+                  span.sidebar-menu-text Browse Courses
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='paths.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left style
+                  span.sidebar-menu-text Browse Paths
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-dashboard.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left account_box
+                  span.sidebar-menu-text Student Dashboard
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-my-courses.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left search
+                  span.sidebar-menu-text My Courses
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-paths.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left timeline
+                  span.sidebar-menu-text My Paths
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-path.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left change_history
+                  span.sidebar-menu-text Path Details
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-course.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left face
+                  span.sidebar-menu-text Course Preview
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-lesson.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left panorama_fish_eye
+                  span.sidebar-menu-text Lesson Preview
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-take-course.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left class
+                  span.sidebar-menu-text Take Course
+                  span.sidebar-menu-badge.badge.badge-accent.badge-notifications.ml-auto PRO
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-take-lesson.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left import_contacts
+                  span.sidebar-menu-text Take Lesson
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-take-quiz.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left dvr
+                  span.sidebar-menu-text Take Quiz
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-quiz-results.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left poll
+                  span.sidebar-menu-text My Quizzes
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-quiz-result-details.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left live_help
+                  span.sidebar-menu-text Quiz Result
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-path-assessment.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left layers
+                  span.sidebar-menu-text Skill Assessment
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='student-path-assessment-result.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left assignment_turned_in
+                  span.sidebar-menu-text Skill Result
+            .sidebar-heading Instructor
+            ul.sidebar-menu
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-dashboard.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left school
+                  span.sidebar-menu-text Instructor Dashboard
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-courses.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left import_contacts
+                  span.sidebar-menu-text Manage Courses
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-quizzes.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left help
+                  span.sidebar-menu-text Manage Quizzes
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-earnings.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left trending_up
+                  span.sidebar-menu-text Earnings
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-statement.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left receipt
+                  span.sidebar-menu-text Statement
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-edit-course.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left post_add
+                  span.sidebar-menu-text Edit Course
+              li.sidebar-menu-item
+                a.sidebar-menu-button(href='instructor-edit-quiz.html')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left format_shapes
+                  span.sidebar-menu-text Edit Quiz
+            .sidebar-heading Applications
+            ul.sidebar-menu
+              li.sidebar-menu-item
+                a.sidebar-menu-button.js-sidebar-collapse(data-toggle='collapse', href='#enterprise_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left donut_large
+                                                    Enterprise
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#enterprise_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='erp-dashboard.html')
+                      span.sidebar-menu-text ERP Dashboard
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='crm-dashboard.html')
+                      span.sidebar-menu-text CRM Dashboard
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='hr-dashboard.html')
+                      span.sidebar-menu-text HR Dashboard
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='employees.html')
+                      span.sidebar-menu-text Employees
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='staff.html')
+                      span.sidebar-menu-text Staff
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='leaves.html')
+                      span.sidebar-menu-text Leaves
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button.disabled(href='departments.html')
+                      span.sidebar-menu-text Departments
+                  //
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="documents.html">
+                    <span class="sidebar-menu-text">Documents</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="attendance.html">
+                    <span class="sidebar-menu-text">Attendance</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="recruitment.html">
+                    <span class="sidebar-menu-text">Recruitment</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="payroll.html">
+                    <span class="sidebar-menu-text">Payroll</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="training.html">
+                    <span class="sidebar-menu-text">Training</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="employee-profile.html">
+                    <span class="sidebar-menu-text">Employee Profile</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="accounting.html">
+                    <span class="sidebar-menu-text">Accounting</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="inventory.html">
+                    <span class="sidebar-menu-text">Inventory</span>
+                    </a>
+                    </li>
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#productivity_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left access_time
+                                                    Productivity
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#productivity_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='projects.html')
+                      span.sidebar-menu-text Projects
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='tasks-board.html')
+                      span.sidebar-menu-text Tasks Board
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='tasks-list.html')
+                      span.sidebar-menu-text Tasks List
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button.disabled(href='kanban.html')
+                      span.sidebar-menu-text Kanban
+                  //
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="task-details.html">
+                    <span class="sidebar-menu-text">Task Details</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="team-members.html">
+                    <span class="sidebar-menu-text">Team Members</span>
+                    </a>
+                    </li>
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#ecommerce_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left shopping_cart
+                                                    eCommerce
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#ecommerce_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ecommerce.html')
+                      span.sidebar-menu-text Shop Dashboard
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button.disabled(href='edit-product.html')
+                      span.sidebar-menu-text Edit Product
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#messaging_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left message
+                                                    Messaging
+                  span.sidebar-menu-badge.badge.badge-accent.badge-notifications.ml-auto 2
+                  span.sidebar-menu-toggle-icon
+                ul#messaging_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='messages.html')
+                      span.sidebar-menu-text Messages
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='email.html')
+                      span.sidebar-menu-text Email
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#cms_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left content_copy
+                                                    CMS
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#cms_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='cms-dashboard.html')
+                      span.sidebar-menu-text CMS Dashboard
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='posts.html')
+                      span.sidebar-menu-text Posts
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#account_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left account_box
+                                                    Account
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#account_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='pricing.html')
+                      span.sidebar-menu-text Pricing
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='login.html')
+                      span.sidebar-menu-text Login
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='signup.html')
+                      span.sidebar-menu-text Signup
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='signup-payment.html')
+                      span.sidebar-menu-text Payment
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='reset-password.html')
+                      span.sidebar-menu-text Reset Password
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='change-password.html')
+                      span.sidebar-menu-text Change Password
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='edit-account.html')
+                      span.sidebar-menu-text Edit Account
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='edit-account-profile.html')
+                      span.sidebar-menu-text Profile &amp; Privacy
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='edit-account-notifications.html')
+                      span.sidebar-menu-text Email Notifications
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='edit-account-password.html')
+                      span.sidebar-menu-text Account Password
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='billing.html')
+                      span.sidebar-menu-text Subscription
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='billing-upgrade.html')
+                      span.sidebar-menu-text Upgrade Account
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='billing-payment.html')
+                      span.sidebar-menu-text Payment Information
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='billing-history.html')
+                      span.sidebar-menu-text Payment History
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='billing-invoice.html')
+                      span.sidebar-menu-text Invoice
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#community_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left people_outline
+                                                    Community
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#community_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='teachers.html')
+                      span.sidebar-menu-text Browse Teachers
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='student-profile.html')
+                      span.sidebar-menu-text Student Profile
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='teacher-profile.html')
+                      span.sidebar-menu-text Teacher Profile
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='blog.html')
+                      span.sidebar-menu-text Blog
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='blog-post.html')
+                      span.sidebar-menu-text Blog Post
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='faq.html')
+                      span.sidebar-menu-text FAQ
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='help-center.html')
+                      // 
+                      span.sidebar-menu-text Help Center
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='discussions.html')
+                      span.sidebar-menu-text Discussions
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='discussion.html')
+                      span.sidebar-menu-text Discussion Details
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='discussions-ask.html')
+                      span.sidebar-menu-text Ask Question
+            .sidebar-heading UI
+            ul.sidebar-menu
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#components_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left tune
+                                                    Components
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#components_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-buttons.html')
+                      span.sidebar-menu-text Buttons
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-avatars.html')
+                      span.sidebar-menu-text Avatars
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-forms.html')
+                      span.sidebar-menu-text Forms
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-loaders.html')
+                      span.sidebar-menu-text Loaders
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-tables.html')
+                      span.sidebar-menu-text Tables
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-cards.html')
+                      span.sidebar-menu-text Cards
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-icons.html')
+                      span.sidebar-menu-text Icons
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-tabs.html')
+                      span.sidebar-menu-text Tabs
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-alerts.html')
+                      span.sidebar-menu-text Alerts
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-badges.html')
+                      span.sidebar-menu-text Badges
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-progress.html')
+                      span.sidebar-menu-text Progress
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-pagination.html')
+                      span.sidebar-menu-text Pagination
+                  //
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="ui-typography.html">
+                    <span class="sidebar-menu-text">Typography</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="ui-colors.html">
+                    <span class="sidebar-menu-text">Colors</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="ui-breadcrumb.html">
+                    <span class="sidebar-menu-text">Breadcrumb</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="ui-accordions.html">
+                    <span class="sidebar-menu-text">Accordions</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="ui-modals.html">
+                    <span class="sidebar-menu-text">Modals</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button disabled" href="ui-chips.html">
+                    <span class="sidebar-menu-text">Chips</span>
+                    </a>
+                    </li>
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button.disabled(href='')
+                      span.sidebar-menu-text Disabled
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#plugins_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left folder
+                                                    Plugins
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#plugins_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-charts.html')
+                      span.sidebar-menu-text Charts
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-flatpickr.html')
+                      span.sidebar-menu-text Flatpickr
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-daterangepicker.html')
+                      span.sidebar-menu-text Date Range Picker
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-dragula.html')
+                      span.sidebar-menu-text Dragula
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-dropzone.html')
+                      span.sidebar-menu-text Dropzone
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-range-sliders.html')
+                      span.sidebar-menu-text Range Sliders
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-quill.html')
+                      span.sidebar-menu-text Quill
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-select2.html')
+                      span.sidebar-menu-text Select2
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-nestable.html')
+                      span.sidebar-menu-text Nestable
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-fancytree.html')
+                      span.sidebar-menu-text Fancy Tree
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-maps-vector.html')
+                      span.sidebar-menu-text Vector Maps
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-sweet-alert.html')
+                      span.sidebar-menu-text Sweet Alert
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='ui-plugin-toastr.html')
+                      span.sidebar-menu-text Toastr
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button.disabled(href='')
+                      span.sidebar-menu-text Disabled
+              li.sidebar-menu-item
+                a.sidebar-menu-button(data-toggle='collapse', href='#layouts_menu')
+                  span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left view_compact
+                                                    Layouts
+                  span.ml-auto.sidebar-menu-toggle-icon
+                ul#layouts_menu.sidebar-submenu.collapse.sm-indent
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='../Compact_App_Layout/index.html')
+                      span.sidebar-menu-text Compact
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='../Mini_App_Layout/index.html')
+                      span.sidebar-menu-text Mini
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='../Mini_Secondary_Layout/index.html')
+                      span.sidebar-menu-text Mini + Secondary
+                  li.sidebar-menu-item.active
+                    a.sidebar-menu-button(href='../App_Layout/index.html')
+                      span.sidebar-menu-text App
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='../Boxed_App_Layout/index.html')
+                      span.sidebar-menu-text Boxed
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='../Sticky_App_Layout/index.html')
+                      span.sidebar-menu-text Sticky
+                  li.sidebar-menu-item
+                    a.sidebar-menu-button(href='../Fixed_Layout/index.html')
+                      span.sidebar-menu-text Fixed
+            // // END Sidebar Content
+      // // END Drawer
+    // // END Drawer Layout
+    // jQuery
+    script(src='/vendor/jquery.min.js')
+    // Bootstrap
+    script(src='/vendor/popper.min.js')
+    script(src='/vendor/bootstrap.min.js')
+    // Perfect Scrollbar
+    script(src='/vendor/perfect-scrollbar.min.js')
+    // DOM Factory
+    script(src='/vendor/dom-factory.js')
+    // MDK
+    script(src='/vendor/material-design-kit.js')
+    // App JS
+    script(src='/js/app.js')
+    // Preloader
+    script(src='/js/preloader.js')

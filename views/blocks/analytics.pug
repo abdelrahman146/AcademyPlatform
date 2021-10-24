@@ -1,0 +1,445 @@
+.container
+  .page-section
+    .page-separator
+      .page-separator__text Overview
+    .row.mb-lg-8pt
+      .col-md-6.card-group-row__col
+        .card.card-group-row__card
+          .card-header.p-0.nav.border-0
+            .row.no-gutters.flex(role='tablist')
+              .col-auto
+                .p-card-header.d-flex.align-items-center
+                  .h2.mb-0.mr-3 2,412
+                  .flex.d-flex.flex-column
+                    p.mb-0
+                      strong Website Visits
+                    small.text-50.d-flex.align-items-center Unique Visitors
+              .col-auto.ml-sm-auto
+                .p-card-header
+                  a(href='#')
+                    i.material-icons.text-50 more_horiz
+          .card-body
+            .chart(style='height: 128px;')
+              canvas#viewsChart.chart-canvas.js-update-chart-line.js-update-chart-area(data-chart-points='true' data-chart-line-border-color='primary' data-chart-prefix='$' data-chart-suffix='k')
+      .col-md-3.card-group-row__col
+        .card.card-group-row__card.card-body(style='position: relative; padding-bottom: calc(80px - 1.25rem); overflow: hidden; z-index: 0;')
+          .d-flex
+            .flex.mr-3
+              .h2.mb-0 $1,450
+              .d-flex.flex-column
+                p.mb-0
+                  strong Product Sales
+                small.text-50 30 transactions
+            a(href='#')
+              i.material-icons.text-50 more_horiz
+          .chart(style='height: 100px; position: absolute; left: 0; right: 0; bottom: 0;')
+            canvas#productsChart.chart-canvas.js-update-chart-line.js-update-chart-area(data-chart-hide-axes='true' data-chart-line-border-color='primary')
+      .col-md-3.card-group-row__col
+        .card.card-group-row__card
+          .card-body
+            .d-flex.mb-16pt
+              .flex.mr-3
+                .h2.mb-0 1.24%
+                .d-flex.flex-column
+                  p.mb-0
+                    strong Conversion Rate
+                  small.text-50 out of 5%
+              a(href='#')
+                i.material-icons.text-50 more_horiz
+            .progress(style='height: 8px;')
+              .progress-bar.bg-primary(role='progressbar' style='width: 42%;' aria-valuenow='42' aria-valuemin='0' aria-valuemax='100')
+          .card-body.d-flex.flex-column.align-items-center.justify-content-center
+            div
+              small.text-50 From last week
+              .d-flex.align-items-center
+                i.material-icons.text-primary.mr-4pt trending_up
+                .text-70 12%
+    .row.card-group-row.mb-lg-8pt
+      .col-md-6.card-group-row__col
+        .card.card-group-row__card
+          .card-header.p-0.nav
+            .row.no-gutters.flex(role='tablist')
+              .col-auto
+                .p-card-header.d-flex.align-items-center
+                  .h2.mb-0.mr-3 417
+                  .flex
+                    p.mb-0
+                      strong Orders
+                    p.text-50.mb-0.d-flex.align-items-center
+                      small This year
+              .col-auto.border-left
+                .p-card-header.d-flex.align-items-center
+                  .h2.mb-0.mr-3 $67
+                  .flex
+                    p.mb-0
+                      strong Average
+                    p.text-50.mb-0.d-flex.align-items-center
+                      small Order Value
+              .col-auto.ml-sm-auto
+                .p-card-header
+                  a(href='#')
+                    i.material-icons.text-50 more_horiz
+          .card-body
+            #legend.chart-legend.mt-0.mb-24pt.justify-content-start
+            .chart(style='height: 182px;')
+              canvas#earningsChart.chart-canvas.js-update-chart-bar(data-chart-legend='#legend' data-chart-line-background-color='primary,gray' data-chart-prefix='$' data-chart-suffix='k')
+                span(style='font-size: 1rem;')
+                  strong Views
+                  |  area chart goes here.
+      .col-md-6.card-group-row__col
+        .card.card-group-row__card
+          .card-header.p-0.nav
+            .row.no-gutters.flex(role='tablist')
+              .col-auto
+                .p-card-header.d-flex.align-items-center
+                  .h2.mb-0.mr-3 103
+                  .flex
+                    p.mb-0
+                      strong Alerts
+                    p.text-50.mb-0.d-flex.align-items-center
+                      small All categories
+              .col-auto.ml-sm-auto
+                .p-card-header
+                  a(href='#')
+                    i.material-icons.text-50 more_horiz
+          .card-body.d-flex.flex-column
+            .alert.alert-soft-warning
+              .d-flex.flex-wrap.align-items-start
+                .mr-8pt
+                  i.material-icons error_outline
+                .flex(style='min-width: 180px')
+                  small.text-100
+                    strong Something&apos;s up!
+                    |  There were 98 alerts over your average.
+            .d-flex.flex.flex-column.align-items-center.justify-content-center
+              ul.list-unstyled.list-skills.w-100
+                li.mb-8pt
+                  .text-50.border-right
+                    small Site Offline
+                  .flex
+                    .progress(style='height: 4px;')
+                      .progress-bar.bg-primary(role='progressbar' style='width: 40%;' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+                  .text-70
+                    small +60
+                li.mb-8pt
+                  .text-50.border-right
+                    small Total DDoS Attacks
+                  .flex
+                    .progress(style='height: 4px;')
+                      .progress-bar.bg-primary(role='progressbar' style='width: 50%;' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
+                  .text-70
+                    small +6
+                li.mb-8pt
+                  .text-50.border-right
+                    small Attack Mitigations
+                  .flex
+                    .progress(style='height: 4px;')
+                      .progress-bar.bg-primary(role='progressbar' style='width: 60%;' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                  .text-70
+                    small +5
+                li.mb-8pt
+                  .text-50.border-right
+                    small NVRs Offline
+                  .flex
+                    .progress(style='height: 4px;')
+                      .progress-bar.bg-primary(role='progressbar' style='width: 90%;' aria-valuenow='90' aria-valuemin='0' aria-valuemax='100')
+                  .text-70
+                    small +10
+                li.mb-0
+                  .text-50.border-right
+                    small Shutdown
+                  .flex
+                    .progress(style='height: 4px;')
+                      .progress-bar.bg-primary(role='progressbar' style='width: 25%;' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+                  .text-70
+                    small +12
+    .row
+      .col-lg-8
+        .page-separator
+          .page-separator__text Projects
+        .card.dashboard-area-tabs.mb-lg-0
+          .card-header.p-0.nav
+            .row.no-gutters(role='tablist')
+              .col-auto
+                a.dashboard-area-tabs__tab.card-body.d-flex.flex-row.align-items-center.justify-content-start.active(href='#' data-toggle='tab' role='tab' aria-selected='true')
+                  span.h2.mb-0.mr-3 3
+                  span.flex.d-flex.flex-column
+                    strong Active
+                    small.text-50 Ongoing Projects
+              .col-auto.border-left.border-right
+                a.dashboard-area-tabs__tab.card-body.d-flex.flex-row.align-items-center.justify-content-start(href='#' data-toggle='tab' role='tab' aria-selected='false')
+                  span.h2.mb-0.mr-3 2
+                  span.flex.d-flex.flex-column
+                    strong Archived
+                    small.text-50 Past Projects
+          .table-responsive(data-toggle='lists' data-lists-sort-by='js-lists-values-date' data-lists-sort-desc='true' data-lists-values='["js-lists-values-lead", "js-lists-values-project", "js-lists-values-status", "js-lists-values-budget", "js-lists-values-date"]')
+            table.table.mb-0.thead-border-top-0.table-nowrap
+              thead
+                tr
+                  th.pr-0(style='width: 18px;')
+                    .custom-control.custom-checkbox
+                      input#customCheckAll.custom-control-input.js-toggle-check-all(type='checkbox' data-target='#projects')
+                      label.custom-control-label(for='customCheckAll')
+                        span.text-hide Toggle all
+                  th(style='width: 150px;')
+                    a.sort(href='javascript:void(0)' data-sort='js-lists-values-project') Project
+                  th
+                    a.sort(href='javascript:void(0)' data-sort='js-lists-values-lead') Lead / Team
+                  th(style='width: 48px;')
+                    a.sort(href='javascript:void(0)' data-sort='js-lists-values-date') Due
+                  th(style='width: 24px;')
+              tbody#projects.list
+                tr
+                  td.pr-0
+                    .custom-control.custom-checkbox
+                      input#customCheck1_1.custom-control-input.js-check-selected-row(type='checkbox')
+                      label.custom-control-label(for='customCheck1_1')
+                        span.text-hide Check
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded.bg-primary.text-white SM
+                      .media-body
+                        .d-flex.flex-column
+                          small.js-lists-values-project
+                            strong Social Media API
+                          small.js-lists-values-location.text-50 Twitter
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded-circle BN
+                      .media-body
+                        .d-flex.align-items-center
+                          .flex.d-flex.flex-column
+                            p.mb-0
+                              strong.js-lists-values-lead Billy Nunez
+                            small.js-lists-values-email.text-50 Quality Assurance
+                  td
+                    .d-flex.flex-column
+                      small.js-lists-values-date
+                        strong 19/02/2019
+                      small.text-50 18 days
+                  td.text-right
+                    a.text-50(href='')
+                      i.material-icons more_vert
+                tr
+                  td.pr-0
+                    .custom-control.custom-checkbox
+                      input#customCheck1_2.custom-control-input.js-check-selected-row(type='checkbox')
+                      label.custom-control-label(for='customCheck1_2')
+                        span.text-hide Check
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded.bg-accent.text-white PM
+                      .media-body
+                        .d-flex.flex-column
+                          small.js-lists-values-project
+                            strong Project Management App
+                          small.js-lists-values-location.text-50 Github
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded-circle TP
+                      .media-body
+                        .d-flex.align-items-center
+                          .flex.d-flex.flex-column
+                            p.mb-0
+                              strong.js-lists-values-lead Tony Parks
+                            small.js-lists-values-email.text-50 iOS Development
+                  td
+                    .d-flex.flex-column
+                      small.js-lists-values-date
+                        strong 18/02/2019
+                      small.text-danger Overdue
+                  td.text-right
+                    a.text-50(href='')
+                      i.material-icons more_vert
+                tr
+                  td.pr-0
+                    .custom-control.custom-checkbox
+                      input#customCheck1_3.custom-control-input.js-check-selected-row(type='checkbox')
+                      label.custom-control-label(for='customCheck1_3')
+                        span.text-hide Check
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded.bg-warning.text-white AD
+                      .media-body
+                        .d-flex.flex-column
+                          small.js-lists-values-project
+                            strong Advertising Platform
+                          small.js-lists-values-location.text-50 Facebook
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        img.avatar-img.rounded-circle(src='public/images/people/110/guy-1.jpg' alt='Avatar')
+                      .media-body
+                        .d-flex.align-items-center
+                          .flex.d-flex.flex-column
+                            p.mb-0
+                              strong.js-lists-values-lead Gilbert Barrett
+                            small.js-lists-values-email.text-50 Marketing
+                  td
+                    .d-flex.flex-column
+                      small.js-lists-values-date
+                        strong 17/02/2019
+                      small.text-50 15 days
+                  td.text-right
+                    a.text-50(href='')
+                      i.material-icons more_vert
+                tr
+                  td.pr-0
+                    .custom-control.custom-checkbox
+                      input#customCheck1_4.custom-control-input.js-check-selected-row(type='checkbox')
+                      label.custom-control-label(for='customCheck1_4')
+                        span.text-hide Check
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded.bg-light.text-black-100 FD
+                      .media-body
+                        .d-flex.flex-column
+                          small.js-lists-values-project
+                            strong Frontend Development
+                          small.js-lists-values-location.text-50 Trello
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        img.avatar-img.rounded-circle(src='public/images/people/110/guy-2.jpg' alt='Avatar')
+                      .media-body
+                        .d-flex.align-items-center
+                          .flex.d-flex.flex-column
+                            p.mb-0
+                              strong.js-lists-values-lead Ollie Wallace
+                            small.js-lists-values-email.text-50 Design
+                  td
+                    .d-flex.flex-column
+                      small.js-lists-values-date
+                        strong 16/02/2019
+                      small.text-50 15 days
+                  td.text-right
+                    a.text-50(href='')
+                      i.material-icons more_vert
+                tr.selected
+                  td.pr-0
+                    .custom-control.custom-checkbox
+                      input#customCheck1_5.custom-control-input.js-check-selected-row(type='checkbox' checked='')
+                      label.custom-control-label(for='customCheck1_5')
+                        span.text-hide Check
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        span.avatar-title.rounded.bg-light.text-black-100 DU
+                      .media-body
+                        .d-flex.flex-column
+                          small.js-lists-values-project
+                            strong Database Upgrade
+                          small.js-lists-values-location.text-50 MySQL
+                  td
+                    .media.flex-nowrap.align-items-center(style='white-space: nowrap;')
+                      .avatar.avatar-sm.mr-8pt
+                        img.avatar-img.rounded-circle(src='public/images/people/110/guy-3.jpg' alt='Avatar')
+                      .media-body
+                        .d-flex.align-items-center
+                          .flex.d-flex.flex-column
+                            p.mb-0
+                              strong.js-lists-values-lead Ricardo Bell
+                            small.js-lists-values-email.text-50 Web Development
+                  td
+                    .d-flex.flex-column
+                      small.js-lists-values-date
+                        strong 01/12/2018
+                      small.text-50 1 day
+                  td.text-right
+                    a.text-50(href='')
+                      i.material-icons more_vert
+          .card-footer.p-8pt
+            ul.pagination.justify-content-start.pagination-xsm.m-0
+              li.page-item.disabled
+                a.page-link(href='#' aria-label='Previous')
+                  span.material-icons(aria-hidden='true') chevron_left
+                  span Prev
+              li.page-item
+                a.page-link(href='#' aria-label='Page 1')
+                  span 1
+              li.page-item
+                a.page-link(href='#' aria-label='Page 2')
+                  span 2
+              li.page-item
+                a.page-link(href='#' aria-label='Next')
+                  span Next
+                  span.material-icons(aria-hidden='true') chevron_right
+          //
+            <div class="card-body bordet-top text-right">
+            15 <span class="text-50">of 1,430</span> <a href="#" class="text-50"><i class="material-icons ml-1">arrow_forward</i></a>
+            </div>
+      .col-lg-4
+        .page-separator
+          .page-separator__text Tasks
+        .card.mb-lg-0
+          .card-header.d-flex.align-items-center
+            strong.flex Tasks
+            div
+              a(href='#') View all
+          .progress.rounded-0(style='height: 4px;')
+            .progress-bar.bg-accent(role='progressbar' style='width: 40%;' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+          .list-group.list-group-flush
+            .list-group-item.p-16pt
+              .d-flex
+                .d-flex.flex-column.flex
+                  a.mb-8pt(href='#')
+                    strong Add Fluid Layout Featuring A Vertical Menu With Icons Only
+                  .d-flex.align-items-center.mb-8pt
+                    a.mr-4pt(href='')
+                      span.indicator-line.rounded.bg-primary
+                    a.mr-4pt(href='')
+                      span.indicator-line.rounded.bg-accent
+                a(href='#')
+                  i.material-icons.text-50 more_horiz
+              .d-flex.align-items-center
+                .flex.d-flex.align-items-center
+                  small.text-50.mr-16pt Today
+                  i.material-icons.icon-16pt.text-20.mr-4pt link
+                  small.text-50 2
+                .d-flex.align-items-center
+                  .avatar-group.flex.mr-8pt
+                    .avatar.avatar-xs(data-toggle='tooltip' data-placement='top' title='Janell D.')
+                      a(href='')
+                        img.avatar-img.rounded-circle(src='public/images/256_luke-porter-261779-unsplash.jpg' alt='Avatar')
+                    .avatar.avatar-xs(data-toggle='tooltip' data-placement='top' title='Janell D.')
+                      a(href='')
+                        img.avatar-img.rounded-circle(src='public/images/256_michael-dam-258165-unsplash.jpg' alt='Avatar')
+                    .avatar.avatar-xs(data-toggle='tooltip' data-placement='top' title='Janell D.')
+                      a(href='')
+                        img.avatar-img.rounded-circle(src='public/images/256_rsz_1andy-lee-642320-unsplash.jpg' alt='Avatar')
+                  a.rounded-circle.d-flex.align-items-center.border.align-items-center.text-50(style='text-decoration: none;' href='')
+                    i.material-icons.icon-16pt.m-1 add
+            .list-group-item.p-16pt
+              a.d-block.mb-16pt(href='')
+                img.card-img.card-img-cover(src='public/images/stories/256_rsz_jared-rice-388260-unsplash.jpg' alt='' style='height: 64px;')
+              .d-flex
+                .d-flex.flex-column.flex
+                  a.mb-8pt(href='#')
+                    strong Add Layout Options
+                  .d-flex.align-items-center.mb-8pt
+                    a.mr-4pt(href='')
+                      span.indicator-line.rounded.bg-primary
+                a(href='#')
+                  i.material-icons.text-50 more_horiz
+              .d-flex.align-items-center
+                .flex.d-flex.align-items-center
+                  small.text-50.mr-16pt Tomorrow
+                .d-flex.align-items-center
+                  .avatar-group.flex.mr-8pt
+                    .avatar.avatar-xs(data-toggle='tooltip' data-placement='top' title='Janell D.')
+                      a(href='')
+                        img.avatar-img.rounded-circle(src='public/images/256_rsz_1andy-lee-642320-unsplash.jpg' alt='Avatar')
+                    .avatar.avatar-xs(data-toggle='tooltip' data-placement='top' title='Janell D.')
+                      a(href='')
+                        img.avatar-img.rounded-circle(src='public/images/256_michael-dam-258165-unsplash.jpg' alt='Avatar')
+                    .avatar.avatar-xs(data-toggle='tooltip' data-placement='top' title='Janell D.')
+                      a(href='')
+                        img.avatar-img.rounded-circle(src='public/images/256_luke-porter-261779-unsplash.jpg' alt='Avatar')
+                  a.rounded-circle.d-flex.align-items-center.border.align-items-center.text-50(style='text-decoration: none;' href='')
+                    i.material-icons.icon-16pt.m-1 add

@@ -1,31 +1,6 @@
 doctype html
 html(lang=(locale.lang), dir=(locale.dir) class=(dark ? 'dark-mode' : ""))
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    title #{pageTitle} - #{siteTitle}
-    // Prevent the demo from appearing in search engines
-    meta(name='robots', content='noindex')
-    link(href='https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap', rel='stylesheet')
-    // Preloader
-    link(type='text/css', href='/vendor/spinkit.css', rel='stylesheet')
-    // Perfect Scrollbar
-    link(type='text/css', href='/vendor/perfect-scrollbar.css', rel='stylesheet')
-    // Material Design Icons
-    link(type='text/css', href='/css/material-icons.css', rel='stylesheet')
-    // Font Awesome Icons
-    link(type='text/css', href='/css/fontawesome.css', rel='stylesheet')
-    // Preloader
-    link(type='text/css', href='/css/preloader.css', rel='stylesheet')
-    // App CSS
-    link(type='text/css', href='/css/app.css', rel='stylesheet')
-    if dark
-        // Dark Mode CSS
-        link(type='text/css', href='/css/dark.css', rel='stylesheet')
-    // Custom CSS
-    link(type='text/css', href='/css/custom.css', rel='stylesheet')
-    block head
+  includes includes/head.pug
   body.layout-app
     .preloader
       .sk-chase
@@ -49,8 +24,8 @@ html(lang=(locale.lang), dir=(locale.dir) class=(dark ? 'dark-mode' : ""))
           a.navbar-brand.mr-16pt.d-lg-none(href='index.html')
             span.avatar.avatar-sm.navbar-brand-icon.mr-0.mr-lg-8pt
               span.avatar-title.rounded.bg-primary
-                img.img-fluid(src='/images/illustration/student/128/white.svg', alt='logo')
-            span.d-none.d-lg-block Luma
+                img.img-fluid(src='/images/logo/logo.svg', alt=siteTitle)
+            span.d-none.d-lg-block #{siteTitle}
           // // END Navbar Brand
           span.d-none.d-md-flex.align-items-center.mr-16pt
             span.avatar.avatar-sm.mr-12pt
@@ -73,7 +48,7 @@ html(lang=(locale.lang), dir=(locale.dir) class=(dark ? 'dark-mode' : ""))
             each loc in locales
               unless loc.lang === locale.lang
                 a.nav-item(href=(`/${loc.lang}${path}`))
-                  img.nav-link(src=`/flags/langs/${loc.lang}.svg`, alt=loc.lang height="24", width="32")
+                  img.nav-link(src=`/flags/${loc.lang}.svg`, alt=loc.lang height="24", width="32")
             // Notifications dropdown
             .nav-item.dropdown.dropdown-notifications.dropdown-xs-down-full(data-toggle='tooltip', data-title='Messages', data-placement='bottom', data-boundary='window')
               button.nav-link.btn-flush.dropdown-toggle(type='button', data-toggle='dropdown', data-caret='false')

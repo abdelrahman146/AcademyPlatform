@@ -1,55 +1,76 @@
-const dotenv = require("dotenv");
-const express = require("express");
+const sequelize = require('./db/sequelize');
+const {
+  Answer,
+  ConferenceLecture,
+  Course,
+  Module,
+  StreamLecture,
+  TestLecture,
+  User,
+  VideoLecture,
+  Wallet,
+  Wishlist,
+  Cart,
+  EnrolledCourse,
+} = require('./models');
 
-const { locales } = require("./app.config");
-const createRoutes = require("./routes/routes");
+// User / Cart Pair
+User.hasOne(Cart);
+Cart.belongsTo(User, { onDelete: 'CASCADE' });
 
-dotenv.config();
-const app = express();
-const port = process.env.LOCALE || 3000;
+// User / Wishlist Pair
+User.hasOne(Wishlist);
+Wishlist.belongsTo(User, { onDelete: 'CASCADE' });
 
-// setup template engine
-app.set("view engine", "pug");
-app.set("views", "views");
+// User / Wallet Pair
+User.hasOne(Wallet);
+Wallet.belongsTo(User, { onDelete: 'CASCADE' });
 
-// middlewars
-app.use(express.static("public"));
+// User (teacher) / Course (pair)
+User.hasMany(Course);
+Course.belongsTo(User, { as: 'teacher', onDelete: 'CASCADE' });
 
-const getLocales = locales.reduce((locales, current, index) => {
-  if (index > 0) {
-    return locales + "|" + current.lang;
+// User / EnrolledCourse Pair
+User.hasMany(EnrolledCourse);
+EnrolledCourse.belongsTo(User, { onDelete: 'CASCADE' });
+
+// Course / Enrolled Course Pair
+Course.hasMany(EnrolledCourse);
+EnrolledCourse.belongsTo(Course, { onDelete: 'CASCADE' });
+
+// Cart / Course Pair
+Cart.belongsToMany(Course, { through: 'CartItem' });
+Course.belongsToMany(Cart, { through: 'CartItem' });
+
+// Wishlist / Course Pair
+Wishlist.belongsToMany(Course, { through: 'WishlistItem' });
+Course.belongsToMany(Wishlist, { through: 'WishlistItem' });
+
+// Module / Course Pair
+Course.hasMany(Module);
+Module.belongsTo(Course, { onDelete: 'CASCADE' });
+
+// Video Lecture / Module Pair
+Module.hasMany(VideoLecture);
+VideoLecture.belongsTo(Module, { onDelete: 'CASCADE' });
+
+// Conference Lecture / Module Pair
+Module.hasMany(ConferenceLecture);
+ConferenceLecture.belongsTo(Module, { onDelete: 'CASCADE' });
+
+// Stream Lecture / Module Pair
+Module.hasMany(StreamLecture);
+StreamLecture.belongsTo(Module, { onDelete: 'CASCADE' });
+
+// Test Lecture / Module Pair
+Module.hasMany(TestLecture);
+TestLecture.belongsTo(Module, { onDelete: 'CASCADE' });
+
+(async () => {
+  try {
+    await sequelize.sync({ alter: true });
+    console.log('Connection has been established');
+  } catch (e) {
+    console.log(e);
   }
-  return current.lang;
-}, "");
-
-// setup locale routes
-app.use("/", createRoutes(locales[0]));
-app.use(`/${locales[0].lang}`, (req, res, next) => {
-  req.locale = locales[0];
-  console.log(req.path);
-  next();
-});
-app.use(`/${locales[0].lang}`, (req, res) => {
-  res.redirect(req.path);
-});
-for (localeIndex in locales) {
-  if (localeIndex != 0) {
-    app.use(`/${locales[localeIndex].lang}`, (req, res, next) => {
-      req.locale = locales[localeIndex];
-      next();
-    });
-    app.use(
-      `/${locales[localeIndex].lang}`,
-      createRoutes(locales[localeIndex])
-    );
-  }
-}
-app.use((req, res) => {
-  console.log();
-  res.send("not found");
-});
-
-// run app
-app.listen(port, () => {
-  console.log(`application started at http://localhost:${port}`);
-});
+})();

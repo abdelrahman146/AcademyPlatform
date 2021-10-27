@@ -1,6 +1,6 @@
 const express = require("express");
 const { locales } = require("../app.config");
-
+const { route } = require("./courses.routes");
 const router = express.Router();
 
 router.get("/:slug", function (req, res) {

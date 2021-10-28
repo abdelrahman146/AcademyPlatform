@@ -16,10 +16,12 @@ i18next
       addPath: rootPath + "/locales/{{lng}}/{{ns}}.missing.json",
     },
     detection: {
-      order: ["path"],
-      lookupPath: "lang",
-      lookupFromPathIndex: 0,
+      order: ["querystring", "cookie", "header"],
+      lookupQuerystring: "lang",
+      lookupCookie: "lang",
+      caches: ["cookie"],
       ignoreCase: true,
+      cookieSecure: true,
     },
   });
 

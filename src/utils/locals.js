@@ -9,4 +9,8 @@ exports.createLink = (path, lang) => {
   return lang + path;
 };
 
+exports.getDir = (lang) => {
+  return lang === "ar" ? "rtl" : "ltr";
+};
+
 exports.siteTitle = i18next.t("siteTitle");

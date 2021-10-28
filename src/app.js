@@ -1,9 +1,9 @@
 const dotenv = require("dotenv");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const i18next = require("./utils/i18next");
-const { locales } = require("./config");
 const locals = require("./utils/locals");
-const createRoutes = require("./routes/routes");
+const createRoutes = require("./routes");
 
 const { User } = require("./models"); // To be deleted
 
@@ -14,6 +14,7 @@ let app = express();
 app.locals = locals;
 
 // middlewares
+app.use(cookieParser());
 app.use(i18next);
 app.disable("x-powered-by");
 app.use(express.static("public"));
@@ -38,23 +39,6 @@ app.use((req, res, next) => {
 });
 
 // setup routes
-app.get("/", (req, res) => res.redirect("/ar"));
-app.use(
-  "/:lang",
-  (req, res, next) => {
-    if (locales.includes(req.language)) {
-      next();
-    } else {
-      res.status(404).send("not found");
-    }
-  },
-  createRoutes
-);
-
-// 404
-app.use((req, res) => {
-  console.log();
-  res.status(404).send("not found");
-});
+app.use("/", createRoutes);
 
 module.exports = app;

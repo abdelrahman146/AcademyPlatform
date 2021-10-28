@@ -1,22 +1,30 @@
 const express = require("express");
-const { courses } = require("../controllers");
-const upload = require("../utils/upload");
 const router = express.Router();
 
-// router.get("/", coursesController.getCoursesPage);
-// router.get("/category/:slug", coursesController.getCategoryPage);
+// redirect to home page
+router.get("/", (req, res) => {
+  res.redirect(req.app.mountpath);
+});
 
-// submit new course
-router.post(
-  "/add",
-  upload.fields([
-    { name: "thumbnail", maxCount: 1 },
-    { name: "intro", maxCount: 1 },
-  ]),
-  courses.add.post
-);
+// search for a course
+router.get("/search", (req, res) => {
+  if (req.query.query) {
+    res.send(`you are looking for ${req.query.query}`);
+  } else {
+    res.redirect(req.app.mountpath);
+  }
+});
 
-// receive create new course form
-router.get("/add", courses.add.get);
+// get list of courses of category
+router.get("/:category", (req, res) => {
+  res.send(`getting courses in category ${req.params.category}`);
+});
+
+// get list of courses of subcategory
+router.get("/:category/:subcategory", (req, res) => {
+  res.send(
+    `getting courses in category ${req.params.category} in subcategory ${req.params.subcategory}`
+  );
+});
 
 module.exports = router;

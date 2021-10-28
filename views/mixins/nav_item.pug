@@ -1,0 +1,10 @@
+mixin nav_item(item)
+  if item.children
+    li.nav-item.dropdown
+      a.nav-link.dropdown-toggle(href=(path === item.path ? 'active' : '') data-toggle='dropdown' data-caret='false' aria-expanded='false') item.title
+      .dropdown-menu
+        each child in item.children
+          a.dropdown-item(href=child.path) #{child.title}
+  else
+    li.nav-item(class=(path === item.path ? 'active' : ''))
+    a.nav-link(href=item.path) #{item.title}

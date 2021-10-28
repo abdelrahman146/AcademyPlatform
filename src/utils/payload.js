@@ -1,16 +1,11 @@
-const { locales } = require("../config");
-const i18next = require("i18next");
-
 // creates data object to be transfered to views
 module.exports = function createPayload(req, extra) {
-  const path = req._parsedOriginalUrl.path.replace(`/${req.locale.lang}`, "");
-  const title = i18next.t("site_title");
+  const path = req._parsedOriginalUrl.path;
+  const title = req.i18next.t('site_title');
   const payload = {
-    locales,
-    siteTitle: title,
-    dark: false,
+    site_title: title,
     path,
-    locale: req.locale,
+    lang: req.language,
     ...extra,
   };
   return payload;

@@ -1,6 +1,6 @@
-const app = require("./app");
-const db = require("./db");
-const { User } = require("./models");
+const app = require('./app');
+const db = require('./db');
+const { User } = require('./models');
 
 const port = process.env.LOCALE || 3000;
 const args = process.argv;
@@ -11,15 +11,15 @@ const args = process.argv;
   let user = await User.findByPk(1);
   if (!user) {
     user = await User.create({
-      email: "user@admin.com",
-      password: "HelloWorld",
-      fullname: "Abdel Rahman Hussein",
-      role: "admin",
-      avatar: "images/people/profile.jpg",
-      bio: "Just Another Developer",
-      country: "sa",
-      mobile_number: "501605437",
-      mobile_code: "+971",
+      email: 'user@admin.com',
+      password: 'HelloWorld',
+      fullname: 'Abdel Rahman Hussein',
+      role: 'admin',
+      avatar: 'images/people/profile.jpg',
+      bio: 'Just Another Developer',
+      country: 'sa',
+      mobile_number: '501605437',
+      mobile_code: '+971',
     });
   }
   let cart = await user.getCart();

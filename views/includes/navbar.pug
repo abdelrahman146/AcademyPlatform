@@ -1,0 +1,55 @@
+include ../mixins/nav_item
+include ../mixins/new_message
+include ../mixins/notification
+
+
+#default-navbar.navbar.navbar-expand.pr-0.navbar-light.border-bottom-2(data-primary='')
+    // Navbar Toggler
+    button.navbar-toggler.w-auto.mr-16pt.d-block.d-lg-none.rounded-0(type='button' data-toggle='sidebar')
+        span.material-icons short_text
+    // Navbar Brand
+    a.navbar-brand.mr-16pt.d-lg-none(href='/')
+        span.avatar.avatar-sm.navbar-brand-icon.mr-0.mr-lg-8pt
+            span.avatar-title.rounded.bg-primary
+                mg.img-fluid(src=site_logo alt=site_title)
+        span.d-none.d-lg-block #{site_title}
+    // Start Side List
+    ul.nav.navbar-nav.d-none.d-sm-flex.flex.justify-content-start.ml-8pt
+        each item in menu_items 
+            +nav_item(item)
+    .flex
+    // End Side Menu
+    .nav.navbar-nav.flex-nowrap.d-flex.mr-16pt
+        .nav-item.dropdown.dropdown-notifications.dropdown-xs-down-full(data-toggle='tooltip' data-title='Messages' data-placement='bottom' data-boundary='window')
+            button.nav-link.btn-flush.dropdown-toggle(type='button' data-toggle='dropdown' data-caret='false')
+                i.material-icons.icon-24pt mail_outline
+            .dropdown-menu.dropdown-menu-right
+                .position-relative(data-perfect-scrollbar='')
+                    .dropdown-header
+                        strong= t("navbar.messages")
+                    .list-group.list-group-flush.mb-0
+                        each data in messages
+                            +new_message(data)
+        .nav-item.ml-16pt.dropdown.dropdown-notifications.dropdown-xs-down-full(data-toggle='tooltip' data-title='Notifications' data-placement='bottom' data-boundary='window' data-original-title='' title='')
+            button.nav-link.btn-flush.dropdown-toggle(type='button' data-toggle='dropdown' data-caret='false' aria-expanded='false')
+                i.material-icons notifications_none
+                span.badge.badge-notifications.badge-accent= notifications.length
+            .dropdown-menu.dropdown-menu-right
+                .position-relative.ps(data-perfect-scrollbar='')
+                    .dropdown-header
+                        strong= t("navbar.notficiations")
+                    .list-group.list-group-flush.mb-0
+                        each data in notifications
+                            +notification(data)
+        .nav-item.dropdown
+            a.nav-link.d-flex.align-items-center.dropdown-toggle(href='#' data-toggle='dropdown' data-caret='false')
+                span.avatar.avatar-sm.mr-8pt2
+                    span.avatar-title.rounded-circle.bg-primary
+                        i.material-icons account_box
+            .dropdown-menu.dropdown-menu-right
+                .dropdown-header
+                    strong Account
+                a.dropdown-item(href='edit-account.html') Edit Account
+                a.dropdown-item(href='billing.html') Billing
+                a.dropdown-item(href='billing-history.html') Payments
+                a.dropdown-item(href='login.html') Logout

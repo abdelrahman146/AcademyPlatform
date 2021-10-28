@@ -1,6 +1,31 @@
 doctype html
 html(lang=(locale.lang), dir=(locale.dir) class=(dark ? 'dark-mode' : ""))
-  includes includes/head.pug
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title #{pageTitle} - #{t("site_title")}
+    // Prevent the demo from appearing in search engines
+    meta(name='robots', content='noindex')
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap', rel='stylesheet')
+    // Preloader
+    link(type='text/css', href='/vendor/spinkit.css', rel='stylesheet')
+    // Perfect Scrollbar
+    link(type='text/css', href='/vendor/perfect-scrollbar.css', rel='stylesheet')
+    // Material Design Icons
+    link(type='text/css', href='/css/material-icons.css', rel='stylesheet')
+    // Font Awesome Icons
+    link(type='text/css', href='/css/fontawesome.css', rel='stylesheet')
+    // Preloader
+    link(type='text/css', href='/css/preloader.css', rel='stylesheet')
+    // App CSS
+    link(type='text/css', href='/css/app.css', rel='stylesheet')
+    if dark
+        // Dark Mode CSS
+        link(type='text/css', href='/css/dark.css', rel='stylesheet')
+    // Custom CSS
+    link(type='text/css', href='/css/custom.css', rel='stylesheet')
+    block head
   body.layout-app
     .preloader
       .sk-chase
@@ -86,7 +111,7 @@ html(lang=(locale.lang), dir=(locale.dir) class=(dark ? 'dark-mode' : ""))
               .dropdown-menu.dropdown-menu-right
                 .position-relative(data-perfect-scrollbar='')
                   .dropdown-header
-                    strong System notifications
+                    strong #{t("System notifications")}
                   .list-group.list-group-flush.mb-0
                     a.list-group-item.list-group-item-action.unread(href='javascript:void(0);')
                       span.d-flex.align-items-center.mb-1

@@ -8,15 +8,21 @@
     "notifications": "Notificcations",
     "changeLanguage": "Change Language",
     "login": "Login",
-    "register": "Register",
-    "menu": {
-      "home": "Home",
-      "recorded": "Recorded Courses",
-      "live": "Live Courses",
-      "contact": "Contact us"
-    }
+    "register": "Register"
   },
   "sidebar": {
     "search": "Search"
+  },
+  "menu": {
+    "general": "Main Menu",
+    "home": "Home",
+    "courses": "Courses",
+    "recorded": "Recorded Courses",
+    "live": "Live Courses",
+    "contact": "Contact us",
+    "profile": "Profile",
+    "myprofile": "My Profile",
+    "wishlist": "My Wishlist",
+    "cart": "My Cart"
   }
 }

@@ -8,5 +8,8 @@
     }
   },
   "search": "search",
-  "en": "en"
+  "en": "en",
+  "menu": {
+    "courses": "menu.courses"
+  }
 }

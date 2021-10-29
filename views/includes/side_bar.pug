@@ -1,0 +1,32 @@
+.sidebar-heading= t("menu.general")
+ul.sidebar-menu
+    li.sidebar-menu-item(class=(path === '/' ? 'active' : ''))
+        a.sidebar-menu-button(href="/")
+            span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left home 
+            span.sidebar-menu-text= t("menu.home")
+    li.sidebar-menu-item(class=(path.includes('/courses') ? 'active' : ''))
+        a.sidebar-menu-button(href="#courses-menu", data-toggle="collapse")
+            span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left class 
+            span.sidebar-menu-text= t("menu.courses")
+        ul#courses-menu.sidebar-submenu.collapse.sm-indent
+            li.sidebar-menu-item(class=(path === '/courses?type=recorded' ? 'active' : ''))
+                a.sidebar-menu-button(href="/courses?type=recorded") 
+                    span.sidebar-menu-text= t("menu.recorded")
+            li.sidebar-menu-item(class=(path === '/courses?type=live' ? 'active' : ''))
+                a.sidebar-menu-button(href="/courses?type=live") 
+                    span.sidebar-menu-text= t("menu.live")
+if loggedin && role === 'student'
+    .sidebar-heading= t("menu.profile")
+    ul.sidebar-menu
+        li.sidebar-menu-item(class=(path === '/profile' ? 'active' : ''))
+            a.sidebar-menu-button(href="/profile")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left person 
+                span.sidebar-menu-text= t("menu.myprofile")
+        li.sidebar-menu-item(class=(path === '/wishlist' ? 'active' : ''))
+            a.sidebar-menu-button(href="/wishlist")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left favorite 
+                span.sidebar-menu-text= t("menu.wishlist")
+        li.sidebar-menu-item(class=(path === '/cart' ? 'active' : ''))
+            a.sidebar-menu-button(href="/cart")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left shopping_cart 
+                span.sidebar-menu-text= t("menu.cart")

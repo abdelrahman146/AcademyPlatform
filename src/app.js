@@ -6,6 +6,7 @@ const locals = require('./utils/locals');
 const createRoutes = require('./routes');
 
 const { User } = require('./models'); // To be deleted
+const { locales, default_locale } = require('./config');
 
 dotenv.config();
 let app = express();
@@ -16,6 +17,12 @@ app.locals = locals;
 // middlewares
 app.use(cookieParser());
 app.use(i18next);
+app.use(async (req, res, next) => {
+  if (!locales.includes(req.language)) {
+    await req.i18n.changeLanguage(default_locale);
+  }
+  next();
+});
 app.disable('x-powered-by');
 app.use(express.static('public'));
 app.use(express.json());

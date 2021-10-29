@@ -1,4 +1,22 @@
 {
-  "siteTitle": "Fullmoon Academy",
-  "test_text": "test"
+  "site_title": "Fullmoon Academy",
+  "site_slogan": "For Teaching Online",
+  "en": "English",
+  "ar": "العربية",
+  "navbar": {
+    "messages": "Messages",
+    "notifications": "Notificcations",
+    "changeLanguage": "Change Language",
+    "login": "Login",
+    "register": "Register",
+    "menu": {
+      "home": "Home",
+      "recorded": "Recorded Courses",
+      "live": "Live Courses",
+      "contact": "Contact us"
+    }
+  },
+  "sidebar": {
+    "search": "Search"
+  }
 }

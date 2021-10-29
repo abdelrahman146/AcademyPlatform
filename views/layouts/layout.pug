@@ -1,5 +1,5 @@
 doctype html 
-html(lang=lang, dir=getDir(lang))
+html(lang=lang dir=getDir(lang))
     head 
         include ../includes/head
         block head
@@ -15,16 +15,16 @@ html(lang=lang, dir=getDir(lang))
                     .sidebar.sidebar-dark-pickled-bluewood.sidebar-left(data-perfect-scrollbar='')
                         // Sidebar Content
                         .d-flex.align-items-center.navbar-height
-                            form.search-form.search-form--black.mx-16pt.pr-0.pl-16pt(action='index.html')
-                                input.form-control.pl-0(type='text' placeholder='Search')
+                            form.search-form.search-form--black.mx-16pt.pr-0.pl-16pt(method= 'GET' action='/courses/search/')
+                                input.form-control.pl-0(type='text' name='query' placeholder=t('sidebar.search'))
                                 button.btn(type='submit')
                                     i.material-icons search
                         a.sidebar-brand(href='index.html')
-                             // <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma">
+                            // <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma">
                             span.avatar.avatar-xl.sidebar-brand-icon.h-auto
-                                span.avatar-title.rounded.bg-primary
-                                    img.img-fluid(src='/images/illustration/student/128/white.svg' alt='logo')
-                            span= site_title
+                                span.avatar-title.rounded.bg-primary.p-2
+                                    img.img-fluid(src='/images/logo-white.svg' alt=site_title)
+                            span.mt-2= site_title
                         block side_bar
         include ../includes/scripts
         block scripts

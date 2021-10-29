@@ -1,4 +1,12 @@
 {
   "test_text": "test_text",
-  "site_title": "site_title"
+  "site_title": "site_title",
+  "navbar": {
+    "notficiations": "navbar.notficiations",
+    "menu": {
+      "liv": "navbar.menu.liv"
+    }
+  },
+  "search": "search",
+  "en": "en"
 }

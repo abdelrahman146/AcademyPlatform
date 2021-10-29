@@ -1,5 +1,22 @@
 {
-  "siteTitle": "أكاديمية فُل مون",
-  "System notifications": "اشعارات النظام",
-  "test_text": "تيست"
+  "site_title": "أكاديمية فُل مون",
+  "site_slogan": "للتعلم عن بعد",
+  "en": "English",
+  "ar": "العربية",
+  "navbar": {
+    "messages": "الرسائل",
+    "notifications": "الاشعارات",
+    "changeLanguage": "تغيير اللغة",
+    "login": "تسجيل الدخول",
+    "register": "التسجيل",
+    "menu": {
+      "home": "الرئيسية",
+      "recorded": "الدورات المسجلة",
+      "live": "الدورات التفاعلية",
+      "contact": "تواصل معنا"
+    }
+  },
+  "sidebar": {
+    "search": "البحث"
+  }
 }

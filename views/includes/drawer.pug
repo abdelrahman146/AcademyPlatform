@@ -1,0 +1,104 @@
+.sidebar-heading= t("menu.general")
+ul.sidebar-menu
+    li.sidebar-menu-item(class=(path === '/' ? 'active' : ''))
+        a.sidebar-menu-button(href="/")
+            span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left home 
+            span.sidebar-menu-text= t("menu.home")
+    li.sidebar-menu-item(class=(path.includes('/courses') ? 'active' : ''))
+        a.sidebar-menu-button(href="#courses-menu", data-toggle="collapse")
+            span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left class 
+            span.sidebar-menu-text= t("menu.courses")
+        ul#courses-menu.sidebar-submenu.collapse.sm-indent
+            li.sidebar-menu-item(class=(path === '/courses?type=recorded' ? 'active' : ''))
+                a.sidebar-menu-button(href="/courses?type=recorded") 
+                    span.sidebar-menu-text= t("menu.recorded")
+            li.sidebar-menu-item(class=(path === '/courses?type=live' ? 'active' : ''))
+                a.sidebar-menu-button(href="/courses?type=live") 
+                    span.sidebar-menu-text= t("menu.live")
+    li.sidebar-menu-item(class=(path === '/teaching' ? 'active' : ''))
+        a.sidebar-menu-button(href="/teaching")
+            span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left school 
+            span.sidebar-menu-text= t("menu.teaching")
+if loggedin && (role === 'student' || role === 'admin')
+    .sidebar-heading= t("menu.profile")
+    ul.sidebar-menu
+        li.sidebar-menu-item(class=(path === '/profile' ? 'active' : ''))
+            a.sidebar-menu-button(href="/profile")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left person 
+                span.sidebar-menu-text= t("menu.myprofile")
+        li.sidebar-menu-item(class=(path === '/wishlist' ? 'active' : ''))
+            a.sidebar-menu-button(href="/wishlist")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left favorite 
+                span.sidebar-menu-text= t("menu.wishlist")
+        li.sidebar-menu-item(class=(path === '/cart' ? 'active' : ''))
+            a.sidebar-menu-button(href="/cart")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left shopping_cart 
+                span.sidebar-menu-text= t("menu.cart")
+if loggedin && (role === 'teacher' || role === 'admin')
+    .sidebar-heading= t("menu.teacher")
+    ul.sidebar-menu
+        li.sidebar-menu-item(class=(path === '/teacher/courses' ? 'active' : ''))
+            a.sidebar-menu-button(href="/teacher/courses")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left school 
+                span.sidebar-menu-text= t("menu.mycourses")
+        li.sidebar-menu-item(class=(path === '/teacher/courses/add' ? 'active' : ''))
+            a.sidebar-menu-button(href="/teacher/courses/add")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left add 
+                span.sidebar-menu-text= t("menu.addcourse")
+        li.sidebar-menu-item(class=(path.includes('/teacher/wallet') ? 'active' : ''))
+            a.sidebar-menu-button(href="#wallet-menu", data-toggle="collapse")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left account_balance_wallet 
+                span.sidebar-menu-text= t("menu.wallet")
+            ul#wallet-menu.sidebar-submenu.collapse.sm-indent
+                li.sidebar-menu-item(class=(path === '/teacher/wallet' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/teacher/wallet') 
+                        span.sidebar-menu-text= t("menu.mywallet")
+                li.sidebar-menu-item(class=(path === '/teacher/wallet/history' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/teacher/wallet/history') 
+                        span.sidebar-menu-text= t("menu.wallethistory")
+                li.sidebar-menu-item(class=(path === '/teacher/wallet/payout' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/teacher/wallet/payout') 
+                        span.sidebar-menu-text= t("menu.payout")
+if loggedin && role === 'admin'
+    .sidebar-heading= t("menu.admin")
+    ul.sidebar-menu
+        li.sidebar-menu-item(class=(path.includes('/admin/dashboard') ? 'active' : ''))
+            a.sidebar-menu-button(href="#dashboard-menu", data-toggle="collapse")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left insert_chart 
+                span.sidebar-menu-text= t("menu.dashboard")
+            ul#dashboard-menu.sidebar-submenu.collapse.sm-indent
+                li.sidebar-menu-item(class=(path === '/admin/dashboard' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/dashboard') 
+                        span.sidebar-menu-text= t("menu.overall")
+                li.sidebar-menu-item(class=(path === '/admin/dashboard/courses' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/dashboard/courses') 
+                        span.sidebar-menu-text= t("menu.courses")
+                li.sidebar-menu-item(class=(path === '/admin/dashboard/users' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/dashboard/users') 
+                        span.sidebar-menu-text= t("menu.users")
+        li.sidebar-menu-item(class=(path.includes('/admin/categories') ? 'active' : ''))
+            a.sidebar-menu-button(href="#categories-menu", data-toggle="collapse")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left category
+                span.sidebar-menu-text= t("menu.categories")
+            ul#categories-menu.sidebar-submenu.collapse.sm-indent
+                li.sidebar-menu-item(class=(path === '/admin/categories' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/categories') 
+                        span.sidebar-menu-text= t("menu.categoriesList")
+                li.sidebar-menu-item(class=(path === '/admin/categories/courses' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/categories/add') 
+                        span.sidebar-menu-text= t("menu.addcategories")
+        li.sidebar-menu-item(class=(path.includes('/admin/users') ? 'active' : ''))
+            a.sidebar-menu-button(href="#users-menu", data-toggle="collapse")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left category
+                span.sidebar-menu-text= t("menu.users")
+            ul#users-menu.sidebar-submenu.collapse.sm-indent
+                li.sidebar-menu-item(class=(path === '/admin/users' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/users') 
+                        span.sidebar-menu-text= t("menu.usersList")
+                li.sidebar-menu-item(class=(path === '/admin/users/courses' ? 'active' : ''))
+                    a.sidebar-menu-button(href='/admin/users/add') 
+                        span.sidebar-menu-text= t("menu.addusers")
+        li.sidebar-menu-item(class=(path === '/admin/settings' ? 'active' : ''))
+            a.sidebar-menu-button(href="/admin/settings")
+                span.material-icons.sidebar-menu-icon.sidebar-menu-icon--left settings 
+                span.sidebar-menu-text= t("menu.settings")

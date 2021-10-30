@@ -11,5 +11,10 @@
   "en": "en",
   "menu": {
     "courses": "menu.courses"
-  }
+  },
+  "sortby": "sortby",
+  "newest": "newest",
+  "popularity": "popularity",
+  "Courses": "Courses",
+  "courses": "courses"
 }

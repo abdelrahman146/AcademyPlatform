@@ -1,4 +1,5 @@
 doctype html 
+- layout = 'app-layout'
 html(lang=lang dir=getDir(lang))
     head 
         include ../includes/head
@@ -7,8 +8,13 @@ html(lang=lang dir=getDir(lang))
         include ../includes/preloader
         .mdk-drawer-layout.js-mdk-drawer-layout(data-push='' data-responsive-width='992px')
             .mdk-drawer-layout__content.page-content
-                include ../includes/navbar
-                block content
+                #default-navbar.navbar.navbar-expand.navbar-light.border-bottom-2(data-primary='data-primary')
+                    include ../includes/navbar
+                .pt-32pt
+                    .container.page__container
+                        include ../includes/header
+                .container.page__container.pt-32pt
+                    block content
                 include ../includes/footer
             #default-drawer.mdk-drawer.js-mdk-drawer
                 .mdk-drawer__content
@@ -19,13 +25,11 @@ html(lang=lang dir=getDir(lang))
                                 input.form-control.pl-0(type='text' name='query' placeholder=t('sidebar.search'))
                                 button.btn(type='submit')
                                     i.material-icons search
-                        a.sidebar-brand(href='index.html')
-                            // <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma">
+                        a.sidebar-brand(href='/')
                             span.avatar.avatar-xl.sidebar-brand-icon.h-auto
                                 span.avatar-title.rounded.bg-primary.p-2
                                     img.img-fluid(src='/images/logo-white.svg' alt=site_title)
                             span.mt-2= site_title
-                        include ../includes/side_bar
-                        block side_bar
+                        include ../includes/drawer
         include ../includes/scripts
         block scripts

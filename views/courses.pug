@@ -1,4 +1,26 @@
-extends layouts/layout
+extends layouts/learny  
+include mixins/sortby
+
+block header-side 
+    .col-auto
+        a.btn.btn-outline-secondary(href='student-my-courses.html') My Courses
 
 block content 
-    h1 Hello World!!
+    .page-separator
+        .page-separator__text= t('courses-available')
+    +sortby(t('courses'), 4, 10)
+    .row.card-group-row
+        // TODO
+
+
+block sidebar 
+    #instructor-accordion.accordion.js-accordion.accordion--boxed.mb-24pt
+        .accordion__item
+            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#instructor-accordion-menu' data-parent='#instructor-accordion')
+                span.flex My Account
+                span.accordion__toggle-icon.material-icons keyboard_arrow_down
+            #instructor-accordion-menu.accordion__menu.collapse
+                .accordion__menu-link
+                    span.icon-holder.icon-holder--small.icon-holder--light.rounded-circle.d-inline-flex.icon--left
+                        i.material-icons.icon-16pt school
+                        a.flex(href='instructor-dashboard.html') Dashboard

@@ -49,7 +49,7 @@ router.get("/wallet/history", function (req, res) {
 });
 
 // request payout
-router.get("/wallet/request-payout", function (req, res) {
+router.get("/wallet/payout", function (req, res) {
   res.send(`request payout page`);
 });
 

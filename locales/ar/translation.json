@@ -23,6 +23,31 @@
     "profile": "الملف الشخصي",
     "myprofile": "ملفي الشخصي",
     "wishlist": "قائمة الرغبات",
-    "cart": "سلة التسوق"
-  }
+    "cart": "سلة التسوق",
+    "teaching": "الانضمام الى الفريق",
+    "teacher": "قائمة المعلم",
+    "mycourses": "دوراتي",
+    "addcourse": "انشاء دورة جديدة",
+    "wallet": "المحفظة",
+    "mywallet": "محفظتي",
+    "wallethistory": "الدفعات السابقة",
+    "payout": "الدفعات",
+    "admin": "قائمة الإدارة",
+    "dashboard": "لوحة التقارير",
+    "overall": "التقرير الموجز",
+    "users": "الحسابات",
+    "categories": "الفئات",
+    "categoriesList": "قائمة الفئات",
+    "addcategories": "اضافة فئة جديدة",
+    "usersList": "قائمة الحسابات",
+    "addusers": "اضافة حساب جديد",
+    "settings": "الإعدادات"
+  },
+  "sortby": "التصنيف على حسب",
+  "newest": "الأجدد",
+  "popularity": "الأكثر شعبية",
+  "limit": "عرض {{num}} من أصل {{total}} {{item}}",
+  "courses": "دورات",
+  "Courses": "الدورات",
+  "courses-available": "الدورات المتاحة"
 }

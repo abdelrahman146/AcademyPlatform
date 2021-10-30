@@ -1,6 +1,6 @@
 body {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .h1,
@@ -16,80 +16,93 @@ h4,
 h5,
 h6 {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .btn {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .tooltip {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 .popover {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .text-headings {
+  font-weight: 600;
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
+}
+
+[dir='rtl'] .text-headings {
+  letter-spacing: 0;
 }
 
 .display-1 {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .breadcrumb {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .text-breadcrumb {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .card-title {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .card-header-tabs-basic a {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .table thead th {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .page-separator__text {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 
 .page-num {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 .tooltip-inner {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 .form-label {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 .card-form__body label:not([class]) {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
 }
 .sidebar-heading {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+    Segoe UI Symbol !important;
+}
+
+[dir='rtl'] .breadcrumb-item + .breadcrumb-item:before {
+  content: 'keyboard_arrow_left';
+}
+
+[dir='rtl'] .sidebar-heading {
+  letter-spacing: 0;
 }

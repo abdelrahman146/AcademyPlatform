@@ -1,0 +1,16 @@
+mixin interactive_course_card(course)
+    .card.card--elevated.posts-card-popular.overlay.card-group-row__card
+        img.card-img(src=course.image, alt=course.title)
+        .fullbleed.bg-primary-pickled-bluewood(style={opacity: 0.8})
+            .posts-card-popular__content
+                .card-body.d-flex.align-items-center
+                    .avatar-group.flex
+                        .avatar.avatar-xs(data-toggle="tooltip" data-placement="top" title=course.teacher.name)
+                            a(href="")
+                                img.avatar-img.rounded-circle(src=course.teacher.avatar, alt=course.teacher.name)
+                    a.d-flex.align-items-center(href="#", style={'text-decoration': 'none'})
+                        i.material-icons.mr-1 event 
+                        small #{t('starts-in')} #{t('days', {count: course.daysLeft})}
+                .posts-card-popular__title.card-body
+                    span.text-muted.text-uppercase(style={'font-weight': 800})= t(course.category, {ns: 'categories'})
+                    a.card-title(href="#")= course.title

@@ -1,7 +1,7 @@
-const i18next = require("i18next");
-const i18nextMiddleware = require("i18next-http-middleware");
-const i18nextBackend = require("i18next-fs-backend");
-const { rootPath, default_locale, locales } = require("../config");
+const i18next = require('i18next');
+const i18nextMiddleware = require('i18next-http-middleware');
+const i18nextBackend = require('i18next-fs-backend');
+const { rootPath, default_locale, locales } = require('../config');
 
 i18next
   .use(i18nextBackend)
@@ -10,16 +10,27 @@ i18next
     debug: false,
     fallbackLng: default_locale,
     preload: locales,
+    ns: [
+      'common',
+      'site',
+      'home',
+      'categories',
+      'subcategories',
+      'aboutpage',
+      'terms',
+      'privacy',
+    ],
+    defaultNS: 'common',
     saveMissing: true,
     backend: {
-      loadPath: rootPath + "/locales/{{lng}}/{{ns}}.json",
-      addPath: rootPath + "/locales/{{lng}}/{{ns}}.missing.json",
+      loadPath: rootPath + '/locales/{{lng}}/{{ns}}.json',
+      addPath: rootPath + '/locales/{{lng}}/{{ns}}.missing.json',
     },
     detection: {
-      order: ["querystring", "cookie", "header"],
-      lookupQuerystring: "lang",
-      lookupCookie: "lang",
-      caches: ["cookie"],
+      order: ['querystring', 'cookie', 'header'],
+      lookupQuerystring: 'lang',
+      lookupCookie: 'lang',
+      caches: ['cookie'],
       ignoreCase: true,
       cookieSecure: true,
     },

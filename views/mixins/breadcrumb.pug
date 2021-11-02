@@ -1,0 +1,12 @@
+mixin breadcrumb(path)
+    - path_array = path.split("/")
+    - i = 0
+    ol.breadcrumb.p-0.m-0
+        while i < path_array.length
+            - term = path_array[i].replace(/\?.*/g, "")
+            - page = "/" + term
+            - term = term.charAt(0).toUpperCase() + term.slice(1)
+            - term = term.length === 0 ? "home" + term : term
+            li.breadcrumb-item(class={active: i === path_array.length - 1})
+                a(href=page)= t(term)
+            - i++

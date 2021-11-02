@@ -1,15 +1,25 @@
 // creates data object to be transfered to views
+const helpers = require('./helpers');
 
 module.exports = function createPayload(req, extra) {
   const path = req._parsedOriginalUrl.path;
-  const title = req.i18n.t('site_title');
+  const queryString = helpers.queryString(req.query);
+  const createLink = helpers.createLink.bind(null, queryString);
+  const createQuery = helpers.createQuery.bind(null, queryString);
   const payload = {
-    site_title: title,
-    site_slogan: req.i18n.t('site_slogan'),
     path,
+    queries: req.query,
+    queryString: queryString,
     lang: req.language,
-    notifications: [], // TODO
-    messages: [], // TODO
+    isLoggedin: req.isLoggedin || false,
+    user: {
+      notifications: [], // TODO Method getNotifications in User Model
+      messages: [], // TODO Method
+      wishlist: ['1'], // TODO Method in user
+      cart: ['1'], // TODO Method in user
+    },
+    createLink,
+    createQuery,
     ...extra,
   };
   return payload;

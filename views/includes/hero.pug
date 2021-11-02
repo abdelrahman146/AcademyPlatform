@@ -1,0 +1,11 @@
+.mdk-box.mdk-box--bg-primary-pickled-bluewood.bg-dark.js-mdk-box.mb-0(data-effects="parallax-background blend-background")
+    .mdk-box__bg
+        .mdk-box__bg-front(style={'background-image': 'url(/images/default_course_img.jpg)'})
+    .mdk-box__content.justify-content-center
+        .hero.container.page__container.text-center.py-112pt
+            h1.text-white.text-shadow= t('hero.headline', {ns: 'home'})
+            p.lead.measure-hero-lead.mx-auto.text-white.text-shadow.mb-48pt= t('hero.lead', {ns: 'home'})
+            a.btn.btn-lg.btn-white.btn--raised.mb-16pt(href="#")= t('hero.button-text', {ns: 'home'})
+            p.mb-0
+                a.text-white.text-shadow(href=createLink('/courses'))
+                    strong= t('hero.become-teacher', {ns: 'home'})

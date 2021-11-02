@@ -1,0 +1,17 @@
+mixin stars(rate)
+    - nostars = Math.floor(5-rate)
+    - halfstar = rate % Math.floor(rate) === 0 ? false : true;
+    - i = 0
+    .rating
+        while i < Math.floor(rate)
+            span.rating__item
+                span.material-icons star
+            - i++
+        if halfstar 
+            span.rating__item
+                span.material-icons star_half
+            - i++
+        while i < 5
+            span.rating__item 
+                span.material-icons star_border
+            - i++

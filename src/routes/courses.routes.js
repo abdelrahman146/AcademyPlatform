@@ -19,15 +19,27 @@ router.get('/search', (req, res) => {
 // get list of courses of category
 router.get('/:category', (req, res) => {
   const query = req.query;
-  console.log(query);
   const payload = createPayload(req, {
-    page_title: 'Courses',
+    page_title: req.i18n.t('Courses'),
     role: 'admin',
     loggedin: true,
+    include_header: true,
     query,
+    user: { wishlist: [] },
+    courses: [
+      {
+        id: 1,
+        title: 'تعلم اللغة الانجليزية حتى الاحتراف',
+        image: '/images/default_course_img.jpg',
+        slug: 'course-slug',
+        teacher: 'بدر',
+        rate: 3.3,
+        hours: 19,
+        price: 99,
+      },
+    ],
   });
   res.render('courses', payload);
-  // res.send(`getting courses in category ${req.params.category}`);
 });
 
 // get list of courses of subcategory

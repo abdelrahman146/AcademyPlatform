@@ -10,9 +10,10 @@ html(lang=lang dir=getDir(lang))
             .mdk-drawer-layout__content.page-content
                 #default-navbar.navbar.navbar-expand.navbar-light.border-bottom-2(data-primary='data-primary')
                     include ../includes/navbar
-                .pt-32pt
-                    .container.page__container
-                        include ../includes/header
+                if include_header
+                    .pt-32pt
+                        .container.page__container
+                            include ../includes/header
                 .container.page__container.pt-32pt
                     block content
                 include ../includes/footer
@@ -22,7 +23,7 @@ html(lang=lang dir=getDir(lang))
                         // Sidebar Content
                         .d-flex.align-items-center.navbar-height
                             form.search-form.search-form--black.mx-16pt.pr-0.pl-16pt(method= 'GET' action='/courses/search/')
-                                input.form-control.pl-0(type='text' name='query' placeholder=t('sidebar.search'))
+                                input.form-control.pl-0(type='text' name='query' placeholder=t('drawer.search'))
                                 button.btn(type='submit')
                                     i.material-icons search
                         a.sidebar-brand(href='/')

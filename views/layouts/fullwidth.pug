@@ -1,5 +1,5 @@
 doctype html
-- layout = 'learny'
+- layout = 'fullwidth'
 html(lang=lang dir=getDir(lang))
     head 
         include ../includes/head
@@ -13,20 +13,14 @@ html(lang=lang dir=getDir(lang))
                         .container.page__container
                             include ../includes/navbar
             .mdk-header-layout__content.page-content
-                .page-section.bg-alt.border-bottom-2
-                    if include_header
+                if include_header
+                    .page-section.bg-alt.border-bottom-2
                         .container.page__container
                             include ../includes/header
-                .page-section 
-                    .container.page__container  
-                        .row 
-                            .col-lg-8 
-                                block content 
-                                    container.page__container.flex.d-flex.my-32pt
-                                        .application-shell-content
-                                            span Add your page content here.
-                            .col-lg-4
-                                block sidebar
+                block content 
+                    container.page__container.flex.d-flex.my-32pt
+                        .application-shell-content
+                            span Add your page content here.
             include ../includes/footer
         #default-drawer.mdk-drawer.js-mdk-drawer
             .mdk-drawer__content

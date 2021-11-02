@@ -1,8 +1,26 @@
 {
-  "site_title": "أكاديمية فُل مون",
-  "site_slogan": "للتعلم عن بعد",
   "en": "English",
   "ar": "العربية",
+  "sortby": "التصنيف على حسب",
+  "newest": "الأجدد",
+  "popularity": "الأكثر شعبية",
+  "limit": "عرض {{num}} من أصل {{total}} {{item}}",
+  "courses": "دورات",
+  "Courses": "الدورات",
+  "courses-available": "الدورات المتاحة",
+  "addfavorite": "اضافة الى المفضلة",
+  "hours": "ساعات",
+  "Hours": "ساعات",
+  "sr": "ريال سعودي",
+  "categories": "الفئات",
+  "popular-categories": "الفئات الأكثر شعبية",
+  "home": "الرئيسية",
+  "days_zero": "اليوم",
+  "days_one": "غداً",
+  "days_two": "بعد يومين",
+  "days_few": "بعد {{count}} أيام",
+  "days_many": "بعد {{count}} يوم",
+  "starts-in": "يبدأ",
   "navbar": {
     "messages": "الرسائل",
     "notifications": "الاشعارات",
@@ -10,10 +28,8 @@
     "login": "تسجيل الدخول",
     "register": "التسجيل"
   },
-  "sidebar": {
-    "search": "البحث"
-  },
-  "menu": {
+  "drawer": {
+    "search": "البحث",
     "general": "القائمة الرئيسية",
     "home": "الرئيسية",
     "courses": "الدورات",
@@ -43,18 +59,8 @@
     "addusers": "اضافة حساب جديد",
     "settings": "الإعدادات"
   },
-  "sortby": "التصنيف على حسب",
-  "newest": "الأجدد",
-  "popularity": "الأكثر شعبية",
-  "limit": "عرض {{num}} من أصل {{total}} {{item}}",
-  "courses": "دورات",
-  "Courses": "الدورات",
-  "courses-available": "الدورات المتاحة",
-  "addfavorite": "اضافة الى المفضلة",
-  "hours": "ساعات",
-  "Hours": "ساعات",
-  "sr": "ريال سعودي",
-  "categories": "الفئات",
-  "popular-categories": "الفئات الأكثر شعبية",
-  "home": "الرئيسية"
+  "footer": {
+    "text": "فقرة مختصرة عن أكاديمية فُل مون",
+    "copyright": "&copy; جميع الحقوق محفوظة {{year}}"
+  }
 }

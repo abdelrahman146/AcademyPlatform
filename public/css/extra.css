@@ -1,3 +1,12 @@
+html[dir='rtl'] .material-icons {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: 'FlipH';
+}
+
 body {
   font-family: 'Tajawal', Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol !important;
@@ -103,6 +112,15 @@ h6 {
   content: 'keyboard_arrow_left';
 }
 
-[dir='rtl'] .sidebar-heading {
+[dir='rtl'] .sidebar-heading,
+[dir='rtl'] .page-separator__text {
   letter-spacing: 0;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.card-subtitle {
+  font-weight: 500;
 }

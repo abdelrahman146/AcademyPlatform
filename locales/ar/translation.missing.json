@@ -10,11 +10,17 @@
   "search": "search",
   "en": "en",
   "menu": {
-    "courses": "menu.courses"
+    "courses": "drawer.courses"
   },
   "sortby": "sortby",
   "newest": "newest",
   "popularity": "popularity",
   "Courses": "Courses",
-  "courses": "courses"
+  "courses": "courses",
+  "/": "/",
+  "/courses": "/courses",
+  "/asdsa": "/asdsa",
+  "asdsa": "asdsa",
+  "home": "home",
+  "Asdsa": "Asdsa"
 }

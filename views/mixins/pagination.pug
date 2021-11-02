@@ -1,0 +1,32 @@
+mixin pagination(total, offset, limit)
+    - numofpages = Math.ceil(total/limit)
+    - currentpage = offset / limit + 1
+    - isfirstpage = currentpage === 1
+    - islastpage = currentpage === numofpages
+    - range = 5
+    - startrange = Math.floor(currentpage / range) * range + 1
+    - endrange = Math.min(numofpages, startrange + (range-1))
+    - lastoffset = total%limit === 0 ? total-limit : total - (total%limit)
+    ul.pagination.pagination-sm
+        li.page-item(class={disabled: isfirstpage})
+            a.page-link(href=`?offset=0` aria-label='Previous')
+                span.material-icons(aria-hidden='true') first_page
+                span.sr-only First
+        li.page-item(class={disabled: isfirstpage})
+            a.page-link(href=`?offset=${offset-limit}` aria-label='Previous')
+                span.material-icons(aria-hidden='true') chevron_left
+                span.sr-only Prev
+        - i = startrange 
+        while i <= endrange
+            li.page-item(class={active: i === currentpage, disabled: i === currentpage})
+                a.page-link(href=`?offset=${(i-1)*limit}` aria-label=i)
+                    span= i
+            - i++
+        li.page-item(class={disabled: islastpage})
+            a.page-link(href=`?offset=${offset+limit}` aria-label='Next')
+                span.sr-only Next
+                span.material-icons(aria-hidden='true') chevron_right
+        li.page-item(class={disabled: islastpage})
+            a.page-link(href=`?offset=${lastoffset}` aria-label='Next')
+                span.sr-only Last
+                span.material-icons(aria-hidden='true') last_page

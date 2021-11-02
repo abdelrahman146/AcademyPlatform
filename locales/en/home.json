@@ -1,0 +1,42 @@
+{
+  "title": "Home",
+  "hero": {
+    "headline": "Fullmoon Academy",
+    "lead": "Saudi Best Online Academy Platform",
+    "button-text": "Browse Courses",
+    "become-teacher": "Are you a teacher?"
+  },
+  "features": {
+    "card1": {
+      "headline": "+8000 Recorded Courses",
+      "lead": "Enjoy more than 8000 courses available for lifetime access",
+      "icon": "ondemand_video"
+    },
+    "card2": {
+      "headline": "More than 500 Interactive Course",
+      "lead": "Need more collaborative course? We got it for you!",
+      "icon": "video_call"
+    },
+    "card3": {
+      "headline": "+1000 Alumni Every Year",
+      "lead": "We proudly improve our student skills and make them ready!",
+      "icon": "school"
+    }
+  },
+  "interactive-courses": {
+    "headline": "Upcoming Interactive Courses",
+    "lead": ""
+  },
+  "categories": {
+    "headline": "Our Top Categories",
+    "lead": ""
+  },
+  "recorded-courses": {
+    "headline": "Most Popular Recorded Courses",
+    "lead": ""
+  },
+  "feedbacks": {
+    "headline": "Feedback",
+    "lead": "What other students turned professionals have to say about us after learning with us and reaching their goals."
+  }
+}

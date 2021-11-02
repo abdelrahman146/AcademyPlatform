@@ -1,0 +1,13 @@
+mixin spinner(id, min, max, steps, value)
+    .form-group
+        label.form-label(for=id)
+        input.form-control(
+            id=id
+            data-toggle="touch-spin"
+            data-min=min
+            data-max=max
+            data-step=steps
+            type="text"
+            value=value
+            name=id
+        )

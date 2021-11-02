@@ -1,0 +1,14 @@
+mixin daterange(id, label, placeholder, date)
+    .form-group
+        label.form-label(for=id)= label
+        input.form-control(
+            type="text"
+            placeholder=placeholder
+            data-toggle="daterangepicker"
+            data-daterangepicker-drops="up"
+            data-daterangepicker-start-date=date
+            data-daterangepicker-single-date-picker="true"
+            data-daterangepicker-time-picker="true"
+            data-daterangepicker-locale-format="DD/MM/YYYY - Ha"
+            data-daterangepicker-min-date= new Date()
+        )

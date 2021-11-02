@@ -14,6 +14,7 @@ i18next
       'common',
       'site',
       'home',
+      'courses',
       'categories',
       'subcategories',
       'aboutpage',

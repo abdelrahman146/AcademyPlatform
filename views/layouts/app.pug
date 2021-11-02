@@ -11,11 +11,8 @@ html(lang=lang dir=getDir(lang))
                 #default-navbar.navbar.navbar-expand.navbar-light.border-bottom-2(data-primary='data-primary')
                     include ../includes/navbar
                 if include_header
-                    .pt-32pt
-                        .container.page__container
-                            include ../includes/header
-                .container.page__container.pt-32pt
-                    block content
+                        include ../includes/header
+                block content
                 include ../includes/footer
             #default-drawer.mdk-drawer.js-mdk-drawer
                 .mdk-drawer__content

@@ -1,0 +1,6 @@
+mixin upload(id, label, placeholder)
+    .form-group
+        label.form-label(for=id)= label
+        .custom-file
+            input.custom-file-input(type="file", id=id)
+            label.custom-file-label(for=id)= placeholder

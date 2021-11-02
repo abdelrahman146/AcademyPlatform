@@ -1,125 +1,121 @@
 extends layouts/app
 include mixins/page-separator
+include mixins/form/input-lg
+include mixins/form/input
+include mixins/form/textarea
+include mixins/form/wysiwyg
 
-block content 
-    .page-section.border-bottom-2
-        .container
-            .row
-                .col-md-8
-                    +page_separator("Basic information")
-                    label.form-label Course title
-                        .form-group.mb-24pt
-                            input.form-control.form-control-lg(type='text' placeholder='Course title' value='Angular Fundamentals')
-                            small.form-text.text-muted
-                            | Please see our 
-                            a(href='') course title guideline
-                        .form-group.mb-32pt
-                            label.form-label Description
-                            // <textarea class="form-control" rows="3" placeholder="Course description"></textarea>
-                            .mb-0(style='height: 150px;' data-toggle='quill' data-quill-placeholder='Course description')
-                                h1 Hello World!
-                                p
-                                    | Some initial 
-                                    strong bold
-                                    |  text
-                                p
-                                    br
-                            small.form-text.text-muted Shortly describe this course.
-                        +page_separator("Modules")
-                        #parent.accordion.js-accordion.accordion--boxed.mb-24pt
-                            .accordion__item
-                                a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-1' data-parent='#parent')
-                                    span.flex Course Overview
-                                    span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                                #course-toc-1.accordion__menu.collapse
-                                    .accordion__menu-link
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        a.flex(href='student-lesson.html') Watch Trailer
-                                        span.text-muted 1m 10s
-                            .accordion__item.open
-                                a.accordion__toggle(href='#' data-toggle='collapse' data-target='#course-toc-2' data-parent='#parent')
-                                    span.flex Getting Started with Angular
-                                    span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                                #course-toc-2.accordion__menu.collapse.show
-                                    .accordion__menu-link
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        a.flex(href='student-lesson.html') Introduction
-                                        span.text-muted 8m 42s
-                                    .accordion__menu-link.active
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        a.flex(href='student-lesson.html') Introduction to TypeScript
-                                        span.text-muted 50m 13s
-                                    .accordion__menu-link
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        a.flex(href='student-lesson.html') Comparing Angular to AngularJS
-                                        span.text-muted 12m 10s
-                                    .accordion__menu-link
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        a.flex(href='student-take-quiz.html') Quiz: Getting Started With Angular
-                            .accordion__item
-                                a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-3' data-parent='#parent')
-                                    span.flex Creating and Communicating Between Angular Components
-                                    span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                                #course-toc-3.accordion__menu.collapse
-                                    .accordion__menu-link
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        a.flex(href='student-lesson.html') Angular Components
-                                        span.text-muted 04:23
-                            .accordion__item
-                                a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-4' data-parent='#parent')
-                                    span.flex Exploring the Angular Template Syntax
-                                    span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                                #course-toc-4.accordion__menu.collapse
-                                    .accordion__menu-link
-                                        i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                        .flex(href='student-lesson.html') Template Syntax
-                                        span.text-muted 04:23
-                        a.btn.btn-outline-secondary.mb-24pt.mb-sm-0(href='#') Add Section
-                .col-md-4
-                    .card
-                        .card-header.text-center
-                            a.btn.btn-accent(href='#') Save changes
-                        .list-group.list-group-flush
-                            .list-group-item.d-flex
-                                a.flex(href='#')
-                                    strong Save Draft
-                                i.material-icons.text-muted check
-                            .list-group-item
-                                a.text-danger(href='#')
-                                    strong Delete Course
-                    +page_separator("Video")
-                    .card
-                        .embed-responsive.embed-responsive-16by9
-                            iframe.embed-responsive-item(src='https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0' allowfullscreen='')
-                        .card-body
-                            label.form-label URL
-                            input.form-control(type='text' value='https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0' placeholder='Enter Video URL')
-                            small.form-text.text-muted Enter a valid video URL.
-                    +page_separator("Options")
-                    .card
-                        .card-body
-                            .form-group
-                                label.form-label Category
-                                select.form-control.custom-select(name='category')
-                                    option(value='vuejs') VueJs
-                                    option(value='vuejs') Angular
-                                    option(value='vuejs') React
-                                small.form-text.text-muted Select a category.
-                            .form-group
-                                label.form-label Price
-                                .row
-                                    .col-md-6
-                                        .input-group.form-inline
-                                            span.input-group-prepend
-                                                span.input-group-text $
-                                        input.form-control(type='text' value='24')
-                                small.form-text.text-muted The recommended price is between $17 and $24
-                            .form-group.mb-0
-                                label.form-label(for='select03') Tags
-                                select#select03.form-control(data-toggle='select' multiple='')
-                                    option(selected='') JavaScript
-                                    option(selected='') Angular
-                                    option Bootstrap
-                                    option CSS
-                                    option HTML
-                                small.form-text.text-muted Select one or more tags.
+
+block head 
+    link(rel="stylesheet", href="/css/quill.css")
+
+block content
+    .p-32pt.p-lg-64pt
+        .row
+            .col-md-8
+                +page_separator(t('basic', {ns: 'courses'}))
+                +input_lg('text', 'title', t('title', {ns: 'courses'}), t('title', {ns: 'courses'}), course.title)
+                +textarea('headline', t('headline', {ns: 'courses'}), t('headline', {ns: 'courses'}), course.headline)
+                +wysiwyg('description',t('description', {ns: 'courses'}), t('description', {ns: 'courses'}),200, course.description)
+                    +page_separator("Modules")
+                    #parent.accordion.js-accordion.accordion--boxed.mb-24pt
+                        .accordion__item
+                            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-1' data-parent='#parent')
+                                span.flex Course Overview
+                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
+                            #course-toc-1.accordion__menu.collapse
+                                .accordion__menu-link
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    a.flex(href='student-lesson.html') Watch Trailer
+                                    span.text-muted 1m 10s
+                        .accordion__item.open
+                            a.accordion__toggle(href='#' data-toggle='collapse' data-target='#course-toc-2' data-parent='#parent')
+                                span.flex Getting Started with Angular
+                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
+                            #course-toc-2.accordion__menu.collapse.show
+                                .accordion__menu-link
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    a.flex(href='student-lesson.html') Introduction
+                                    span.text-muted 8m 42s
+                                .accordion__menu-link.active
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    a.flex(href='student-lesson.html') Introduction to TypeScript
+                                    span.text-muted 50m 13s
+                                .accordion__menu-link
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    a.flex(href='student-lesson.html') Comparing Angular to AngularJS
+                                    span.text-muted 12m 10s
+                                .accordion__menu-link
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    a.flex(href='student-take-quiz.html') Quiz: Getting Started With Angular
+                        .accordion__item
+                            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-3' data-parent='#parent')
+                                span.flex Creating and Communicating Between Angular Components
+                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
+                            #course-toc-3.accordion__menu.collapse
+                                .accordion__menu-link
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    a.flex(href='student-lesson.html') Angular Components
+                                    span.text-muted 04:23
+                        .accordion__item
+                            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-4' data-parent='#parent')
+                                span.flex Exploring the Angular Template Syntax
+                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
+                            #course-toc-4.accordion__menu.collapse
+                                .accordion__menu-link
+                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
+                                    .flex(href='student-lesson.html') Template Syntax
+                                    span.text-muted 04:23
+                    a.btn.btn-outline-secondary.mb-24pt.mb-sm-0(href='#') Add Section
+            .col-md-4
+                .card
+                    .card-header.text-center
+                        a.btn.btn-accent(href='#') Save changes
+                    .list-group.list-group-flush
+                        .list-group-item.d-flex
+                            a.flex(href='#')
+                                strong Save Draft
+                            i.material-icons.text-muted check
+                        .list-group-item
+                            a.text-danger(href='#')
+                                strong Delete Course
+                +page_separator("Video")
+                .card
+                    .embed-responsive.embed-responsive-16by9
+                        iframe.embed-responsive-item(src='https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0' allowfullscreen='')
+                    .card-body
+                        label.form-label URL
+                        input.form-control(type='text' value='https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0' placeholder='Enter Video URL')
+                        small.form-text.text-muted Enter a valid video URL.
+                +page_separator("Options")
+                .card
+                    .card-body
+                        .form-group
+                            label.form-label Category
+                            select.form-control.custom-select(name='category')
+                                option(value='vuejs') VueJs
+                                option(value='vuejs') Angular
+                                option(value='vuejs') React
+                            small.form-text.text-muted Select a category.
+                        .form-group
+                            label.form-label Price
+                            .row
+                                .col-md-6
+                                    .input-group.form-inline
+                                        span.input-group-prepend
+                                            span.input-group-text $
+                                    input.form-control(type='text' value='24')
+                            small.form-text.text-muted The recommended price is between $17 and $24
+                        .form-group.mb-0
+                            label.form-label(for='select03') Tags
+                            select#select03.form-control(data-toggle='select' multiple='')
+                                option(selected='') JavaScript
+                                option(selected='') Angular
+                                option Bootstrap
+                                option CSS
+                                option HTML
+                            small.form-text.text-muted Select one or more tags.
+
+block scripts 
+    script(src="/vendor/quill.min.js")
+    script(src="/js/quill.js")

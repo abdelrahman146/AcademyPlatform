@@ -1,0 +1,9 @@
+mixin radio(id, label, options)
+    .form-group 
+        .custom-controls-stacked
+            - i = 0
+            while i < options.length
+                .custom-control.custom-radio
+                    input.custom-control-input(type="radio", id=id+i name=id, value=options[i].value)
+                    label.custom-control-label(for=id+i)= options[i].label
+                - i++

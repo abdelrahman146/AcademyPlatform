@@ -30,7 +30,11 @@ router.get('/courses/view/:id', function (req, res) {
 
 // create new course page
 router.get('/courses/add', function (req, res) {
-  const payload = createPayload(req, {});
+  const payload = createPayload(req, {
+    course: {
+      title: '',
+    },
+  });
   res.render('addcourse', payload);
 });
 

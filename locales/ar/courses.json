@@ -3,5 +3,14 @@
   "title": "عنوان الدورة",
   "headline": "رأسية الدورة",
   "slug": "سبيكة الدورة (للرابط)",
-  "description": "وصف الدورة"
+  "description": "وصف الدورة",
+  "add-module": "اضافة وحدة جديدة",
+  "add-video": "فيديو",
+  "add-quiz": "اختبار",
+  "add-article": "مقالة",
+  "add-stream": "بث مباشر",
+  "delete-module": "حذف",
+  "module-title-placeholder": "اكتب عنوان الوحدة هنا...",
+  "lecture-title": "عنوان الدرس",
+  "modules-section": "الوحدات"
 }

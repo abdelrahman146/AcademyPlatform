@@ -1,0 +1,24 @@
+template#module-template 
+    .module
+        .card
+            .card-header.d-flex.align-items-center
+                i.material-icons.text-70.icon-8pt.drag-handle.mr-4pt drag_handle
+                input.card-title.module-title.form-control.form-control-flush(type='text', placeholder=t('module-title-placeholder', {ns: 'courses'}))
+            .card-body.module-lectures
+            .card-footer.bg-light
+                .span
+                    button.add-video-btn.btn.btn-sm.btn-rounded.btn-outline-primary-pickled-bluewood.mr-8pt.px-12pt
+                        i.material-icons.icon-14pt.mr-4pt ondemand_video
+                        |  #{t('add-video', {ns: 'courses'})}
+                    button.add-quiz-btn.btn.btn-sm.btn-rounded.btn-outline-primary-pickled-bluewood.mr-8pt.px-12pt
+                        i.material-icons.icon-14pt.mr-4pt live_help
+                        |  #{t('add-quiz', {ns: 'courses'})}
+                    button.add-article-btn.btn.btn-sm.btn-rounded.btn-outline-primary-pickled-bluewood.mr-8pt.px-12pt
+                        i.material-icons.icon-14pt.mr-4pt post_add
+                        |  #{t('add-article', {ns: 'courses'})}
+                    button.add-stream-btn.btn.btn-sm.btn-rounded.btn-outline-primary-pickled-bluewood.mr-8pt.px-12pt
+                        i.material-icons.icon-14pt.mr-4pt voice_chat
+                        |  #{t('add-stream', {ns: 'courses'})}
+                    button.delete-module-btn.btn.btn-sm.btn-rounded.btn-danger.mr-12pt
+                        i.material-icons.icon-14pt.mr-4pt delete
+                        |  #{t('delete-module', {ns: 'courses'})}

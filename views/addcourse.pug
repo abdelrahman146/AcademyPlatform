@@ -4,12 +4,14 @@ include mixins/form/input-lg
 include mixins/form/input
 include mixins/form/textarea
 include mixins/form/wysiwyg
-
+include mixins/form/upload
+include mixins/form/switch
 
 block head 
     link(rel="stylesheet", href="/css/quill.css")
 
 block content
+    include templates/modules-list
     .p-32pt.p-lg-64pt
         .row
             .col-md-8
@@ -17,56 +19,8 @@ block content
                 +input_lg('text', 'title', t('title', {ns: 'courses'}), t('title', {ns: 'courses'}), course.title)
                 +textarea('headline', t('headline', {ns: 'courses'}), t('headline', {ns: 'courses'}), course.headline)
                 +wysiwyg('description',t('description', {ns: 'courses'}), t('description', {ns: 'courses'}),200, course.description)
-                    +page_separator("Modules")
-                    #parent.accordion.js-accordion.accordion--boxed.mb-24pt
-                        .accordion__item
-                            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-1' data-parent='#parent')
-                                span.flex Course Overview
-                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                            #course-toc-1.accordion__menu.collapse
-                                .accordion__menu-link
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    a.flex(href='student-lesson.html') Watch Trailer
-                                    span.text-muted 1m 10s
-                        .accordion__item.open
-                            a.accordion__toggle(href='#' data-toggle='collapse' data-target='#course-toc-2' data-parent='#parent')
-                                span.flex Getting Started with Angular
-                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                            #course-toc-2.accordion__menu.collapse.show
-                                .accordion__menu-link
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    a.flex(href='student-lesson.html') Introduction
-                                    span.text-muted 8m 42s
-                                .accordion__menu-link.active
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    a.flex(href='student-lesson.html') Introduction to TypeScript
-                                    span.text-muted 50m 13s
-                                .accordion__menu-link
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    a.flex(href='student-lesson.html') Comparing Angular to AngularJS
-                                    span.text-muted 12m 10s
-                                .accordion__menu-link
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    a.flex(href='student-take-quiz.html') Quiz: Getting Started With Angular
-                        .accordion__item
-                            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-3' data-parent='#parent')
-                                span.flex Creating and Communicating Between Angular Components
-                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                            #course-toc-3.accordion__menu.collapse
-                                .accordion__menu-link
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    a.flex(href='student-lesson.html') Angular Components
-                                    span.text-muted 04:23
-                        .accordion__item
-                            a.accordion__toggle.collapsed(href='#' data-toggle='collapse' data-target='#course-toc-4' data-parent='#parent')
-                                span.flex Exploring the Angular Template Syntax
-                                span.accordion__toggle-icon.material-icons keyboard_arrow_down
-                            #course-toc-4.accordion__menu.collapse
-                                .accordion__menu-link
-                                    i.material-icons.text-70.icon-16pt.icon--left drag_handle
-                                    .flex(href='student-lesson.html') Template Syntax
-                                    span.text-muted 04:23
-                    a.btn.btn-outline-secondary.mb-24pt.mb-sm-0(href='#') Add Section
+                +page_separator(t("modules-section", {ns: "courses"}))
+                #modules-parent.mb-24pt
             .col-md-4
                 .card
                     .card-header.text-center
@@ -115,7 +69,9 @@ block content
                                 option CSS
                                 option HTML
                             small.form-text.text-muted Select one or more tags.
-
+    
 block scripts 
     script(src="/vendor/quill.min.js")
     script(src="/js/quill.js")
+    script(src="/js/create-course.js")
+    

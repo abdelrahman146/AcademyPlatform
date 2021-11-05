@@ -27,5 +27,9 @@
   "days_other": "days",
   "footer": {
     "summary": "footer.summary"
-  }
+  },
+  "close": "close",
+  "save": "save",
+  "lecture-summary": "lecture-summary",
+  "video-form-title": "video-form-title"
 }

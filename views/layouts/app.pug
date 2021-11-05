@@ -1,4 +1,4 @@
-doctype html 
+doctype html
 - layout = 'app-layout'
 html(lang=lang dir=getDir(lang))
     head 
@@ -29,5 +29,6 @@ html(lang=lang dir=getDir(lang))
                                     img.img-fluid(src='/images/logo-white.svg' alt=site_title)
                             span.mt-2= site_title
                         include ../includes/drawer
+        block pre-scripts
         include ../includes/scripts
         block scripts

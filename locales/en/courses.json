@@ -3,5 +3,14 @@
   "title": "Course title",
   "headline": "Course Headline",
   "slug": "Course Slug",
-  "description": "Course Description"
+  "description": "Course Description",
+  "add-module": "Add Module",
+  "add-video": "Video",
+  "add-quiz": "Quiz",
+  "add-article": "Article",
+  "add-stream": "Live",
+  "delete-module": "Delete",
+  "module-title-placeholder": "Write Module Title Here...",
+  "lecture-title": "Lecture Title",
+  "modules-section": "Modules"
 }

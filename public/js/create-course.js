@@ -35,8 +35,11 @@ class LectureForm {
     switch (type) {
       case 'video':
         return document.getElementById('video-lecture-form').content.cloneNode(true).querySelector('.modal');
-      // case 'article':
-      //   return document.getElementById('article-lecture-form').content.cloneNode(true).querySelector('.modal');
+      case 'article':
+        const element = document.getElementById('article-lecture-form').content.cloneNode(true).querySelector('.modal');
+        const lectureContent = element.querySelector('.lecture-content');
+        new Quill(lectureContent, { theme: 'snow' });
+        return element;
       // case 'quiz':
       //   return document.getElementById('quiz-lecture-form').content.cloneNode(true).querySelector('.modal');
       // case 'stream':

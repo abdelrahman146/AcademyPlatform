@@ -31,5 +31,6 @@
   "close": "close",
   "save": "save",
   "lecture-summary": "lecture-summary",
-  "video-form-title": "video-form-title"
+  "video-form-title": "video-form-title",
+  "article-form-title": "article-form-title"
 }

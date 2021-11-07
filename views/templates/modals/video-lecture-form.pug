@@ -5,22 +5,19 @@ template#video-lecture-form
                 .modal-header
                     h2.d-flex.align-items-center
                         i.material-icons.icon-32pt.mr-4pt ondemand_video
-                        | #{t('video-form-title')}
+                        | #{t('video-form-title', {ns: "courses"})}
                 .modal-body
                     .row 
                         .col-md-8
                             +input('text', 'lecture-title', t('lecture-title', {ns: 'courses'}), t('lecture-title', {ns: 'courses'}), '')
                             +textarea('lecture-summary', t('lecture-summary', {ns: 'courses'}))
-                            +switch('lecture-locked', 'lecture-locked', 'Yes')
+                            +switch('lecture-locked', t('lecture-locked', {ns: 'courses'}), 'Yes')
                         .col-md-4
                             .card
-                                .embed-responsive.embed-responsive-16by9
-                                    iframe.embed-responsive-item(src='https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0' allowfullscreen='')
+                                //- .embed-responsive.embed-responsive-16by9
+                                //-     iframe.embed-responsive-item(src='' allowfullscreen='false')
                                 .card-body
-                                    label.form-label URL
-                                    input.form-control(type='text' value='https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0' placeholder='Enter Video URL')
-                                    small.form-text.text-muted Enter a valid video URL.
-                                    +upload('lecture-id', 'Upload Video', 'upload video')
+                                    +upload('lecture-id', t('lecture-upload-video', {ns: 'courses'}), t('lecture-upload-video', {ns: 'courses'}))
                                     
                 .modal-footer
                     button.btn.btn-secondary.close-form= t('close')

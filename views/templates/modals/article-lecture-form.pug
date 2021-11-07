@@ -1,0 +1,19 @@
+template#article-lecture-form
+    .modal
+        .modal-dialog.modal-xl
+            .modal-content
+                .modal-header
+                    h2.d-flex.align-items-center
+                        i.material-icons.icon-32pt.mr-4pt post_add
+                        | #{t('article-form-title', {ns: "courses"})}
+                .modal-body
+                    +input('text', 'lecture-title', t('lecture-title', {ns: 'courses'}), t('lecture-title', {ns: 'courses'}), '')
+                    +textarea('lecture-summary', t('lecture-summary', {ns: 'courses'}))
+                    +switch('lecture-locked', t('lecture-locked', {ns: 'courses'}), 'Yes')
+                    label.form-label.mt-12pt= t('lecture-content', {ns: 'courses'})
+                    .lecture-content(style={'height': '400px'})
+
+                                    
+                .modal-footer
+                    button.btn.btn-secondary.close-form= t('close')
+                    button.btn.btn-primary.save-form= t('save')

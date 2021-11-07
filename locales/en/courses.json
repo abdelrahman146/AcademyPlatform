@@ -12,5 +12,11 @@
   "delete-module": "Delete",
   "module-title-placeholder": "Write Module Title Here...",
   "lecture-title": "Lecture Title",
-  "modules-section": "Modules"
+  "modules-section": "Modules",
+  "video-form-title": "Video Lecture",
+  "article-form-title": "Article Lecture",
+  "lecture-summary": "Lecture Summary",
+  "lecture-locked": "Lecture Locked",
+  "lecture-content": "Lecture Content",
+  "lecture-upload-video": "Upload Video"
 }

@@ -12,5 +12,11 @@
   "delete-module": "حذف",
   "module-title-placeholder": "اكتب عنوان الوحدة هنا...",
   "lecture-title": "عنوان الدرس",
-  "modules-section": "الوحدات"
+  "modules-section": "الوحدات",
+  "video-form-title": "درس مسجل",
+  "article-form-title": "درس مقالة",
+  "lecture-summary": "ملخص الدرس",
+  "lecture-locked": "درس مغلق",
+  "lecture-content": "محتوى الدرس",
+  "lecture-upload-video": "رفع ملف الفيديو"
 }

@@ -1,0 +1,20 @@
+template#quiz-lecture-form
+    .modal
+        .modal-dialog.modal-xl
+            .modal-content
+                .modal-header
+                    h2.d-flex.align-items-center
+                        i.material-icons.icon-32pt.mr-4pt post_add
+                        | #{t('quiz-form-title', {ns: "courses"})}
+                .modal-body
+                    +input('text', 'quiz-title', t('quiz-title', {ns: 'courses'}), t('quiz-title', {ns: 'courses'}), '')
+                    +textarea('quiz-summary', t('quiz-summary', {ns: 'courses'}))
+                    +switch('quiz-locked', t('quiz-locked', {ns: 'courses'}), 'Yes')
+                    label.form-label.mt-12pt= t('quiz-content', {ns: 'courses'})
+                    .quiz-content
+                    button.add-question-btn.btn.btn-outline-secondary.mt-24pt.mb-24pt.mb-sm-0= t('add-question', {ns: 'courses'})
+
+                                    
+                .modal-footer
+                    button.btn.btn-secondary.close-form= t('close')
+                    button.btn.btn-primary.save-form= t('save')

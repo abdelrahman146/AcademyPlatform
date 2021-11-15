@@ -1,0 +1,25 @@
+template#question-template 
+    .question
+        .card
+            .card-header.d-flex.align-items-center
+                i.material-icons.text-70.icon-8pt.drag-handle.mr-4pt drag_handle
+                input.card-title.question-statement.form-control.form-control-flush(type='text', placeholder=t('question-statement-placeholder', {ns: 'courses'}))
+                .flex 
+                input.form-control(
+                    id="asdasdasew"
+                    data-toggle="touch-spin"
+                    data-min="1"
+                    data-step="1"
+                    type="text"
+                    value="1"
+                    name="asdasdasew"
+                )
+            .card-body.question-answers
+            .card-footer.bg-light
+                .span
+                    button.add-answer-btn.btn.btn-sm.btn-rounded.btn-outline-primary-pickled-bluewood.mr-8pt.px-12pt
+                        i.material-icons.icon-14pt.mr-4pt add
+                        |  #{t('add-answer', {ns: 'courses'})}
+                    button.delete-question-btn.btn.btn-sm.btn-rounded.btn-danger.mr-12pt
+                        i.material-icons.icon-14pt.mr-4pt delete
+                        |  #{t('delete-question', {ns: 'courses'})}

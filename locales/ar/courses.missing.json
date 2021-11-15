@@ -1,3 +1,13 @@
 {
-  "lecture-summary": "lecture-summary"
+  "lecture-summary": "lecture-summary",
+  "question-statement-placeholder": "question-statement-placeholder",
+  "add-answer": "add-answer",
+  "delete-question": "delete-question",
+  "answer-statement-placeholder": "answer-statement-placeholder",
+  "quiz-form-title": "quiz-form-title",
+  "quiz-title": "quiz-title",
+  "quiz-summary": "quiz-summary",
+  "quiz-locked": "quiz-locked",
+  "quiz-content": "quiz-content",
+  "add-question": "add-question"
 }

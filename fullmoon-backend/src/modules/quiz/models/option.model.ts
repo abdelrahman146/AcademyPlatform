@@ -1,9 +1,12 @@
-import { BelongsTo, BelongsToMany, Column, HasOne, Model, Table } from 'sequelize-typescript';
-import { User } from 'src/modules/user/models/user.model';
+import { BelongsTo, BelongsToMany, Column, ForeignKey, HasOne, Model, Table } from 'sequelize-typescript';
 import { Question } from './question.model';
 
 @Table
 export class Option extends Model {
-  @BelongsTo(() => User)
+  @ForeignKey(() => Question)
+  @Column
+  questionId: number;
+
+  @BelongsTo(() => Question)
   question: Question;
 }

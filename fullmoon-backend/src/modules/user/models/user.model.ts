@@ -1,4 +1,6 @@
-import { Column, HasOne, Model, Table } from 'sequelize-typescript';
+import { BelongsToMany, Column, HasOne, Model, Table } from 'sequelize-typescript';
+import { Course } from 'src/modules/course/models/course.model';
+import { Enrolled } from 'src/modules/course/models/enrolled.model';
 import { Cart } from './cart.model';
 import { Wishlist } from './wishlist.model';
 
@@ -13,9 +15,12 @@ export class User extends Model {
   @Column({ defaultValue: true })
   isActive: boolean;
 
-  @HasOne(() => Cart)
-  cart: Cart;
+  @BelongsToMany(() => Course, () => Enrolled)
+  enrolledCourses: Course[];
 
-  @HasOne(() => Wishlist)
-  wishlist: Wishlist;
+  @BelongsToMany(() => Course, () => Cart)
+  cart: Course[];
+
+  @BelongsToMany(() => Course, () => Wishlist)
+  wishlist: Course[];
 }

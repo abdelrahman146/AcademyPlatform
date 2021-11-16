@@ -16,10 +16,16 @@ export class Answer extends Model {
 
   @ForeignKey(() => Option)
   @Column
-  answerId: Option;
+  choosedOptionId: number;
+
+  @BelongsTo(() => Option)
+  choosedOption: Option;
+
+  @ForeignKey(() => Attendance)
+  @Column
+  attendanceId: number;
 
   @BelongsTo(() => Attendance)
-  @Column
   Attendance: Attendance;
 
   @Column

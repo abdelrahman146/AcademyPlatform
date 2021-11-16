@@ -5,13 +5,19 @@ import { SubCategory } from './subcategory.model';
 
 @Table
 export class Course extends Model {
-  // teacher
-  @HasOne(() => User)
+  @ForeignKey(() => User)
+  @Column
+  userId: number;
+
+  @BelongsTo(() => User)
   teacher: User;
 
-  // enrolled students
   @BelongsToMany(() => User, () => Enrolled)
   students: User[];
+
+  @ForeignKey(() => SubCategory)
+  @Column
+  subcategoryId: number;
 
   @BelongsTo(() => SubCategory)
   subcategory: SubCategory;

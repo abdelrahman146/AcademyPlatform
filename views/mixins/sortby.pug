@@ -1,7 +1,0 @@
-mixin sortby(item, num, total)
-    .d-flex.flex-column.flex-sm-row.align-items-sm-center.mb-24pt(style='white-space: nowrap;')
-        small.flex.text-muted.text-headings.text-uppercase.mr-3.mb-2.mb-sm-0= t('limit', {item, num, total})
-        .w-auto.ml-sm-auto.table.d-flex.align-items-center.mb-2.mb-sm-0
-            small.text-muted.text-headings.text-uppercase.mr-3.d-none.d-sm-block= t('sortby')
-            a.sort.small.text-headings.text-uppercase(href='?sortby=newest' class=(query.sortby === 'newest' ? 'desc' : ''))= t('newest')
-            a.sort.small.text-headings.text-uppercase.ml-2(href='?sortby=popularity' class=(query.sortby === 'popularity' ? 'desc' : ''))= t('popularity')

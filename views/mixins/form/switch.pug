@@ -1,9 +1,0 @@
-mixin switch(id, label, value)
-    .flex
-        label.form-label(for=id)= label
-        br
-        .d-flex.align-items-center
-            .custom-control.custom-checkbox-toggle.custom-control-inline.mr-1
-                input.custom-control-input(checked='' type='checkbox', id=id)
-                label.custom-control-label(for=id)= value
-            label.form-label.mb-0(for=id)= value

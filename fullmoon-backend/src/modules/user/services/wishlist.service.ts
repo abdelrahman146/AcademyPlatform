@@ -1,42 +1,39 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Cart } from '../models/cart.model';
-import { Wishlist } from '../models/wishlist.model';
+import { WishlistItem } from '../models/wishlist.model';
 
 @Injectable()
 export class WishlistService {
   constructor(
-    @InjectModel(Wishlist)
-    private wishlistModel: typeof Wishlist,
+    @InjectModel(WishlistItem)
+    private wishlistModel: typeof WishlistItem,
   ) {}
 
-  async findAll(): Promise<Wishlist[]> {
-    const wishlists = await this.wishlistModel.findAll({ include: [Cart, Wishlist] });
+  async findAll(): Promise<WishlistItem[]> {
+    const wishlists = await this.wishlistModel.findAll();
     return wishlists;
   }
 
-  async findOne(id: string): Promise<Wishlist> {
+  async findOne(id: string): Promise<WishlistItem> {
     const wishlist = await this.wishlistModel.findOne({
       where: {
         id,
       },
-      include: [Cart, Wishlist],
     });
     return wishlist;
   }
 
-  async create(): Promise<Wishlist> {
-    const wishlist = new Wishlist();
+  async create(): Promise<WishlistItem> {
+    const wishlist = new WishlistItem();
     await wishlist.save();
     return wishlist;
   }
 
-  async update(id: number, wishlistObj: Wishlist): Promise<Wishlist> {
+  async update(id: number, wishlistObj: WishlistItem): Promise<WishlistItem> {
     const wishlist = await this.wishlistModel.findOne({
       where: {
         id,
       },
-      include: [Cart, Wishlist],
     });
     await wishlist.update(wishlistObj);
     return wishlist;
@@ -47,7 +44,6 @@ export class WishlistService {
       where: {
         id,
       },
-      include: [Cart, Wishlist],
     });
     await wishlist.destroy();
   }

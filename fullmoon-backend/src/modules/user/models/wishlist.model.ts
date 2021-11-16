@@ -1,9 +1,9 @@
-import { BelongsTo, Column, ForeignKey, HasMany, HasOne, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
 import { Course } from 'src/modules/course/models/course.model';
 import { User } from './user.model';
 
 @Table
-export class Wishlist extends Model {
+export class WishlistItem extends Model {
   @ForeignKey(() => User)
   @Column
   userId: number;

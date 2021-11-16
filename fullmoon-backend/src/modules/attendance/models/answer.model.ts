@@ -1,4 +1,4 @@
-import { BelongsTo, BelongsToMany, Column, ForeignKey, HasMany, HasOne, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
 import { Question } from 'src/modules/quiz/models/question.model';
 import { Option } from 'src/modules/quiz/models/option.model';
 import { User } from 'src/modules/user/models/user.model';
@@ -17,14 +17,12 @@ export class Answer extends Model {
   @ForeignKey(() => Option)
   @Column
   choosedOptionId: number;
-
   @BelongsTo(() => Option)
   choosedOption: Option;
 
   @ForeignKey(() => Attendance)
   @Column
   attendanceId: number;
-
   @BelongsTo(() => Attendance)
   Attendance: Attendance;
 

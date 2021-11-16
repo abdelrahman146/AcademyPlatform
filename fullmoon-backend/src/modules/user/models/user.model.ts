@@ -1,26 +1,62 @@
-import { BelongsToMany, Column, HasOne, Model, Table } from 'sequelize-typescript';
+import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
 import { Course } from 'src/modules/course/models/course.model';
-import { Enrolled } from 'src/modules/course/models/enrolled.model';
-import { Cart } from './cart.model';
-import { Wishlist } from './wishlist.model';
+import { EnrolledCourse } from 'src/modules/user/models/enrolled.model';
+import { CartItem } from './cart.model';
+import { WishlistItem } from './wishlist.model';
+
+enum UserRole {
+  admin = 'admin',
+  teacher = 'teacher',
+  student = 'student',
+}
 
 @Table
 export class User extends Model {
-  @Column
+  @Column({ type: DataType.ENUM('admin', 'teacher', 'student'), defaultValue: 'student' })
+  role: UserRole;
+
+  @Column(DataType.STRING)
   firstName: string;
 
-  @Column
+  @Column(DataType.STRING)
   lastName: string;
+
+  @Column(DataType.STRING)
+  title: string;
+
+  @Column({ type: DataType.STRING, validate: { max: Date.now() } })
+  dob: Date;
+
+  @Column({ type: DataType.STRING, validate: { isEmail: true } })
+  email: string;
+
+  @Column(DataType.STRING)
+  password: string;
+
+  @Column(DataType.STRING)
+  country: string;
+
+  @Column(DataType.STRING)
+  avatar: string;
+
+  @Column(DataType.STRING)
+  mobile: string;
+
+  @Column(DataType.TEXT)
+  bio: string;
 
   @Column({ defaultValue: true })
   isActive: boolean;
 
-  @BelongsToMany(() => Course, () => Enrolled)
+  // courses user enrolled to
+  @BelongsToMany(() => Course, () => EnrolledCourse)
   enrolledCourses: Course[];
 
-  @BelongsToMany(() => Course, () => Cart)
+  // courses user added to cart
+  @BelongsToMany(() => Course, () => CartItem)
   cart: Course[];
 
-  @BelongsToMany(() => Course, () => Wishlist)
+  // courses user added to wishlist
+  @BelongsToMany(() => Course, () => WishlistItem)
   wishlist: Course[];
 }

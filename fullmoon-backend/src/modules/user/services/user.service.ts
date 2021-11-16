@@ -3,9 +3,9 @@ import { InjectModel } from '@nestjs/sequelize';
 import { UserInsertObject } from '../dtos/user.insert.dto';
 import { UserResponseObject } from '../dtos/user.response.dto';
 import { UserUpdateObject } from '../dtos/user.update.dto';
-import { Cart } from '../models/cart.model';
+import { CartItem } from '../models/cart.model';
 import { User } from '../models/user.model';
-import { Wishlist } from '../models/wishlist.model';
+import { WishlistItem } from '../models/wishlist.model';
 
 @Injectable()
 export class UserService {
@@ -20,7 +20,7 @@ export class UserService {
   }
 
   async findAll(): Promise<User[]> {
-    const users = await this.userModel.findAll({ include: [Cart, Wishlist] });
+    const users = await this.userModel.findAll({ include: [CartItem, WishlistItem] });
     return users;
   }
 
@@ -29,7 +29,7 @@ export class UserService {
       where: {
         id,
       },
-      include: [Cart, Wishlist],
+      include: [CartItem, WishlistItem],
     });
     return user;
   }
@@ -45,7 +45,7 @@ export class UserService {
       where: {
         id,
       },
-      include: [Cart, Wishlist],
+      include: [CartItem, WishlistItem],
     });
     await user.update(userObj);
     return user;
@@ -56,7 +56,7 @@ export class UserService {
       where: {
         id,
       },
-      include: [Cart, Wishlist],
+      include: [CartItem, WishlistItem],
     });
     await user.destroy();
   }

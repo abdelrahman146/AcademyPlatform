@@ -1,15 +1,10 @@
 import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
 import { Course } from 'src/modules/course/entities/course.entity';
 import { Exclude } from 'class-transformer';
-import { EnrolledCourse } from 'src/modules/user/entities/enrolled.entity';
-import { CartItem } from './cart.entity';
-import { WishlistItem } from './wishlist.entity';
-
-enum UserRole {
-  admin = 'admin',
-  teacher = 'teacher',
-  student = 'student',
-}
+import { Enrollment } from 'src/modules/user/entities/enrollment.entity';
+import { CartItem } from './cartitem.entity';
+import { WishlistItem } from './wishlistitem.entity';
+import { UserRole } from '../types/user.types';
 
 @Table
 export class User extends Model {
@@ -51,8 +46,8 @@ export class User extends Model {
   isActive: boolean;
 
   // courses user enrolled to
-  @BelongsToMany(() => Course, () => EnrolledCourse)
-  enrolledCourses: Course[];
+  @BelongsToMany(() => Course, () => Enrollment)
+  Enrollments: Array<Course & { enrollment: Enrollment }>;
 
   // courses user added to cart
   @BelongsToMany(() => Course, () => CartItem)

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { WishlistItem } from '../entities/wishlist.entity';
+import { WishlistItem } from '../entities/wishlistitem.entity';
 
 @Injectable()
 export class WishlistItemService {

@@ -1,6 +1,6 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
 import { User } from 'src/modules/user/entities/user.entity';
-import { EnrolledCourse } from '../../user/entities/enrolled.entity';
+import { Enrollment } from '../../user/entities/enrollment.entity';
 import { Section } from './section.entity';
 import { SubCategory } from './subcategory.entity';
 
@@ -50,8 +50,8 @@ export class Course extends Model {
   teacher: User;
 
   // students who enrolled to the course
-  @BelongsToMany(() => User, () => EnrolledCourse)
-  students: User[];
+  @BelongsToMany(() => User, () => Enrollment)
+  students: Array<User & { enrollment: Enrollment }>;
 
   // course subcategory
   @ForeignKey(() => SubCategory)

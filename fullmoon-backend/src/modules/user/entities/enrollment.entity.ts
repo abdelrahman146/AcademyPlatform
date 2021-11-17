@@ -4,7 +4,7 @@ import { User } from 'src/modules/user/entities/user.entity';
 import { Course } from '../../course/entities/course.entity';
 
 @Table
-export class EnrolledCourse extends Model {
+export class Enrollment extends Model {
   @Column({ type: DataType.BOOLEAN, defaultValue: false })
   passed: boolean;
 

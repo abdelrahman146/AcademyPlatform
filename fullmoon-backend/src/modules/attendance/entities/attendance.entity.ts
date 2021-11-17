@@ -1,7 +1,7 @@
 import { Column, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
 import { Lecture } from 'src/modules/lecture/entities/lecture.entity';
 import { Quiz } from 'src/modules/quiz/entities/quiz.entity';
-import { EnrolledCourse } from 'src/modules/user/entities/enrolled.entity';
+import { Enrollment } from 'src/modules/user/entities/enrollment.entity';
 import { User } from 'src/modules/user/entities/user.entity';
 import { Answer } from './answer.entity';
 
@@ -15,7 +15,7 @@ export class Attendance extends Model {
   @Column
   lectureId: number;
 
-  @ForeignKey(() => EnrolledCourse)
+  @ForeignKey(() => Enrollment)
   @Column
   enrolledId: number;
 

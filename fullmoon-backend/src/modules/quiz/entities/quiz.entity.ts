@@ -34,5 +34,5 @@ export class Quiz extends Model {
   section: Section;
 
   @BelongsToMany(() => User, () => Attendance)
-  attendanceList: Attendance[];
+  attendanceList: Array<User & { attendance: Attendance }>;
 }

@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Quiz } from '../entities/quiz.model';
+import { Quiz } from '../entities/quiz.entity';
 
 @Injectable()
 export class QuizService {
   constructor(
     @InjectModel(Quiz)
-    private quizModel: typeof Quiz,
+    private quizEntity: typeof Quiz,
   ) {}
 
   async findAll(): Promise<Quiz[]> {
-    const quizs = await this.quizModel.findAll();
+    const quizs = await this.quizEntity.findAll();
     return quizs;
   }
 
   async findOne(id: number): Promise<Quiz> {
-    const quiz = await this.quizModel.findOne({
+    const quiz = await this.quizEntity.findOne({
       where: {
         id,
       },

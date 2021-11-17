@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { CartItem } from '../entities/cart.model';
+import { CartItem } from '../entities/cart.entity';
 
 @Injectable()
 export class CartItemService {
   constructor(
     @InjectModel(CartItem)
-    private cartItemModel: typeof CartItem,
+    private cartItemEntity: typeof CartItem,
   ) {}
 
   async findAll(): Promise<CartItem[]> {
-    const cartItems = await this.cartItemModel.findAll();
+    const cartItems = await this.cartItemEntity.findAll();
     return cartItems;
   }
 
   async findOne(id: number): Promise<CartItem> {
-    const cartItem = await this.cartItemModel.findOne({
+    const cartItem = await this.cartItemEntity.findOne({
       where: {
         id,
       },

@@ -1,5 +1,5 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { Question } from './question.model';
+import { Question } from './question.entity';
 
 @Table({ timestamps: false })
 export class Option extends Model {

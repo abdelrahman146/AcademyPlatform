@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Category } from '../entities/category.model';
+import { Category } from '../entities/category.entity';
 
 @Injectable()
 export class CategoryService {
   constructor(
     @InjectModel(Category)
-    private categoryModel: typeof Category,
+    private categoryEntity: typeof Category,
   ) {}
 
   async findAll(): Promise<Category[]> {
-    const categories = await this.categoryModel.findAll();
+    const categories = await this.categoryEntity.findAll();
     return categories;
   }
 
   async findOne(id: number): Promise<Category> {
-    const category = await this.categoryModel.findOne({
+    const category = await this.categoryEntity.findOne({
       where: {
         id,
       },

@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { SubCategory } from '../entities/subcategory.model';
+import { SubCategory } from '../entities/subcategory.entity';
 
 @Injectable()
 export class SubCategoryService {
   constructor(
     @InjectModel(SubCategory)
-    private subcategoryModel: typeof SubCategory,
+    private subcategoryEntity: typeof SubCategory,
   ) {}
 
   async findAll(): Promise<SubCategory[]> {
-    const subcategories = await this.subcategoryModel.findAll();
+    const subcategories = await this.subcategoryEntity.findAll();
     return subcategories;
   }
 
   async findOne(id: number): Promise<SubCategory> {
-    const subcategory = await this.subcategoryModel.findOne({
+    const subcategory = await this.subcategoryEntity.findOne({
       where: {
         id,
       },

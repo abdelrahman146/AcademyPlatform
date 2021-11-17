@@ -1,9 +1,9 @@
 import { Column, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Lecture } from 'src/modules/lecture/entities/lecture.model';
-import { Quiz } from 'src/modules/quiz/entities/quiz.model';
-import { EnrolledCourse } from 'src/modules/user/entities/enrolled.model';
-import { User } from 'src/modules/user/entities/user.model';
-import { Answer } from './answer.model';
+import { Lecture } from 'src/modules/lecture/entities/lecture.entity';
+import { Quiz } from 'src/modules/quiz/entities/quiz.entity';
+import { EnrolledCourse } from 'src/modules/user/entities/enrolled.entity';
+import { User } from 'src/modules/user/entities/user.entity';
+import { Answer } from './answer.entity';
 
 @Table
 export class Attendance extends Model {

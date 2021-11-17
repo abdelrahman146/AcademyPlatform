@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Option } from '../entities/option.model';
+import { Option } from '../entities/option.entity';
 
 @Injectable()
 export class OptionService {
   constructor(
     @InjectModel(Option)
-    private optionModel: typeof Option,
+    private optionEntity: typeof Option,
   ) {}
 
   async findAll(): Promise<Option[]> {
-    const options = await this.optionModel.findAll();
+    const options = await this.optionEntity.findAll();
     return options;
   }
 
   async findOne(id: number): Promise<Option> {
-    const option = await this.optionModel.findOne({
+    const option = await this.optionEntity.findOne({
       where: {
         id,
       },

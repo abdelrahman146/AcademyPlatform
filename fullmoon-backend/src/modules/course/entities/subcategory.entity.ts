@@ -1,6 +1,6 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Category } from './category.model';
-import { Course } from './course.model';
+import { Category } from './category.entity';
+import { Course } from './course.entity';
 
 @Table({ timestamps: false })
 export class SubCategory extends Model {

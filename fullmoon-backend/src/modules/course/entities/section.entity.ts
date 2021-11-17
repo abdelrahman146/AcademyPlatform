@@ -1,7 +1,7 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Lecture } from 'src/modules/lecture/entities/lecture.model';
-import { Quiz } from 'src/modules/quiz/entities/quiz.model';
-import { Course } from './course.model';
+import { Lecture } from 'src/modules/lecture/entities/lecture.entity';
+import { Quiz } from 'src/modules/quiz/entities/quiz.entity';
+import { Course } from './course.entity';
 
 @Table({ timestamps: false })
 export class Section extends Model {

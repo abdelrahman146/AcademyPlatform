@@ -1,8 +1,8 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Max, Min, Model, Table } from 'sequelize-typescript';
-import { Attendance } from 'src/modules/attendance/entities/attendance.model';
-import { Section } from 'src/modules/course/entities/section.model';
-import { User } from 'src/modules/user/entities/user.model';
-import { Question } from './question.model';
+import { Attendance } from 'src/modules/attendance/entities/attendance.entity';
+import { Section } from 'src/modules/course/entities/section.entity';
+import { User } from 'src/modules/user/entities/user.entity';
+import { Question } from './question.entity';
 
 @Table
 export class Quiz extends Model {

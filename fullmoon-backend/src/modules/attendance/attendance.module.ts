@@ -6,8 +6,8 @@ import { QuizModule } from '../quiz/quiz.module';
 import { UserModule } from '../user/user.module';
 
 // Models
-import { Answer } from './entities/answer.model';
-import { Attendance } from './entities/attendance.model';
+import { Answer } from './entities/answer.entity';
+import { Attendance } from './entities/attendance.entity';
 
 @Module({
   imports: [SequelizeModule.forFeature([Answer, Attendance]), CourseModule, LectureModule, QuizModule, UserModule],

@@ -4,20 +4,20 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { join } from 'path';
 
 /* Models */
-import { Answer } from './modules/attendance/entities/answer.model';
-import { Attendance } from './modules/attendance/entities/attendance.model';
-import { Category } from './modules/course/entities/category.model';
-import { Course } from './modules/course/entities/course.model';
-import { EnrolledCourse } from './modules/user/entities/enrolled.model';
-import { Section } from './modules/course/entities/section.model';
-import { SubCategory } from './modules/course/entities/subcategory.model';
-import { Lecture } from './modules/lecture/entities/lecture.model';
-import { Option } from './modules/quiz/entities/option.model';
-import { Question } from './modules/quiz/entities/question.model';
-import { Quiz } from './modules/quiz/entities/quiz.model';
-import { CartItem } from './modules/user/entities/cart.model';
-import { User } from './modules/user/entities/user.model';
-import { WishlistItem } from './modules/user/entities/wishlist.model';
+import { Answer } from './modules/attendance/entities/answer.entity';
+import { Attendance } from './modules/attendance/entities/attendance.entity';
+import { Category } from './modules/course/entities/category.entity';
+import { Course } from './modules/course/entities/course.entity';
+import { EnrolledCourse } from './modules/user/entities/enrolled.entity';
+import { Section } from './modules/course/entities/section.entity';
+import { SubCategory } from './modules/course/entities/subcategory.entity';
+import { Lecture } from './modules/lecture/entities/lecture.entity';
+import { Option } from './modules/quiz/entities/option.entity';
+import { Question } from './modules/quiz/entities/question.entity';
+import { Quiz } from './modules/quiz/entities/quiz.entity';
+import { CartItem } from './modules/user/entities/cart.entity';
+import { User } from './modules/user/entities/user.entity';
+import { WishlistItem } from './modules/user/entities/wishlist.entity';
 import { GraphQLModule } from '@nestjs/graphql';
 
 const infrastructurePath = join(process.cwd(), 'src/infrastructure');

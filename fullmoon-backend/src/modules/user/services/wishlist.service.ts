@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { WishlistItem } from '../entities/wishlist.model';
+import { WishlistItem } from '../entities/wishlist.entity';
 
 @Injectable()
 export class WishlistItemService {
   constructor(
     @InjectModel(WishlistItem)
-    private wishlistItemModel: typeof WishlistItem,
+    private wishlistItemEntity: typeof WishlistItem,
   ) {}
 
   async findAll(): Promise<WishlistItem[]> {
-    const wishlistItems = await this.wishlistItemModel.findAll();
+    const wishlistItems = await this.wishlistItemEntity.findAll();
     return wishlistItems;
   }
 
   async findOne(id: number): Promise<WishlistItem> {
-    const wishlistItem = await this.wishlistItemModel.findOne({
+    const wishlistItem = await this.wishlistItemEntity.findOne({
       where: {
         id,
       },

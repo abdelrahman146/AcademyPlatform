@@ -1,9 +1,9 @@
 import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
-import { Course } from 'src/modules/course/entities/course.model';
+import { Course } from 'src/modules/course/entities/course.entity';
 import { Exclude } from 'class-transformer';
-import { EnrolledCourse } from 'src/modules/user/entities/enrolled.model';
-import { CartItem } from './cart.model';
-import { WishlistItem } from './wishlist.model';
+import { EnrolledCourse } from 'src/modules/user/entities/enrolled.entity';
+import { CartItem } from './cart.entity';
+import { WishlistItem } from './wishlist.entity';
 
 enum UserRole {
   admin = 'admin',

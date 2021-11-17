@@ -23,13 +23,13 @@ export class AttendanceService {
     return attendance;
   }
 
-  async create(attendanceObj: Attendance): Promise<Attendance> {
+  async create(attendanceObj: Partial<Attendance>): Promise<Attendance> {
     const attendance = new Attendance(attendanceObj);
     await attendance.save();
     return attendance;
   }
 
-  async update(id: number, attendanceObj: Attendance): Promise<Attendance> {
+  async update(id: number, attendanceObj: Partial<Attendance>): Promise<Attendance> {
     const attendance = await this.findOne(id);
     await attendance.update(attendanceObj);
     return attendance;

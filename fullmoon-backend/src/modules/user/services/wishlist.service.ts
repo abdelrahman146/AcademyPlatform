@@ -23,13 +23,13 @@ export class WishlistItemService {
     return wishlistItem;
   }
 
-  async create(wishlistItemObj: WishlistItem): Promise<WishlistItem> {
+  async create(wishlistItemObj: Partial<WishlistItem>): Promise<WishlistItem> {
     const wishlistItem = new WishlistItem(wishlistItemObj);
     await wishlistItem.save();
     return wishlistItem;
   }
 
-  async update(id: number, wishlistItemObj: WishlistItem): Promise<WishlistItem> {
+  async update(id: number, wishlistItemObj: Partial<WishlistItem>): Promise<WishlistItem> {
     const wishlistItem = await this.findOne(id);
     await wishlistItem.update(wishlistItemObj);
     return wishlistItem;

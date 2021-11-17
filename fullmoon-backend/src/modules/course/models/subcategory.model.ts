@@ -2,7 +2,7 @@ import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from '
 import { Category } from './category.model';
 import { Course } from './course.model';
 
-@Table
+@Table({ timestamps: false })
 export class SubCategory extends Model {
   @Column(DataType.STRING)
   title: string;

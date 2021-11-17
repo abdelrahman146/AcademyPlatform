@@ -23,13 +23,13 @@ export class SectionService {
     return section;
   }
 
-  async create(sectionObj: Section): Promise<Section> {
+  async create(sectionObj: Partial<Section>): Promise<Section> {
     const section = new Section(sectionObj);
     await section.save();
     return section;
   }
 
-  async update(id: number, sectionObj: Section): Promise<Section> {
+  async update(id: number, sectionObj: Partial<Section>): Promise<Section> {
     const section = await this.findOne(id);
     await section.update(sectionObj);
     return section;

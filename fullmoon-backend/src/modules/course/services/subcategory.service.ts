@@ -23,13 +23,13 @@ export class SubCategoryService {
     return subcategory;
   }
 
-  async create(subcategoryObj: SubCategory): Promise<SubCategory> {
+  async create(subcategoryObj: Partial<SubCategory>): Promise<SubCategory> {
     const subcategory = new SubCategory(subcategoryObj);
     await subcategory.save();
     return subcategory;
   }
 
-  async update(id: number, subcategoryObj: SubCategory): Promise<SubCategory> {
+  async update(id: number, subcategoryObj: Partial<SubCategory>): Promise<SubCategory> {
     const subcategory = await this.findOne(id);
     await subcategory.update(subcategoryObj);
     return subcategory;

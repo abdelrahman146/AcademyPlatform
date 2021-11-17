@@ -3,7 +3,7 @@ import { Lecture } from 'src/modules/lecture/models/lecture.model';
 import { Quiz } from 'src/modules/quiz/models/quiz.model';
 import { Course } from './course.model';
 
-@Table
+@Table({ timestamps: false })
 export class Section extends Model {
   @Column(DataType.SMALLINT)
   order: number;

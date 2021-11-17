@@ -4,7 +4,7 @@ import { Option } from 'src/modules/quiz/models/option.model';
 import { User } from 'src/modules/user/models/user.model';
 import { Attendance } from './attendance.model';
 
-@Table
+@Table({ timestamps: false })
 export class Answer extends Model {
   @ForeignKey(() => User)
   @Column

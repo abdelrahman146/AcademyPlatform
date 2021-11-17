@@ -26,13 +26,13 @@ export class UserService {
     return user;
   }
 
-  async create(userObj: User): Promise<User> {
+  async create(userObj: Partial<User>): Promise<User> {
     const user = new User(userObj);
     await user.save();
     return user;
   }
 
-  async update(id: number, userObj: User): Promise<User> {
+  async update(id: number, userObj: Partial<User>): Promise<User> {
     const user = await this.findOne(id);
     await user.update(userObj);
     return user;

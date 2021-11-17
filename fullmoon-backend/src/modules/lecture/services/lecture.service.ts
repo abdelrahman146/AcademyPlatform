@@ -23,13 +23,13 @@ export class LectureService {
     return lecture;
   }
 
-  async create(lectureObj: Lecture): Promise<Lecture> {
+  async create(lectureObj: Partial<Lecture>): Promise<Lecture> {
     const lecture = new Lecture(lectureObj);
     await lecture.save();
     return lecture;
   }
 
-  async update(id: number, lectureObj: Lecture): Promise<Lecture> {
+  async update(id: number, lectureObj: Partial<Lecture>): Promise<Lecture> {
     const lecture = await this.findOne(id);
     await lecture.update(lectureObj);
     return lecture;

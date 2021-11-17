@@ -23,13 +23,13 @@ export class QuizService {
     return quiz;
   }
 
-  async create(quizObj: Quiz): Promise<Quiz> {
+  async create(quizObj: Partial<Quiz>): Promise<Quiz> {
     const quiz = new Quiz(quizObj);
     await quiz.save();
     return quiz;
   }
 
-  async update(id: number, quizObj: Quiz): Promise<Quiz> {
+  async update(id: number, quizObj: Partial<Quiz>): Promise<Quiz> {
     const quiz = await this.findOne(id);
     await quiz.update(quizObj);
     return quiz;

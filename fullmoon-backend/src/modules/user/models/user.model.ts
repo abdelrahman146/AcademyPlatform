@@ -1,5 +1,6 @@
 import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
 import { Course } from 'src/modules/course/models/course.model';
+import { Exclude } from 'class-transformer';
 import { EnrolledCourse } from 'src/modules/user/models/enrolled.model';
 import { CartItem } from './cart.model';
 import { WishlistItem } from './wishlist.model';
@@ -30,6 +31,7 @@ export class User extends Model {
   @Column({ type: DataType.STRING, validate: { isEmail: true } })
   email: string;
 
+  @Exclude()
   @Column(DataType.STRING)
   password: string;
 

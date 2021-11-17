@@ -23,13 +23,13 @@ export class OptionService {
     return option;
   }
 
-  async create(optionObj: Option): Promise<Option> {
+  async create(optionObj: Partial<Option>): Promise<Option> {
     const option = new Option(optionObj);
     await option.save();
     return option;
   }
 
-  async update(id: number, optionObj: Option): Promise<Option> {
+  async update(id: number, optionObj: Partial<Option>): Promise<Option> {
     const option = await this.findOne(id);
     await option.update(optionObj);
     return option;

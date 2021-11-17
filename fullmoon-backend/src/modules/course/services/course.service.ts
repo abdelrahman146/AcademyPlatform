@@ -23,13 +23,13 @@ export class CourseService {
     return course;
   }
 
-  async create(courseObj: Course): Promise<Course> {
+  async create(courseObj: Partial<Course>): Promise<Course> {
     const course = new Course(courseObj);
     await course.save();
     return course;
   }
 
-  async update(id: number, courseObj: Course): Promise<Course> {
+  async update(id: number, courseObj: Partial<Course>): Promise<Course> {
     const course = await this.findOne(id);
     await course.update(courseObj);
     return course;

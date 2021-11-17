@@ -23,13 +23,13 @@ export class CategoryService {
     return category;
   }
 
-  async create(categoryObj: Category): Promise<Category> {
+  async create(categoryObj: Partial<Category>): Promise<Category> {
     const category = new Category(categoryObj);
     await category.save();
     return category;
   }
 
-  async update(id: number, categoryObj: Category): Promise<Category> {
+  async update(id: number, categoryObj: Partial<Category>): Promise<Category> {
     const category = await this.findOne(id);
     await category.update(categoryObj);
     return category;

@@ -23,13 +23,13 @@ export class CartItemService {
     return cartItem;
   }
 
-  async create(cartItemObj: CartItem): Promise<CartItem> {
+  async create(cartItemObj: Partial<CartItem>): Promise<CartItem> {
     const cartItem = new CartItem(cartItemObj);
     await cartItem.save();
     return cartItem;
   }
 
-  async update(id: number, cartItemObj: CartItem): Promise<CartItem> {
+  async update(id: number, cartItemObj: Partial<CartItem>): Promise<CartItem> {
     const cartItem = await this.findOne(id);
     await cartItem.update(cartItemObj);
     return cartItem;

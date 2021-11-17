@@ -1,5 +1,5 @@
 import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { Course } from 'src/modules/course/models/course.model';
+import { Course } from 'src/modules/course/entities/course.model';
 import { User } from './user.model';
 
 @Table({ timestamps: false })

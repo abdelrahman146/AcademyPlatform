@@ -1,7 +1,7 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { Attendance } from 'src/modules/attendance/models/attendance.model';
-import { Section } from 'src/modules/course/models/section.model';
-import { User } from 'src/modules/user/models/user.model';
+import { Attendance } from 'src/modules/attendance/entities/attendance.model';
+import { Section } from 'src/modules/course/entities/section.model';
+import { User } from 'src/modules/user/entities/user.model';
 
 enum LectureType {
   VIDEO = 'video',

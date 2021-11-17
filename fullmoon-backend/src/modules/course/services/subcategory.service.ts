@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { SubCategory } from '../models/subcategory.model';
+import { SubCategory } from '../entities/subcategory.model';
 
 @Injectable()
 export class SubCategoryService {

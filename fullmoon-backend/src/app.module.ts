@@ -4,20 +4,21 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { join } from 'path';
 
 /* Models */
-import { Answer } from './modules/attendance/models/answer.model';
-import { Attendance } from './modules/attendance/models/attendance.model';
-import { Category } from './modules/course/models/category.model';
-import { Course } from './modules/course/models/course.model';
-import { EnrolledCourse } from './modules/user/models/enrolled.model';
-import { Section } from './modules/course/models/section.model';
-import { SubCategory } from './modules/course/models/subcategory.model';
-import { Lecture } from './modules/lecture/models/lecture.model';
-import { Option } from './modules/quiz/models/option.model';
-import { Question } from './modules/quiz/models/question.model';
-import { Quiz } from './modules/quiz/models/quiz.model';
-import { CartItem } from './modules/user/models/cart.model';
-import { User } from './modules/user/models/user.model';
-import { WishlistItem } from './modules/user/models/wishlist.model';
+import { Answer } from './modules/attendance/entities/answer.model';
+import { Attendance } from './modules/attendance/entities/attendance.model';
+import { Category } from './modules/course/entities/category.model';
+import { Course } from './modules/course/entities/course.model';
+import { EnrolledCourse } from './modules/user/entities/enrolled.model';
+import { Section } from './modules/course/entities/section.model';
+import { SubCategory } from './modules/course/entities/subcategory.model';
+import { Lecture } from './modules/lecture/entities/lecture.model';
+import { Option } from './modules/quiz/entities/option.model';
+import { Question } from './modules/quiz/entities/question.model';
+import { Quiz } from './modules/quiz/entities/quiz.model';
+import { CartItem } from './modules/user/entities/cart.model';
+import { User } from './modules/user/entities/user.model';
+import { WishlistItem } from './modules/user/entities/wishlist.model';
+import { GraphQLModule } from '@nestjs/graphql';
 
 const infrastructurePath = join(process.cwd(), 'src/infrastructure');
 
@@ -29,6 +30,9 @@ const infrastructurePath = join(process.cwd(), 'src/infrastructure');
       autoLoadModels: true,
       synchronize: true,
       models: [Attendance, Answer, Category, Course, EnrolledCourse, Section, SubCategory, Lecture, Option, Question, Quiz, CartItem, User, WishlistItem],
+    }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(infrastructurePath, 'schema.gql'),
     }),
   ],
   controllers: [],

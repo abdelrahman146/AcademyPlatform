@@ -4,7 +4,7 @@ import { AttendanceModule } from '../attendance/attendance.module';
 import { CourseModule } from '../course/course.module';
 
 // Models
-import { Lecture } from './models/lecture.model';
+import { Lecture } from './entities/lecture.model';
 
 @Module({
   imports: [SequelizeModule.forFeature([Lecture]), AttendanceModule, CourseModule],

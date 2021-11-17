@@ -1,7 +1,7 @@
 import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
-import { Course } from 'src/modules/course/models/course.model';
+import { Course } from 'src/modules/course/entities/course.model';
 import { Exclude } from 'class-transformer';
-import { EnrolledCourse } from 'src/modules/user/models/enrolled.model';
+import { EnrolledCourse } from 'src/modules/user/entities/enrolled.model';
 import { CartItem } from './cart.model';
 import { WishlistItem } from './wishlist.model';
 

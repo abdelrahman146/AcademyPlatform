@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Quiz } from '../models/quiz.model';
+import { Quiz } from '../entities/quiz.model';
 
 @Injectable()
 export class QuizService {

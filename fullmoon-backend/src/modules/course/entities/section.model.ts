@@ -1,6 +1,6 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Lecture } from 'src/modules/lecture/models/lecture.model';
-import { Quiz } from 'src/modules/quiz/models/quiz.model';
+import { Lecture } from 'src/modules/lecture/entities/lecture.model';
+import { Quiz } from 'src/modules/quiz/entities/quiz.model';
 import { Course } from './course.model';
 
 @Table({ timestamps: false })

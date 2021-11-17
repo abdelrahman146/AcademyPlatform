@@ -1,6 +1,6 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { User } from 'src/modules/user/models/user.model';
-import { EnrolledCourse } from '../../user/models/enrolled.model';
+import { User } from 'src/modules/user/entities/user.model';
+import { EnrolledCourse } from '../../user/entities/enrolled.model';
 import { Section } from './section.model';
 import { SubCategory } from './subcategory.model';
 

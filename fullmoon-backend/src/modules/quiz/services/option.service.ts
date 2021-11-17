@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Option } from '../models/option.model';
+import { Option } from '../entities/option.model';
 
 @Injectable()
 export class OptionService {

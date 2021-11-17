@@ -1,7 +1,7 @@
 import { Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Attendance } from 'src/modules/attendance/models/attendance.model';
-import { User } from 'src/modules/user/models/user.model';
-import { Course } from '../../course/models/course.model';
+import { Attendance } from 'src/modules/attendance/entities/attendance.model';
+import { User } from 'src/modules/user/entities/user.model';
+import { Course } from '../../course/entities/course.model';
 
 @Table
 export class EnrolledCourse extends Model {

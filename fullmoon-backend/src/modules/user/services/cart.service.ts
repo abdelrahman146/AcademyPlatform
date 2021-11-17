@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { CartItem } from '../models/cart.model';
+import { CartItem } from '../entities/cart.model';
 
 @Injectable()
 export class CartItemService {

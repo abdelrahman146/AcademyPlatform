@@ -1,20 +1,20 @@
 import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { Course } from 'src/modules/course/entities/course.entity';
-import { User } from './user.entity';
+import { CourseEntity } from 'src/modules/course/entities/course.entity';
+import { UserEntity } from './user.entity';
 
 @Table({ timestamps: false })
-export class WishlistItem extends Model {
-  @ForeignKey(() => User)
+export class WishlistItemEntity extends Model {
+  @ForeignKey(() => UserEntity)
   @Column
   userId: number;
 
-  @BelongsTo(() => User)
-  user: User;
+  @BelongsTo(() => UserEntity)
+  user: UserEntity;
 
-  @ForeignKey(() => Course)
+  @ForeignKey(() => CourseEntity)
   @Column
   courseId: number;
 
-  @BelongsTo(() => Course)
-  course: Course;
+  @BelongsTo(() => CourseEntity)
+  course: CourseEntity;
 }

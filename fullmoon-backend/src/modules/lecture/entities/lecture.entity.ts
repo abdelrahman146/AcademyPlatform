@@ -1,7 +1,7 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { Attendance } from 'src/modules/attendance/entities/attendance.entity';
-import { Section } from 'src/modules/course/entities/section.entity';
-import { User } from 'src/modules/user/entities/user.entity';
+import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.entity';
+import { SectionEntity } from 'src/modules/course/entities/section.entity';
+import { UserEntity } from 'src/modules/user/entities/user.entity';
 
 enum LectureType {
   VIDEO = 'video',
@@ -11,7 +11,7 @@ enum LectureType {
 }
 
 @Table
-export class Lecture extends Model {
+export class LectureEntity extends Model {
   @Column({ type: DataType.ENUM('video', 'stream', 'conference', 'article'), defaultValue: 'article' })
   type: LectureType;
 
@@ -39,13 +39,13 @@ export class Lecture extends Model {
   @Column({ type: DataType.STRING })
   conferenceId: string;
 
-  @ForeignKey(() => Section)
+  @ForeignKey(() => SectionEntity)
   @Column
   sectionId: number;
 
-  @BelongsTo(() => Section)
-  section: Section;
+  @BelongsTo(() => SectionEntity)
+  section: SectionEntity;
 
-  @BelongsToMany(() => User, () => Attendance)
-  attendanceList: Array<User & { attendance: Attendance }>;
+  @BelongsToMany(() => UserEntity, () => AttendanceEntity)
+  attendanceList: Array<UserEntity & { attendance: AttendanceEntity }>;
 }

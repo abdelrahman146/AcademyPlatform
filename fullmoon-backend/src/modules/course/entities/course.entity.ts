@@ -1,16 +1,12 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { User } from 'src/modules/user/entities/user.entity';
-import { Enrollment } from '../../user/entities/enrollment.entity';
-import { Section } from './section.entity';
-import { SubCategory } from './subcategory.entity';
-
-enum CourseType {
-  recorded = 'recorded',
-  live = 'live',
-}
+import { UserEntity } from 'src/modules/user/entities/user.entity';
+import { EnrollmentEntity } from '../../user/entities/enrollment.entity';
+import { CourseType } from '../types/course.types';
+import { SectionEntity } from './section.entity';
+import { SubCategoryEntity } from './subcategory.entity';
 
 @Table
-export class Course extends Model {
+export class CourseEntity extends Model {
   @Column({ type: DataType.ENUM('recorded', 'live'), defaultValue: 'recorded' })
   type: CourseType;
 
@@ -39,24 +35,24 @@ export class Course extends Model {
   price: number;
 
   // course sections
-  @HasMany(() => Section)
-  sections: Section[];
+  @HasMany(() => SectionEntity)
+  sections: SectionEntity[];
 
   // teacher of the course
-  @ForeignKey(() => User)
+  @ForeignKey(() => UserEntity)
   @Column
   teacherId: number;
-  @BelongsTo(() => User)
-  teacher: User;
+  @BelongsTo(() => UserEntity)
+  teacher: UserEntity;
 
   // students who enrolled to the course
-  @BelongsToMany(() => User, () => Enrollment)
-  students: Array<User & { enrollment: Enrollment }>;
+  @BelongsToMany(() => UserEntity, () => EnrollmentEntity)
+  students: Array<UserEntity & { enrollment: EnrollmentEntity }>;
 
   // course subcategory
-  @ForeignKey(() => SubCategory)
+  @ForeignKey(() => SubCategoryEntity)
   @Column
   subcategoryId: number;
-  @BelongsTo(() => SubCategory)
-  subcategory: SubCategory;
+  @BelongsTo(() => SubCategoryEntity)
+  subcategory: SubCategoryEntity;
 }

@@ -1,21 +1,21 @@
 import { Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Attendance } from 'src/modules/attendance/entities/attendance.entity';
-import { User } from 'src/modules/user/entities/user.entity';
-import { Course } from '../../course/entities/course.entity';
+import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.entity';
+import { UserEntity } from 'src/modules/user/entities/user.entity';
+import { CourseEntity } from '../../course/entities/course.entity';
 
 @Table
-export class Enrollment extends Model {
+export class EnrollmentEntity extends Model {
   @Column({ type: DataType.BOOLEAN, defaultValue: false })
   passed: boolean;
 
-  @ForeignKey(() => User)
+  @ForeignKey(() => UserEntity)
   @Column
   studentId: number;
 
-  @ForeignKey(() => Course)
+  @ForeignKey(() => CourseEntity)
   @Column
   courseId: number;
 
-  @HasMany(() => Attendance)
-  attendances: Attendance[];
+  @HasMany(() => AttendanceEntity)
+  attendances: AttendanceEntity[];
 }

@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { WishlistItem } from '../entities/wishlistitem.entity';
+import { WishlistItemEntity } from '../entities/wishlistitem.entity';
 
 @Injectable()
-export class WishlistItemService {
+export class WishlistItemEntityService {
   constructor(
-    @InjectModel(WishlistItem)
-    private wishlistItemEntity: typeof WishlistItem,
+    @InjectModel(WishlistItemEntity)
+    private wishlistItemEntity: typeof WishlistItemEntity,
   ) {}
 
-  async findAll(): Promise<WishlistItem[]> {
+  async findAll(): Promise<WishlistItemEntity[]> {
     const wishlistItems = await this.wishlistItemEntity.findAll();
     return wishlistItems;
   }
 
-  async findOne(id: number): Promise<WishlistItem> {
+  async findOne(id: number): Promise<WishlistItemEntity> {
     const wishlistItem = await this.wishlistItemEntity.findOne({
       where: {
         id,
@@ -23,13 +23,13 @@ export class WishlistItemService {
     return wishlistItem;
   }
 
-  async create(wishlistItemObj: Partial<WishlistItem>): Promise<WishlistItem> {
-    const wishlistItem = new WishlistItem(wishlistItemObj);
+  async create(wishlistItemObj: Partial<WishlistItemEntity>): Promise<WishlistItemEntity> {
+    const wishlistItem = new WishlistItemEntity(wishlistItemObj);
     await wishlistItem.save();
     return wishlistItem;
   }
 
-  async update(id: number, wishlistItemObj: Partial<WishlistItem>): Promise<WishlistItem> {
+  async update(id: number, wishlistItemObj: Partial<WishlistItemEntity>): Promise<WishlistItemEntity> {
     const wishlistItem = await this.findOne(id);
     await wishlistItem.update(wishlistItemObj);
     return wishlistItem;

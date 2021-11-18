@@ -1,13 +1,13 @@
 import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
-import { Course } from 'src/modules/course/entities/course.entity';
+import { CourseEntity } from 'src/modules/course/entities/course.entity';
 import { Exclude } from 'class-transformer';
-import { Enrollment } from 'src/modules/user/entities/enrollment.entity';
-import { CartItem } from './cartitem.entity';
-import { WishlistItem } from './wishlistitem.entity';
+import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
+import { CartItemEntity } from './cartitem.entity';
+import { WishlistItemEntity } from './wishlistitem.entity';
 import { UserRole } from '../types/user.types';
 
 @Table
-export class User extends Model {
+export class UserEntity extends Model {
   @Column({ type: DataType.ENUM('admin', 'teacher', 'student'), defaultValue: 'student' })
   role: UserRole;
 
@@ -46,14 +46,14 @@ export class User extends Model {
   isActive: boolean;
 
   // courses user enrolled to
-  @BelongsToMany(() => Course, () => Enrollment)
-  Enrollments: Array<Course & { enrollment: Enrollment }>;
+  @BelongsToMany(() => CourseEntity, () => EnrollmentEntity)
+  enrollments: Array<CourseEntity & { enrollment: EnrollmentEntity }>;
 
   // courses user added to cart
-  @BelongsToMany(() => Course, () => CartItem)
-  cart: Course[];
+  @BelongsToMany(() => CourseEntity, () => CartItemEntity)
+  cart: CourseEntity[];
 
   // courses user added to wishlist
-  @BelongsToMany(() => Course, () => WishlistItem)
-  wishlist: Course[];
+  @BelongsToMany(() => CourseEntity, () => WishlistItemEntity)
+  wishlist: CourseEntity[];
 }

@@ -1,11 +1,11 @@
 import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Max, Min, Model, Table } from 'sequelize-typescript';
-import { Attendance } from 'src/modules/attendance/entities/attendance.entity';
-import { Section } from 'src/modules/course/entities/section.entity';
-import { User } from 'src/modules/user/entities/user.entity';
-import { Question } from './question.entity';
+import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.entity';
+import { SectionEntity } from 'src/modules/course/entities/section.entity';
+import { UserEntity } from 'src/modules/user/entities/user.entity';
+import { QuestionEntity } from './question.entity';
 
 @Table
-export class Quiz extends Model {
+export class QuizEntity extends Model {
   @Column(DataType.STRING)
   title: string;
 
@@ -23,16 +23,16 @@ export class Quiz extends Model {
   @Column(DataType.BOOLEAN)
   isLocked: boolean;
 
-  @HasMany(() => Question)
-  questions: Question;
+  @HasMany(() => QuestionEntity)
+  questions: QuestionEntity;
 
-  @ForeignKey(() => Section)
+  @ForeignKey(() => SectionEntity)
   @Column
   sectionId: number;
 
-  @BelongsTo(() => Section)
-  section: Section;
+  @BelongsTo(() => SectionEntity)
+  section: SectionEntity;
 
-  @BelongsToMany(() => User, () => Attendance)
-  attendanceList: Array<User & { attendance: Attendance }>;
+  @BelongsToMany(() => UserEntity, () => AttendanceEntity)
+  attendanceList: Array<UserEntity & { attendance: AttendanceEntity }>;
 }

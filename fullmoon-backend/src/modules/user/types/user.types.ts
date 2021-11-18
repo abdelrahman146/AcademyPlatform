@@ -1,5 +1,6 @@
-import { Course } from 'src/modules/course/entities/course.entity';
-import { Enrollment } from '../entities/enrollment.entity';
+import { registerEnumType } from '@nestjs/graphql';
+import { CourseEntity } from 'src/modules/course/entities/course.entity';
+import { EnrollmentEntity } from '../entities/enrollment.entity';
 
 export enum UserRole {
   admin = 'admin',
@@ -7,4 +8,8 @@ export enum UserRole {
   student = 'student',
 }
 
-export type EnrollmentType = Course & { enrollment: Enrollment };
+registerEnumType(UserRole, {
+  name: 'LectureType',
+});
+
+export type EnrollmentType = CourseEntity & { enrollment: EnrollmentEntity };

@@ -1,28 +1,28 @@
 import { Column, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Lecture } from 'src/modules/lecture/entities/lecture.entity';
-import { Quiz } from 'src/modules/quiz/entities/quiz.entity';
-import { Enrollment } from 'src/modules/user/entities/enrollment.entity';
-import { User } from 'src/modules/user/entities/user.entity';
-import { Answer } from './answer.entity';
+import { LectureEntity } from 'src/modules/lecture/entities/lecture.entity';
+import { QuizEntity } from 'src/modules/quiz/entities/quiz.entity';
+import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
+import { UserEntity } from 'src/modules/user/entities/user.entity';
+import { AnswerEntity } from './answer.entity';
 
 @Table
-export class Attendance extends Model {
-  @ForeignKey(() => User)
+export class AttendanceEntity extends Model {
+  @ForeignKey(() => UserEntity)
   @Column
   studentId: number;
 
-  @ForeignKey(() => Lecture)
+  @ForeignKey(() => LectureEntity)
   @Column
   lectureId: number;
 
-  @ForeignKey(() => Enrollment)
+  @ForeignKey(() => EnrollmentEntity)
   @Column
-  enrolledId: number;
+  enrollmentId: number;
 
-  @ForeignKey(() => Quiz)
+  @ForeignKey(() => QuizEntity)
   @Column
   quizId: number;
 
-  @HasMany(() => Answer)
-  answers: Answer[];
+  @HasMany(() => AnswerEntity)
+  answers: AnswerEntity[];
 }

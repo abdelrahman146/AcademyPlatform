@@ -1,25 +1,22 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Category } from './category.entity';
-import { Course } from './course.entity';
+import { CategoryEntity } from './category.entity';
+import { CourseEntity } from './course.entity';
 
 @Table({ timestamps: false })
-export class SubCategory extends Model {
+export class SubCategoryEntity extends Model {
   @Column(DataType.STRING)
   title: string;
 
   @Column(DataType.STRING)
   headline: string;
 
-  @HasMany(() => Course)
-  courses: Course[];
+  @HasMany(() => CourseEntity)
+  courses: CourseEntity[];
 
-  @ForeignKey(() => Category)
+  @ForeignKey(() => CategoryEntity)
   @Column
-  categoryId: number;
+  parentId: number;
 
-  @BelongsTo(() => Category)
-  parent: Category;
-
-  @HasMany(() => Course)
-  subcategories: Course[];
+  @BelongsTo(() => CategoryEntity)
+  parent: CategoryEntity;
 }

@@ -1,9 +1,9 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
-import { Option } from './option.entity';
-import { Quiz } from './quiz.entity';
+import { OptionEntity } from './option.entity';
+import { QuizEntity } from './quiz.entity';
 
 @Table({ timestamps: false })
-export class Question extends Model {
+export class QuestionEntity extends Model {
   @Column(DataType.TEXT)
   statement: string;
 
@@ -13,12 +13,12 @@ export class Question extends Model {
   @Column(DataType.INTEGER)
   points: number;
 
-  @ForeignKey(() => Quiz)
+  @ForeignKey(() => QuizEntity)
   @Column
   quizId: number;
-  @BelongsTo(() => Quiz)
-  quiz: Quiz;
+  @BelongsTo(() => QuizEntity)
+  quiz: QuizEntity;
 
-  @HasMany(() => Option)
-  options: Option;
+  @HasMany(() => OptionEntity)
+  options: OptionEntity;
 }

@@ -3,7 +3,7 @@ import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.ent
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { CourseEntity } from '../../course/entities/course.entity';
 
-@Table
+@Table({ modelName: 'Enrollment' })
 export class EnrollmentEntity extends Model {
   @Column({ type: DataType.BOOLEAN, defaultValue: false })
   passed: boolean;

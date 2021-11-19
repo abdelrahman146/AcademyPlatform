@@ -2,7 +2,7 @@ import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from '
 import { OptionEntity } from './option.entity';
 import { QuizEntity } from './quiz.entity';
 
-@Table({ timestamps: false })
+@Table({ modelName: 'Question', timestamps: false })
 export class QuestionEntity extends Model {
   @Column(DataType.TEXT)
   statement: string;

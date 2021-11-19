@@ -1,9 +1,6 @@
 import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
 import { NestjsQuerySequelizeModule } from '@nestjs-query/query-sequelize';
 import { Module } from '@nestjs/common';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { AttendanceModule } from '../attendance/attendance.module';
-import { CourseModule } from '../course/course.module';
 import { CartItemDTO } from './dtos/cartitem.dto';
 import { EnrollmentDTO } from './dtos/enrollment.dto';
 import { UserDTO } from './dtos/user.dto';
@@ -17,8 +14,6 @@ import { WishlistItemEntity } from './entities/wishlistitem.entity';
 
 @Module({
   imports: [
-    AttendanceModule,
-    CourseModule,
     NestjsQueryGraphQLModule.forFeature({
       imports: [NestjsQuerySequelizeModule.forFeature([UserEntity, WishlistItemEntity, CartItemEntity, EnrollmentEntity])],
       resolvers: [
@@ -29,7 +24,6 @@ import { WishlistItemEntity } from './entities/wishlistitem.entity';
       ],
     }),
   ],
-  exports: [SequelizeModule],
   providers: [],
 })
 export class UserModule {}

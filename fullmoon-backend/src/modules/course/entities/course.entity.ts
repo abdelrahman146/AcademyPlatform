@@ -5,7 +5,7 @@ import { CourseType } from '../types/course.types';
 import { SectionEntity } from './section.entity';
 import { SubCategoryEntity } from './subcategory.entity';
 
-@Table
+@Table({ modelName: 'Course' })
 export class CourseEntity extends Model {
   @Column({ type: DataType.ENUM('recorded', 'live'), defaultValue: 'recorded' })
   type: CourseType;

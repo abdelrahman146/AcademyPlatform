@@ -6,7 +6,7 @@ import { AttendanceEntity } from './attendance.entity';
 import { IDField } from '@nestjs-query/query-graphql';
 import { ID } from '@nestjs/graphql';
 
-@Table({ timestamps: false })
+@Table({ modelName: 'Answer', timestamps: false })
 export class AnswerEntity extends Model {
   @IDField(() => ID)
   id!: number;

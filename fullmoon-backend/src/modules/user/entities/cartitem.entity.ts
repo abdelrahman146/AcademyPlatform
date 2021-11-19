@@ -2,7 +2,7 @@ import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescrip
 import { CourseEntity } from 'src/modules/course/entities/course.entity';
 import { UserEntity } from './user.entity';
 
-@Table({ timestamps: false })
+@Table({ modelName: 'CartItem', timestamps: false })
 export class CartItemEntity extends Model {
   @ForeignKey(() => UserEntity)
   @Column

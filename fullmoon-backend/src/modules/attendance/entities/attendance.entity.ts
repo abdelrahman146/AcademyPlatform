@@ -5,7 +5,7 @@ import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { AnswerEntity } from './answer.entity';
 
-@Table
+@Table({ modelName: 'Attendance' })
 export class AttendanceEntity extends Model {
   @ForeignKey(() => UserEntity)
   @Column

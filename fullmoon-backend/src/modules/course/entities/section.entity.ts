@@ -3,7 +3,7 @@ import { LectureEntity } from 'src/modules/lecture/entities/lecture.entity';
 import { QuizEntity } from 'src/modules/quiz/entities/quiz.entity';
 import { CourseEntity } from './course.entity';
 
-@Table({ timestamps: false })
+@Table({ modelName: 'Section', timestamps: false })
 export class SectionEntity extends Model {
   @Column(DataType.SMALLINT)
   order: number;

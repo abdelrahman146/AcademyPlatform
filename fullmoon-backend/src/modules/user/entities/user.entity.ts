@@ -4,9 +4,9 @@ import { Exclude } from 'class-transformer';
 import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
 import { CartItemEntity } from './cartitem.entity';
 import { WishlistItemEntity } from './wishlistitem.entity';
-import { UserRole } from '../types/user.types';
+import { UserGender, UserRole } from '../types/user.types';
 
-@Table
+@Table({ modelName: 'User' })
 export class UserEntity extends Model {
   @Column({ type: DataType.ENUM('admin', 'teacher', 'student'), defaultValue: 'student' })
   role: UserRole;
@@ -22,6 +22,9 @@ export class UserEntity extends Model {
 
   @Column({ type: DataType.STRING, validate: { max: Date.now() } })
   dob: Date;
+
+  @Column({ type: DataType.ENUM('male', 'female') })
+  gender: UserGender;
 
   @Column({ type: DataType.STRING, validate: { isEmail: true } })
   email: string;

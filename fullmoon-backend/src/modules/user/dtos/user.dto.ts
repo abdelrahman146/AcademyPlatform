@@ -1,13 +1,13 @@
 import { CursorConnection, FilterableCursorConnection, FilterableField, IDField, UnPagedRelation } from '@nestjs-query/query-graphql';
 import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
-import { UserRole } from '../types/user.types';
+import { UserGender, UserRole } from '../types/user.types';
 import { CartItemDTO } from './cartitem.dto';
 import { EnrollmentDTO } from './enrollment.dto';
 import { WishlistItemDTO } from './wishlistitem.dto';
 
 @ObjectType('User')
-@UnPagedRelation('cart', () => CartItemDTO, { enableTotalCount: true })
-@CursorConnection('wishlist', () => WishlistItemDTO, { enableTotalCount: true })
+@UnPagedRelation('cart', () => CartItemDTO, { enableTotalCount: true, relationName: 'cart' })
+@CursorConnection('wishlist', () => WishlistItemDTO, { enableTotalCount: true, relationName: 'wishlist' })
 @FilterableCursorConnection('enrolledCourses', () => EnrollmentDTO, { relationName: 'enrollments', enableTotalCount: true, disableRemove: true })
 export class UserDTO {
   @IDField(() => ID)
@@ -27,6 +27,9 @@ export class UserDTO {
 
   @FilterableField(() => GraphQLISODateTime)
   dob: Date;
+
+  @FilterableField(() => UserGender)
+  gender: UserGender;
 
   @FilterableField()
   email!: string;

@@ -1,9 +1,6 @@
 import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
 import { NestjsQuerySequelizeModule } from '@nestjs-query/query-sequelize';
 import { Module } from '@nestjs/common';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { AttendanceModule } from '../attendance/attendance.module';
-import { CourseModule } from '../course/course.module';
 import { OptionDTO } from './dtos/option.dto';
 import { QuestionDTO } from './dtos/question.dto';
 import { QuizDTO } from './dtos/quiz.dto';
@@ -15,9 +12,6 @@ import { QuizEntity } from './entities/quiz.entity';
 
 @Module({
   imports: [
-    ,
-    AttendanceModule,
-    CourseModule,
     NestjsQueryGraphQLModule.forFeature({
       imports: [NestjsQuerySequelizeModule.forFeature([QuizEntity, QuestionEntity, OptionEntity])],
       resolvers: [
@@ -27,7 +21,6 @@ import { QuizEntity } from './entities/quiz.entity';
       ],
     }),
   ],
-  exports: [SequelizeModule],
   providers: [],
 })
 export class QuizModule {}

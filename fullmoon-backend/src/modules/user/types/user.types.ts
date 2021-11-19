@@ -8,8 +8,17 @@ export enum UserRole {
   student = 'student',
 }
 
+export enum UserGender {
+  male = 'male',
+  female = 'female',
+}
+
 registerEnumType(UserRole, {
-  name: 'LectureType',
+  name: 'UserRole',
+});
+
+registerEnumType(UserGender, {
+  name: 'UserGender',
 });
 
 export type EnrollmentType = CourseEntity & { enrollment: EnrollmentEntity };

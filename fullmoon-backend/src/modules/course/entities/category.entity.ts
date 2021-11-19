@@ -1,7 +1,7 @@
 import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
 import { SubCategoryEntity } from './subcategory.entity';
 
-@Table({ timestamps: false })
+@Table({ modelName: 'Category', timestamps: false })
 export class CategoryEntity extends Model {
   @Column(DataType.STRING)
   name: string;

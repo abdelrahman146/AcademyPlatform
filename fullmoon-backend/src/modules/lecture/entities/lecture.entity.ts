@@ -10,7 +10,7 @@ enum LectureType {
   ARTICLE = 'article',
 }
 
-@Table
+@Table({ modelName: 'Lecture' })
 export class LectureEntity extends Model {
   @Column({ type: DataType.ENUM('video', 'stream', 'conference', 'article'), defaultValue: 'article' })
   type: LectureType;

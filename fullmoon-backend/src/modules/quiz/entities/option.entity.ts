@@ -1,7 +1,7 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
 import { QuestionEntity } from './question.entity';
 
-@Table({ timestamps: false })
+@Table({ modelName: 'Option', timestamps: false })
 export class OptionEntity extends Model {
   @Column(DataType.TEXT)
   statement: string;

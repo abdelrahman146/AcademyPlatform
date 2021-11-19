@@ -19,11 +19,21 @@ import { CartItemEntity } from './modules/user/entities/cartitem.entity';
 import { UserEntity } from './modules/user/entities/user.entity';
 import { WishlistItemEntity } from './modules/user/entities/wishlistitem.entity';
 import { GraphQLModule } from '@nestjs/graphql';
+import { AttendanceModule } from './modules/attendance/attendance.module';
+import { CourseModule } from './modules/course/course.module';
+import { LectureModule } from './modules/lecture/lecture.module';
+import { QuizModule } from './modules/quiz/quiz.module';
+import { UserModule } from './modules/user/user.module';
 
 const infrastructurePath = join(process.cwd(), 'src/infrastructure');
 
 @Module({
   imports: [
+    UserModule,
+    CourseModule,
+    QuizModule,
+    LectureModule,
+    AttendanceModule,
     SequelizeModule.forRoot({
       dialect: 'sqlite',
       storage: join(infrastructurePath, 'db.sqlite'),

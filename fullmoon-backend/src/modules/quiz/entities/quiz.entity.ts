@@ -4,7 +4,7 @@ import { SectionEntity } from 'src/modules/course/entities/section.entity';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { QuestionEntity } from './question.entity';
 
-@Table
+@Table({ modelName: 'Quiz' })
 export class QuizEntity extends Model {
   @Column(DataType.STRING)
   title: string;

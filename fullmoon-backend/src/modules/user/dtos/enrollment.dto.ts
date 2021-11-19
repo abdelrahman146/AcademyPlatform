@@ -5,9 +5,9 @@ import { CourseDTO } from 'src/modules/course/dtos/course.dto';
 import { UserDTO } from './user.dto';
 
 @ObjectType('Enrollment')
-@Relation('student', () => UserDTO, { disableRemove: true })
-@Relation('course', () => CourseDTO, { disableRemove: true })
-@FilterableCursorConnection('attendances', () => AttendanceDTO, { disableRemove: true })
+@Relation('student', () => UserDTO, { disableRemove: true, disableUpdate: true })
+@Relation('course', () => CourseDTO, { disableRemove: true, disableUpdate: true })
+@FilterableCursorConnection('attendances', () => AttendanceDTO, { enableTotalCount: true })
 export class EnrollmentDTO {
   @IDField(() => ID)
   id!: number;

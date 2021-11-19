@@ -1,4 +1,4 @@
-import { FilterableCursorConnection, FilterableField, Relation } from '@nestjs-query/query-graphql';
+import { FilterableCursorConnection, FilterableField, Relation, UnPagedRelation } from '@nestjs-query/query-graphql';
 import { Field, GraphQLISODateTime, ObjectType } from '@nestjs/graphql';
 import { AttendanceDTO } from 'src/modules/attendance/dtos/attendance.dto';
 import { SectionDTO } from 'src/modules/course/dtos/sections.dto';
@@ -6,8 +6,8 @@ import { QuestionDTO } from './question.dto';
 
 @ObjectType('Quiz')
 @Relation('section', () => SectionDTO, { disableRemove: true })
-@FilterableCursorConnection('questions', () => QuestionDTO, { disableRemove: true })
-@FilterableCursorConnection('attendanceList', () => AttendanceDTO, { disableRemove: true })
+@UnPagedRelation('questions', () => QuestionDTO, { enableTotalCount: true })
+@FilterableCursorConnection('attendanceList', () => AttendanceDTO, { enableTotalCount: true })
 export class QuizDTO {
   @FilterableField()
   title: string;

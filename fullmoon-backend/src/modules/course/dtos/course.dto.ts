@@ -1,4 +1,4 @@
-import { FilterableCursorConnection, FilterableField, FilterableRelation, IDField, Relation } from '@nestjs-query/query-graphql';
+import { FilterableField, IDField, Relation, UnPagedRelation } from '@nestjs-query/query-graphql';
 import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
 import { UserDTO } from 'src/modules/user/dtos/user.dto';
 import { SubCategoryDTO } from './subcategory.dto';
@@ -6,9 +6,9 @@ import { CourseType } from '../types/course.types';
 import { SectionDTO } from './sections.dto';
 
 @ObjectType('Course')
-@FilterableRelation('teacher', () => UserDTO, { disableRemove: true })
+@Relation('teacher', () => UserDTO, { disableRemove: true, disableUpdate: true })
 @Relation('subcategory', () => SubCategoryDTO, { disableRemove: true })
-@FilterableCursorConnection('sections', () => SectionDTO)
+@UnPagedRelation('sections', () => SectionDTO, { enableTotalCount: true })
 export class CourseDTO {
   @IDField(() => ID)
   id!: number;

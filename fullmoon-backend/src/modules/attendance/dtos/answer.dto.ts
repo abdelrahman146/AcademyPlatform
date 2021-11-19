@@ -5,9 +5,9 @@ import { UserDTO } from 'src/modules/user/dtos/user.dto';
 import { AttendanceDTO } from './attendance.dto';
 
 @ObjectType('Answer')
-@Relation('student', () => UserDTO, { disableRemove: true })
-@Relation('question', () => QuestionDTO, { disableRemove: true })
-@Relation('attendance', () => AttendanceDTO, { disableRemove: true })
+@Relation('student', () => UserDTO, { disableRemove: true, disableUpdate: true })
+@Relation('question', () => QuestionDTO, { disableRemove: true, disableUpdate: true })
+@Relation('attendance', () => AttendanceDTO, { disableRemove: true, disableUpdate: true })
 export class AnswerDTO {
   @IDField(() => ID)
   id!: number;

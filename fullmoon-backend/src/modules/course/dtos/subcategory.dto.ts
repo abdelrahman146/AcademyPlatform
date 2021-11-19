@@ -5,7 +5,7 @@ import { CourseDTO } from './course.dto';
 
 @ObjectType('SubCategory')
 @FilterableRelation('parent', () => CategoryDTO, { disableRemove: true })
-@FilterableCursorConnection('courses', () => CourseDTO)
+@FilterableCursorConnection('courses', () => CourseDTO, { enableTotalCount: true })
 export class SubCategoryDTO {
   @IDField(() => ID)
   id!: number;

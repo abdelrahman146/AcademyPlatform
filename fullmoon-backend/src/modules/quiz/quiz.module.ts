@@ -1,9 +1,9 @@
 import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
 import { NestjsQuerySequelizeModule } from '@nestjs-query/query-sequelize';
 import { Module } from '@nestjs/common';
-import { OptionDTO } from './dtos/option.dto';
-import { QuestionDTO } from './dtos/question.dto';
-import { QuizDTO } from './dtos/quiz.dto';
+import { OptionDTO } from './dtos/option/option.dto';
+import { QuestionDTO } from './dtos/question/question.read.dto';
+import { QuizDTO } from './dtos/quiz/quiz.read.dto';
 
 // Models
 import { OptionEntity } from './entities/option.entity';

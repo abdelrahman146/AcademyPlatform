@@ -1,64 +1,59 @@
-import { Field, GraphQLISODateTime, ObjectType } from '@nestjs/graphql';
+import { Field, GraphQLISODateTime, InputType } from '@nestjs/graphql';
 import { IsDate, IsEnum, IsOptional, IsString, IsEmail, IsMobilePhone } from 'class-validator';
-import { UserGender, UserRole } from '../types/user.types';
+import { UserGender } from '../../types/user.types';
 
-@ObjectType('UserInput')
-export class UserUpdateDTO {
-  @IsOptional()
-  @IsEnum(UserRole)
-  @Field(() => UserRole)
-  role?: UserRole;
-
+@InputType('UserCreateInput')
+export class UserCreateInputDTO {
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  @Field()
   firstName?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  @Field()
-  lastname?: string;
+  lastName?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  @Field()
   title?: string;
 
+  @Field(() => GraphQLISODateTime, { nullable: true })
   @IsOptional()
   @IsDate()
-  @Field(() => GraphQLISODateTime)
   dob?: Date;
 
+  @Field(() => UserGender, { nullable: true })
   @IsOptional()
   @IsEnum(UserGender)
-  @Field(() => UserGender)
   gender?: UserGender;
 
+  @Field()
   @IsEmail()
-  @Field()
-  email?: string;
+  email!: string;
 
-  @IsString()
   @Field()
+  @IsString()
   password: string;
 
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  @Field()
   country?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  @Field()
   avatar?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
   @IsMobilePhone('ar-SA')
-  @Field()
   mobile?: string;
 
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  @Field()
   bio?: string;
 }

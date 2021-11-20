@@ -1,12 +1,12 @@
 import { FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
 import { CourseDTO } from 'src/modules/course/dtos/course.dto';
-import { UserDTO } from './user.dto';
+import { UserDTO } from '../user/user.read.dto';
 
-@ObjectType('CartItem')
+@ObjectType('WishlistItem')
 @Relation('user', () => UserDTO, { disableRemove: true, disableUpdate: true })
 @Relation('course', () => CourseDTO, { disableRemove: true, disableUpdate: true })
-export class CartItemDTO {
+export class WishlistItemDTO {
   @IDField(() => ID)
   id!: number;
 

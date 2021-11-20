@@ -9,16 +9,16 @@ import { UserGender, UserRole } from '../types/user.types';
 @Table({ modelName: 'User' })
 export class UserEntity extends Model {
   @Column({ type: DataType.ENUM('admin', 'teacher', 'student'), defaultValue: 'student' })
-  role: UserRole;
+  role!: UserRole;
+
+  @Column({ type: DataType.STRING, allowNull: true })
+  firstName?: string;
 
   @Column(DataType.STRING)
-  firstName: string;
+  lastName?: string;
 
   @Column(DataType.STRING)
-  lastName: string;
-
-  @Column(DataType.STRING)
-  title: string;
+  title?: string;
 
   @Column({ type: DataType.STRING, validate: { max: Date.now() } })
   dob: Date;

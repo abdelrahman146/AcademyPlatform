@@ -1,14 +1,19 @@
-import { FilterableCursorConnection, FilterableField, Relation, UnPagedRelation } from '@nestjs-query/query-graphql';
-import { Field, GraphQLISODateTime, ObjectType } from '@nestjs/graphql';
+import { FilterableCursorConnection, FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
+import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
 import { AttendanceDTO } from 'src/modules/attendance/dtos/attendance.dto';
 import { SectionDTO } from 'src/modules/course/dtos/sections.dto';
-import { QuestionDTO } from './question.dto';
+import { LectureType } from '../../types/lecture.types';
 
-@ObjectType('Quiz')
+@ObjectType('Lecture')
 @Relation('section', () => SectionDTO, { disableRemove: true })
-@UnPagedRelation('questions', () => QuestionDTO, { enableTotalCount: true })
 @FilterableCursorConnection('attendances', () => AttendanceDTO, { enableTotalCount: true, relationName: 'attendanceList' })
-export class QuizDTO {
+export class LectureDTO {
+  @IDField(() => ID)
+  id!: number;
+
+  @FilterableField(() => LectureType)
+  type: LectureType;
+
   @FilterableField()
   title: string;
 
@@ -22,10 +27,16 @@ export class QuizDTO {
   article: string;
 
   @FilterableField()
-  isLocked!: boolean;
+  isLocked: boolean;
 
   @Field()
-  minScoreToPass!: number;
+  streamLink: string;
+
+  @Field()
+  videoLink: string;
+
+  @Field()
+  conferenceId: string;
 
   @FilterableField()
   sectionId: number;

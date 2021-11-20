@@ -1,7 +1,7 @@
 import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
 import { NestjsQuerySequelizeModule } from '@nestjs-query/query-sequelize';
 import { Module } from '@nestjs/common';
-import { LectureDTO } from './dtos/lecture.dto';
+import { LectureDTO } from './dtos/lecture/lecture.read.dto';
 
 // Models
 import { LectureEntity } from './entities/lecture.entity';

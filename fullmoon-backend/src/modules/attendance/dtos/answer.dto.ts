@@ -1,7 +1,7 @@
 import { FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { QuestionDTO } from 'src/modules/quiz/dtos/question.dto';
-import { UserDTO } from 'src/modules/user/dtos/user.dto';
+import { QuestionDTO } from 'src/modules/quiz/dtos/question/question.read.dto';
+import { UserDTO } from 'src/modules/user/dtos/user/user.read.dto';
 import { AttendanceDTO } from './attendance.dto';
 
 @ObjectType('Answer')

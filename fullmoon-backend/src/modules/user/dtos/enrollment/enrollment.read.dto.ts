@@ -2,7 +2,7 @@ import { FilterableCursorConnection, FilterableField, IDField, Relation } from '
 import { GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
 import { AttendanceDTO } from 'src/modules/attendance/dtos/attendance.dto';
 import { CourseDTO } from 'src/modules/course/dtos/course.dto';
-import { UserDTO } from './user.dto';
+import { UserDTO } from '../user/user.read.dto';
 
 @ObjectType('Enrollment')
 @Relation('student', () => UserDTO, { disableRemove: true, disableUpdate: true })

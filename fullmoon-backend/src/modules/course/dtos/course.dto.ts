@@ -1,9 +1,9 @@
 import { FilterableField, IDField, Relation, UnPagedRelation } from '@nestjs-query/query-graphql';
 import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
-import { UserDTO } from 'src/modules/user/dtos/user.dto';
 import { SubCategoryDTO } from './subCategory.dto';
 import { CourseType } from '../types/course.types';
 import { SectionDTO } from './sections.dto';
+import { UserDTO } from 'src/modules/user/dtos/user/user.read.dto';
 
 @ObjectType('Course')
 @Relation('teacher', () => UserDTO, { disableRemove: true, disableUpdate: true })

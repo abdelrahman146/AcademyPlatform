@@ -2446,30 +2446,26 @@ input RemoveWishlistItemsFromUserInput {
 
 input CreateOneUserInput {
   """The record to create"""
-  user: CreateUser!
+  user: UserCreateInput!
 }
 
-input CreateUser {
-  id: ID
-  role: UserRole
+input UserCreateInput {
   firstName: String
-  lastname: String
+  lastName: String
   title: String
   dob: DateTime
   gender: UserGender
-  email: String
+  email: String!
+  password: String!
   country: String
   avatar: String
   mobile: String
   bio: String
-  isActive: Boolean
-  createdAt: DateTime
-  updatedAt: DateTime
 }
 
 input CreateManyUsersInput {
   """Array of records to create"""
-  users: [CreateUser!]!
+  users: [UserCreateInput!]!
 }
 
 input UpdateOneUserInput {
@@ -2477,25 +2473,22 @@ input UpdateOneUserInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateUser!
+  update: UserUpdateInput!
 }
 
-input UpdateUser {
-  id: ID
-  role: UserRole
-  firstName: String
-  lastname: String
-  title: String
-  dob: DateTime
-  gender: UserGender
-  email: String
-  country: String
-  avatar: String
-  mobile: String
-  bio: String
-  isActive: Boolean
-  createdAt: DateTime
-  updatedAt: DateTime
+input UserUpdateInput {
+  role: UserRole!
+  firstName: String!
+  lastName: String!
+  title: String!
+  dob: DateTime!
+  gender: UserGender!
+  email: String!
+  password: String!
+  country: String!
+  avatar: String!
+  mobile: String!
+  bio: String!
 }
 
 input UpdateManyUsersInput {
@@ -2503,7 +2496,7 @@ input UpdateManyUsersInput {
   filter: UserUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateUser!
+  update: UserUpdateInput!
 }
 
 input UserUpdateFilter {

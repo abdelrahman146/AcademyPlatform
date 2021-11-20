@@ -1,9 +1,9 @@
 import { CursorConnection, FilterableCursorConnection, FilterableField, IDField, UnPagedRelation } from '@nestjs-query/query-graphql';
 import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
-import { UserGender, UserRole } from '../types/user.types';
-import { CartItemDTO } from './cartitem.dto';
-import { EnrollmentDTO } from './enrollment.dto';
-import { WishlistItemDTO } from './wishlistitem.dto';
+import { UserGender, UserRole } from '../../types/user.types';
+import { CartItemDTO } from '../cartitem/cartitem.read.dto';
+import { EnrollmentDTO } from '../enrollment/enrollment.read.dto';
+import { WishlistItemDTO } from '../wishlistitem/wishlistitem.read.dto';
 
 @ObjectType('User')
 @UnPagedRelation('cartItems', () => CartItemDTO, { enableTotalCount: true, relationName: 'cart' })

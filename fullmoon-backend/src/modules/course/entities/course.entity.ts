@@ -3,7 +3,7 @@ import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { EnrollmentEntity } from '../../user/entities/enrollment.entity';
 import { CourseType } from '../types/course.types';
 import { SectionEntity } from './section.entity';
-import { SubCategoryEntity } from './subcategory.entity';
+import { SubCategoryEntity } from './subCategory.entity';
 
 @Table({ modelName: 'Course' })
 export class CourseEntity extends Model {

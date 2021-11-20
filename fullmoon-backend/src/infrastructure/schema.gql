@@ -328,14 +328,14 @@ type User {
   isActive: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
-  carts(
+  cartItems(
     """Specify to filter the records returned."""
     filter: CartItemFilter = {}
 
     """Specify to sort results."""
     sorting: [CartItemSort!] = []
   ): [CartItem!]!
-  wishlists(
+  wishlistItems(
     """Limit or page results."""
     paging: CursorPaging = {first: 10}
 
@@ -344,7 +344,7 @@ type User {
 
     """Specify to sort results."""
     sorting: [WishlistItemSort!] = []
-  ): UserWishlistsConnection!
+  ): UserWishlistItemsConnection!
   enrolledCourses(
     """Limit or page results."""
     paging: CursorPaging = {first: 10}
@@ -441,7 +441,7 @@ type Category {
   name: String!
   headline: String!
   image: String!
-  subcategories(
+  subCategories(
     """Limit or page results."""
     paging: CursorPaging = {first: 10}
 
@@ -450,7 +450,7 @@ type Category {
 
     """Specify to sort results."""
     sorting: [SubCategorySort!] = []
-  ): CategorySubcategoriesConnection!
+  ): CategorySubCategoriesConnection!
 }
 
 input SubCategoryFilter {
@@ -480,7 +480,7 @@ input SubCategoryFilterCourseFilter {
   endingDate: DateFieldComparison
   price: NumberFieldComparison
   teacherId: NumberFieldComparison
-  subcategoryId: NumberFieldComparison
+  subCategoryId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
 }
@@ -547,7 +547,7 @@ input CourseFilter {
   endingDate: DateFieldComparison
   price: NumberFieldComparison
   teacherId: NumberFieldComparison
-  subcategoryId: NumberFieldComparison
+  subCategoryId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
 }
@@ -566,7 +566,7 @@ enum CourseSortFields {
   endingDate
   price
   teacherId
-  subcategoryId
+  subCategoryId
   createdAt
   updatedAt
 }
@@ -583,11 +583,11 @@ type Course {
   endingDate: DateTime!
   price: Float!
   teacherId: Float!
-  subcategoryId: Float!
+  subCategoryId: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
   teacher: User!
-  subcategory: SubCategory!
+  subCategory: SubCategory!
   sections(
     """Specify to filter the records returned."""
     filter: SectionFilter = {}
@@ -678,7 +678,7 @@ input LectureFilter {
   sectionId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
-  attendanceList: LectureFilterAttendanceFilter
+  attendances: LectureFilterAttendanceFilter
 }
 
 input LectureFilterAttendanceFilter {
@@ -721,7 +721,7 @@ input QuizFilter {
   sectionId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
-  attendanceList: QuizFilterAttendanceFilter
+  attendances: QuizFilterAttendanceFilter
 }
 
 input QuizFilterAttendanceFilter {
@@ -767,7 +767,7 @@ type Lecture {
   createdAt: DateTime!
   updatedAt: DateTime!
   section: Section!
-  attendanceLists(
+  attendances(
     """Limit or page results."""
     paging: CursorPaging = {first: 10}
 
@@ -776,7 +776,7 @@ type Lecture {
 
     """Specify to sort results."""
     sorting: [AttendanceSort!] = []
-  ): LectureAttendanceListsConnection!
+  ): LectureAttendancesConnection!
 }
 
 type Attendance {
@@ -839,7 +839,7 @@ type Quiz {
     """Specify to sort results."""
     sorting: [QuestionSort!] = []
   ): [Question!]!
-  attendanceLists(
+  attendances(
     """Limit or page results."""
     paging: CursorPaging = {first: 10}
 
@@ -848,7 +848,7 @@ type Quiz {
 
     """Specify to sort results."""
     sorting: [AttendanceSort!] = []
-  ): QuizAttendanceListsConnection!
+  ): QuizAttendancesConnection!
 }
 
 input QuestionFilter {
@@ -1144,7 +1144,7 @@ type SubCategoryEdge {
   cursor: ConnectionCursor!
 }
 
-type CategorySubcategoriesConnection {
+type CategorySubCategoriesConnection {
   """Paging information"""
   pageInfo: PageInfo!
 
@@ -1235,7 +1235,7 @@ type CourseDeleteResponse {
   endingDate: DateTime
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -1256,7 +1256,7 @@ type CourseAggregateGroupBy {
   endingDate: DateTime
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -1269,7 +1269,7 @@ type CourseCountAggregate {
   endingDate: Int
   price: Int
   teacherId: Int
-  subcategoryId: Int
+  subCategoryId: Int
   createdAt: Int
   updatedAt: Int
 }
@@ -1278,14 +1278,14 @@ type CourseSumAggregate {
   id: Float
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
 }
 
 type CourseAvgAggregate {
   id: Float
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
 }
 
 type CourseMinAggregate {
@@ -1296,7 +1296,7 @@ type CourseMinAggregate {
   endingDate: DateTime
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -1309,7 +1309,7 @@ type CourseMaxAggregate {
   endingDate: DateTime
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -1456,7 +1456,7 @@ type LectureMaxAggregate {
   updatedAt: DateTime
 }
 
-type LectureAttendanceListsConnection {
+type LectureAttendancesConnection {
   """Paging information"""
   pageInfo: PageInfo!
 
@@ -1541,7 +1541,7 @@ type QuizMaxAggregate {
   updatedAt: DateTime
 }
 
-type QuizAttendanceListsConnection {
+type QuizAttendancesConnection {
   """Paging information"""
   pageInfo: PageInfo!
 
@@ -1778,7 +1778,7 @@ type WishlistItemEdge {
   cursor: ConnectionCursor!
 }
 
-type UserWishlistsConnection {
+type UserWishlistItemsConnection {
   """Paging information"""
   pageInfo: PageInfo!
 
@@ -2227,7 +2227,7 @@ input CategoryFilter {
   or: [CategoryFilter!]
   id: IDFilterComparison
   name: StringFieldComparison
-  subcategories: CategoryFilterSubCategoryFilter
+  subCategories: CategoryFilterSubCategoryFilter
 }
 
 input CategoryFilterSubCategoryFilter {
@@ -2250,14 +2250,14 @@ enum CategorySortFields {
 }
 
 type Mutation {
-  addCartsToUser(input: AddCartsToUserInput!): User!
-  setCartsOnUser(input: SetCartsOnUserInput!): User!
-  addWishlistsToUser(input: AddWishlistsToUserInput!): User!
-  setWishlistsOnUser(input: SetWishlistsOnUserInput!): User!
+  addCartItemsToUser(input: AddCartItemsToUserInput!): User!
+  setCartItemsOnUser(input: SetCartItemsOnUserInput!): User!
+  addWishlistItemsToUser(input: AddWishlistItemsToUserInput!): User!
+  setWishlistItemsOnUser(input: SetWishlistItemsOnUserInput!): User!
   addEnrolledCoursesToUser(input: AddEnrolledCoursesToUserInput!): User!
   setEnrolledCoursesOnUser(input: SetEnrolledCoursesOnUserInput!): User!
-  removeCartsFromUser(input: RemoveCartsFromUserInput!): User!
-  removeWishlistsFromUser(input: RemoveWishlistsFromUserInput!): User!
+  removeCartItemsFromUser(input: RemoveCartItemsFromUserInput!): User!
+  removeWishlistItemsFromUser(input: RemoveWishlistItemsFromUserInput!): User!
   createOneUser(input: CreateOneUserInput!): User!
   createManyUsers(input: CreateManyUsersInput!): [User!]!
   updateOneUser(input: UpdateOneUserInput!): User!
@@ -2285,9 +2285,9 @@ type Mutation {
   updateManyEnrollments(input: UpdateManyEnrollmentsInput!): UpdateManyResponse!
   deleteOneEnrollment(input: DeleteOneEnrollmentInput!): EnrollmentDeleteResponse!
   deleteManyEnrollments(input: DeleteManyEnrollmentsInput!): DeleteManyResponse!
-  addSubcategoriesToCategory(input: AddSubcategoriesToCategoryInput!): Category!
-  setSubcategoriesOnCategory(input: SetSubcategoriesOnCategoryInput!): Category!
-  removeSubcategoriesFromCategory(input: RemoveSubcategoriesFromCategoryInput!): Category!
+  addSubCategoriesToCategory(input: AddSubCategoriesToCategoryInput!): Category!
+  setSubCategoriesOnCategory(input: SetSubCategoriesOnCategoryInput!): Category!
+  removeSubCategoriesFromCategory(input: RemoveSubCategoriesFromCategoryInput!): Category!
   createOneCategory(input: CreateOneCategoryInput!): Category!
   createManyCategories(input: CreateManyCategoriesInput!): [Category!]!
   updateOneCategory(input: UpdateOneCategoryInput!): Category!
@@ -2304,7 +2304,7 @@ type Mutation {
   updateManySubCategories(input: UpdateManySubCategoriesInput!): UpdateManyResponse!
   deleteOneSubCategory(input: DeleteOneSubCategoryInput!): SubCategoryDeleteResponse!
   deleteManySubCategories(input: DeleteManySubCategoriesInput!): DeleteManyResponse!
-  setSubcategoryOnCourse(input: SetSubcategoryOnCourseInput!): Course!
+  setSubCategoryOnCourse(input: SetSubCategoryOnCourseInput!): Course!
   addSectionsToCourse(input: AddSectionsToCourseInput!): Course!
   setSectionsOnCourse(input: SetSectionsOnCourseInput!): Course!
   removeSectionsFromCourse(input: RemoveSectionsFromCourseInput!): Course!
@@ -2329,10 +2329,10 @@ type Mutation {
   setSectionOnQuiz(input: SetSectionOnQuizInput!): Quiz!
   addQuestionsToQuiz(input: AddQuestionsToQuizInput!): Quiz!
   setQuestionsOnQuiz(input: SetQuestionsOnQuizInput!): Quiz!
-  addAttendanceListsToQuiz(input: AddAttendanceListsToQuizInput!): Quiz!
-  setAttendanceListsOnQuiz(input: SetAttendanceListsOnQuizInput!): Quiz!
+  addAttendancesToQuiz(input: AddAttendancesToQuizInput!): Quiz!
+  setAttendancesOnQuiz(input: SetAttendancesOnQuizInput!): Quiz!
   removeQuestionsFromQuiz(input: RemoveQuestionsFromQuizInput!): Quiz!
-  removeAttendanceListsFromQuiz(input: RemoveAttendanceListsFromQuizInput!): Quiz!
+  removeAttendancesFromQuiz(input: RemoveAttendancesFromQuizInput!): Quiz!
   createOneQuiz(input: CreateOneQuizInput!): Quiz!
   createManyQuizzes(input: CreateManyQuizzesInput!): [Quiz!]!
   updateOneQuiz(input: UpdateOneQuizInput!): Quiz!
@@ -2357,9 +2357,9 @@ type Mutation {
   deleteOneOption(input: DeleteOneOptionInput!): OptionDeleteResponse!
   deleteManyOptions(input: DeleteManyOptionsInput!): DeleteManyResponse!
   setSectionOnLecture(input: SetSectionOnLectureInput!): Lecture!
-  addAttendanceListsToLecture(input: AddAttendanceListsToLectureInput!): Lecture!
-  setAttendanceListsOnLecture(input: SetAttendanceListsOnLectureInput!): Lecture!
-  removeAttendanceListsFromLecture(input: RemoveAttendanceListsFromLectureInput!): Lecture!
+  addAttendancesToLecture(input: AddAttendancesToLectureInput!): Lecture!
+  setAttendancesOnLecture(input: SetAttendancesOnLectureInput!): Lecture!
+  removeAttendancesFromLecture(input: RemoveAttendancesFromLectureInput!): Lecture!
   createOneLecture(input: CreateOneLectureInput!): Lecture!
   createManyLectures(input: CreateManyLecturesInput!): [Lecture!]!
   updateOneLecture(input: UpdateOneLectureInput!): Lecture!
@@ -2380,7 +2380,7 @@ type Mutation {
   deleteManyAttendances(input: DeleteManyAttendancesInput!): DeleteManyResponse!
 }
 
-input AddCartsToUserInput {
+input AddCartItemsToUserInput {
   """The id of the record."""
   id: ID!
 
@@ -2388,7 +2388,7 @@ input AddCartsToUserInput {
   relationIds: [ID!]!
 }
 
-input SetCartsOnUserInput {
+input SetCartItemsOnUserInput {
   """The id of the record."""
   id: ID!
 
@@ -2396,7 +2396,7 @@ input SetCartsOnUserInput {
   relationIds: [ID!]!
 }
 
-input AddWishlistsToUserInput {
+input AddWishlistItemsToUserInput {
   """The id of the record."""
   id: ID!
 
@@ -2404,7 +2404,7 @@ input AddWishlistsToUserInput {
   relationIds: [ID!]!
 }
 
-input SetWishlistsOnUserInput {
+input SetWishlistItemsOnUserInput {
   """The id of the record."""
   id: ID!
 
@@ -2428,7 +2428,7 @@ input SetEnrolledCoursesOnUserInput {
   relationIds: [ID!]!
 }
 
-input RemoveCartsFromUserInput {
+input RemoveCartItemsFromUserInput {
   """The id of the record."""
   id: ID!
 
@@ -2436,7 +2436,7 @@ input RemoveCartsFromUserInput {
   relationIds: [ID!]!
 }
 
-input RemoveWishlistsFromUserInput {
+input RemoveWishlistItemsFromUserInput {
   """The id of the record."""
   id: ID!
 
@@ -2780,7 +2780,7 @@ input EnrollmentDeleteFilter {
   updatedAt: DateFieldComparison
 }
 
-input AddSubcategoriesToCategoryInput {
+input AddSubCategoriesToCategoryInput {
   """The id of the record."""
   id: ID!
 
@@ -2788,7 +2788,7 @@ input AddSubcategoriesToCategoryInput {
   relationIds: [ID!]!
 }
 
-input SetSubcategoriesOnCategoryInput {
+input SetSubCategoriesOnCategoryInput {
   """The id of the record."""
   id: ID!
 
@@ -2796,7 +2796,7 @@ input SetSubcategoriesOnCategoryInput {
   relationIds: [ID!]!
 }
 
-input RemoveSubcategoriesFromCategoryInput {
+input RemoveSubCategoriesFromCategoryInput {
   """The id of the record."""
   id: ID!
 
@@ -2966,7 +2966,7 @@ input SubCategoryDeleteFilter {
   parentId: NumberFieldComparison
 }
 
-input SetSubcategoryOnCourseInput {
+input SetSubCategoryOnCourseInput {
   """The id of the record."""
   id: ID!
 
@@ -3015,7 +3015,7 @@ input CreateCourse {
   endingDate: DateTime
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3045,7 +3045,7 @@ input UpdateCourse {
   endingDate: DateTime
   price: Float
   teacherId: Float
-  subcategoryId: Float
+  subCategoryId: Float
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3068,7 +3068,7 @@ input CourseUpdateFilter {
   endingDate: DateFieldComparison
   price: NumberFieldComparison
   teacherId: NumberFieldComparison
-  subcategoryId: NumberFieldComparison
+  subCategoryId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
 }
@@ -3093,7 +3093,7 @@ input CourseDeleteFilter {
   endingDate: DateFieldComparison
   price: NumberFieldComparison
   teacherId: NumberFieldComparison
-  subcategoryId: NumberFieldComparison
+  subCategoryId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
 }
@@ -3236,7 +3236,7 @@ input SetQuestionsOnQuizInput {
   relationIds: [ID!]!
 }
 
-input AddAttendanceListsToQuizInput {
+input AddAttendancesToQuizInput {
   """The id of the record."""
   id: ID!
 
@@ -3244,7 +3244,7 @@ input AddAttendanceListsToQuizInput {
   relationIds: [ID!]!
 }
 
-input SetAttendanceListsOnQuizInput {
+input SetAttendancesOnQuizInput {
   """The id of the record."""
   id: ID!
 
@@ -3260,7 +3260,7 @@ input RemoveQuestionsFromQuizInput {
   relationIds: [ID!]!
 }
 
-input RemoveAttendanceListsFromQuizInput {
+input RemoveAttendancesFromQuizInput {
   """The id of the record."""
   id: ID!
 
@@ -3524,7 +3524,7 @@ input SetSectionOnLectureInput {
   relationId: ID!
 }
 
-input AddAttendanceListsToLectureInput {
+input AddAttendancesToLectureInput {
   """The id of the record."""
   id: ID!
 
@@ -3532,7 +3532,7 @@ input AddAttendanceListsToLectureInput {
   relationIds: [ID!]!
 }
 
-input SetAttendanceListsOnLectureInput {
+input SetAttendancesOnLectureInput {
   """The id of the record."""
   id: ID!
 
@@ -3540,7 +3540,7 @@ input SetAttendanceListsOnLectureInput {
   relationIds: [ID!]!
 }
 
-input RemoveAttendanceListsFromLectureInput {
+input RemoveAttendancesFromLectureInput {
   """The id of the record."""
   id: ID!
 

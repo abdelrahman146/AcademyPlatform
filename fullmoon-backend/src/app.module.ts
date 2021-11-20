@@ -10,7 +10,7 @@ import { CategoryEntity } from './modules/course/entities/category.entity';
 import { CourseEntity } from './modules/course/entities/course.entity';
 import { EnrollmentEntity } from './modules/user/entities/enrollment.entity';
 import { SectionEntity } from './modules/course/entities/section.entity';
-import { SubCategoryEntity } from './modules/course/entities/subcategory.entity';
+import { SubCategoryEntity } from './modules/course/entities/subCategory.entity';
 import { LectureEntity } from './modules/lecture/entities/lecture.entity';
 import { OptionEntity } from './modules/quiz/entities/option.entity';
 import { QuestionEntity } from './modules/quiz/entities/question.entity';

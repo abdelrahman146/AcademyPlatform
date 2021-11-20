@@ -1,6 +1,6 @@
 import { FilterableCursorConnection, FilterableField, IDField } from '@nestjs-query/query-graphql';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { SubCategoryDTO } from './subcategory.dto';
+import { SubCategoryDTO } from './subCategory.dto';
 
 @ObjectType('Category')
 @FilterableCursorConnection('subCategories', () => SubCategoryDTO, { enableTotalCount: true })

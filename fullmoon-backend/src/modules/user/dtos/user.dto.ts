@@ -6,8 +6,8 @@ import { EnrollmentDTO } from './enrollment.dto';
 import { WishlistItemDTO } from './wishlistitem.dto';
 
 @ObjectType('User')
-@UnPagedRelation('cart', () => CartItemDTO, { enableTotalCount: true, relationName: 'cart' })
-@CursorConnection('wishlist', () => WishlistItemDTO, { enableTotalCount: true, relationName: 'wishlist' })
+@UnPagedRelation('cartItems', () => CartItemDTO, { enableTotalCount: true, relationName: 'cart' })
+@CursorConnection('wishlistItems', () => WishlistItemDTO, { enableTotalCount: true, relationName: 'wishlist' })
 @FilterableCursorConnection('enrolledCourses', () => EnrollmentDTO, { relationName: 'enrollments', enableTotalCount: true, disableRemove: true })
 export class UserDTO {
   @IDField(() => ID)

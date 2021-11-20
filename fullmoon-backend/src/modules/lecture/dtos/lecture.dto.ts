@@ -6,7 +6,7 @@ import { LectureType } from '../types/lecture.types';
 
 @ObjectType('Lecture')
 @Relation('section', () => SectionDTO, { disableRemove: true })
-@FilterableCursorConnection('attendanceList', () => AttendanceDTO, { enableTotalCount: true })
+@FilterableCursorConnection('attendances', () => AttendanceDTO, { enableTotalCount: true, relationName: 'attendanceList' })
 export class LectureDTO {
   @IDField(() => ID)
   id!: number;

@@ -13,5 +13,5 @@ export class CategoryEntity extends Model {
   image: string;
 
   @HasMany(() => SubCategoryEntity)
-  subcategories: SubCategoryEntity[];
+  subCategories: SubCategoryEntity[];
 }

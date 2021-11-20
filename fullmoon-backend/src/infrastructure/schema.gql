@@ -213,6 +213,7 @@ input AttendanceFilterUserFilter {
   lastname: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
+  gender: UserGenderFilterComparison
   email: StringFieldComparison
   country: StringFieldComparison
   mobile: StringFieldComparison
@@ -242,6 +243,28 @@ enum UserRole {
   admin
   teacher
   student
+}
+
+input UserGenderFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: UserGender
+  neq: UserGender
+  gt: UserGender
+  gte: UserGender
+  lt: UserGender
+  lte: UserGender
+  like: UserGender
+  notLike: UserGender
+  iLike: UserGender
+  notILike: UserGender
+  in: [UserGender!]
+  notIn: [UserGender!]
+}
+
+enum UserGender {
+  male
+  female
 }
 
 input AttendanceFilterAnswerFilter {
@@ -296,6 +319,7 @@ type User {
   lastname: String!
   title: String!
   dob: DateTime!
+  gender: UserGender!
   email: String!
   country: String!
   avatar: String!
@@ -1630,6 +1654,7 @@ type UserDeleteResponse {
   lastname: String
   title: String
   dob: DateTime
+  gender: UserGender
   email: String
   country: String
   avatar: String
@@ -1663,6 +1688,7 @@ type UserAggregateGroupBy {
   lastname: String
   title: String
   dob: DateTime
+  gender: UserGender
   email: String
   country: String
   mobile: String
@@ -1678,6 +1704,7 @@ type UserCountAggregate {
   lastname: Int
   title: Int
   dob: Int
+  gender: Int
   email: Int
   country: Int
   mobile: Int
@@ -1701,6 +1728,7 @@ type UserMinAggregate {
   lastname: String
   title: String
   dob: DateTime
+  gender: UserGender
   email: String
   country: String
   mobile: String
@@ -1715,6 +1743,7 @@ type UserMaxAggregate {
   lastname: String
   title: String
   dob: DateTime
+  gender: UserGender
   email: String
   country: String
   mobile: String
@@ -2150,6 +2179,7 @@ input UserFilter {
   lastname: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
+  gender: UserGenderFilterComparison
   email: StringFieldComparison
   country: StringFieldComparison
   mobile: StringFieldComparison
@@ -2183,6 +2213,7 @@ enum UserSortFields {
   lastname
   title
   dob
+  gender
   email
   country
   mobile
@@ -2425,6 +2456,7 @@ input CreateUser {
   lastname: String
   title: String
   dob: DateTime
+  gender: UserGender
   email: String
   country: String
   avatar: String
@@ -2455,6 +2487,7 @@ input UpdateUser {
   lastname: String
   title: String
   dob: DateTime
+  gender: UserGender
   email: String
   country: String
   avatar: String
@@ -2482,6 +2515,7 @@ input UserUpdateFilter {
   lastname: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
+  gender: UserGenderFilterComparison
   email: StringFieldComparison
   country: StringFieldComparison
   mobile: StringFieldComparison
@@ -2509,6 +2543,7 @@ input UserDeleteFilter {
   lastname: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
+  gender: UserGenderFilterComparison
   email: StringFieldComparison
   country: StringFieldComparison
   mobile: StringFieldComparison

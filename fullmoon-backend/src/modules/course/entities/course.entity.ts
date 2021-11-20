@@ -52,7 +52,7 @@ export class CourseEntity extends Model {
   // course subcategory
   @ForeignKey(() => SubCategoryEntity)
   @Column
-  subcategoryId: number;
+  subCategoryId: number;
   @BelongsTo(() => SubCategoryEntity)
-  subcategory: SubCategoryEntity;
+  subCategory: SubCategoryEntity;
 }

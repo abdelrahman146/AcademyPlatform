@@ -7,7 +7,7 @@ import { SectionDTO } from './sections.dto';
 
 @ObjectType('Course')
 @Relation('teacher', () => UserDTO, { disableRemove: true, disableUpdate: true })
-@Relation('subcategory', () => SubCategoryDTO, { disableRemove: true })
+@Relation('subCategory', () => SubCategoryDTO, { disableRemove: true })
 @UnPagedRelation('sections', () => SectionDTO, { enableTotalCount: true })
 export class CourseDTO {
   @IDField(() => ID)
@@ -44,7 +44,7 @@ export class CourseDTO {
   teacherId: number;
 
   @FilterableField()
-  subcategoryId: number;
+  subCategoryId: number;
 
   @FilterableField(() => GraphQLISODateTime)
   createdAt!: Date;

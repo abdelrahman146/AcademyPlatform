@@ -3,7 +3,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { SubCategoryDTO } from './subcategory.dto';
 
 @ObjectType('Category')
-@FilterableCursorConnection('subcategories', () => SubCategoryDTO, { enableTotalCount: true })
+@FilterableCursorConnection('subCategories', () => SubCategoryDTO, { enableTotalCount: true })
 export class CategoryDTO {
   @IDField(() => ID)
   id!: number;

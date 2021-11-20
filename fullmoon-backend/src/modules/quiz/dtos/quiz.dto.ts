@@ -7,7 +7,7 @@ import { QuestionDTO } from './question.dto';
 @ObjectType('Quiz')
 @Relation('section', () => SectionDTO, { disableRemove: true })
 @UnPagedRelation('questions', () => QuestionDTO, { enableTotalCount: true })
-@FilterableCursorConnection('attendanceList', () => AttendanceDTO, { enableTotalCount: true })
+@FilterableCursorConnection('attendances', () => AttendanceDTO, { enableTotalCount: true, relationName: 'attendanceList' })
 export class QuizDTO {
   @FilterableField()
   title: string;

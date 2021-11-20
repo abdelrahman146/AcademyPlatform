@@ -1,7 +1,7 @@
 import { FilterableCursorConnection, FilterableField, FilterableRelation, IDField } from '@nestjs-query/query-graphql';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { CategoryDTO } from './category.dto';
-import { CourseDTO } from './course.dto';
+import { CategoryDTO } from '../category/category.dto';
+import { CourseDTO } from '../course/course.dto';
 
 @ObjectType('SubCategory')
 @FilterableRelation('parent', () => CategoryDTO, { disableRemove: true })

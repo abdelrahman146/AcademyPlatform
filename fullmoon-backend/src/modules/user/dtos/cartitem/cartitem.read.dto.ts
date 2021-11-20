@@ -1,6 +1,6 @@
 import { FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
-import { CourseDTO } from 'src/modules/course/dtos/course.dto';
+import { CourseDTO } from 'src/modules/course/dtos/course/course.dto';
 import { UserDTO } from '../user/user.read.dto';
 
 @ObjectType('CartItem')

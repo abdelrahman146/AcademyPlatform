@@ -1,7 +1,7 @@
 import { FilterableCursorConnection, FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
 import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
-import { AttendanceDTO } from 'src/modules/attendance/dtos/attendance.dto';
-import { SectionDTO } from 'src/modules/course/dtos/sections.dto';
+import { AttendanceDTO } from 'src/modules/attendance/dtos/attendance/attendance.dto';
+import { SectionDTO } from 'src/modules/course/dtos/section/section.dto';
 import { LectureType } from '../../types/lecture.types';
 
 @ObjectType('Lecture')

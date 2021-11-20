@@ -2,14 +2,14 @@ import { Field, InputType } from '@nestjs/graphql';
 import { IsEnum } from 'class-validator';
 import { LectureType } from '../../types/lecture.types';
 
-@InputType('LectureCreateInput')
-export class LectureCreateInputDTO {
+@InputType('LectureUpdateInput')
+export class LectureUpdateInputDTO {
   @Field(() => LectureType)
   @IsEnum(LectureType)
-  type!: LectureType;
+  type?: LectureType;
 
   @Field()
-  title!: string;
+  title?: string;
 
   @Field({ nullable: true })
   startingDate?: Date;

@@ -1,4 +1,4 @@
-import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
+import { BelongsToMany, Column, DataType, Model, NotNull, Table } from 'sequelize-typescript';
 import { CourseEntity } from 'src/modules/course/entities/course.entity';
 import { Exclude } from 'class-transformer';
 import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
@@ -8,7 +8,8 @@ import { UserGender, UserRole } from '../types/user.types';
 
 @Table({ modelName: 'User' })
 export class UserEntity extends Model {
-  @Column({ type: DataType.ENUM('admin', 'teacher', 'student'), defaultValue: 'student' })
+  @NotNull
+  @Column({ type: DataType.ENUM('admin', 'teacher', 'student'), defaultValue: 'student', allowNull: false })
   role!: UserRole;
 
   @Column({ type: DataType.STRING, allowNull: true })
@@ -21,17 +22,19 @@ export class UserEntity extends Model {
   title?: string;
 
   @Column({ type: DataType.STRING, validate: { max: Date.now() } })
-  dob: Date;
+  dob?: Date;
 
   @Column({ type: DataType.ENUM('male', 'female') })
-  gender: UserGender;
+  gender?: UserGender;
 
-  @Column({ type: DataType.STRING, validate: { isEmail: true } })
-  email: string;
+  @NotNull
+  @Column({ type: DataType.STRING, validate: { isEmail: true }, allowNull: false })
+  email!: string;
 
   @Exclude()
-  @Column(DataType.STRING)
-  password: string;
+  @NotNull
+  @Column({ allowNull: false })
+  password!: string;
 
   @Column(DataType.STRING)
   country: string;
@@ -45,7 +48,8 @@ export class UserEntity extends Model {
   @Column(DataType.TEXT)
   bio: string;
 
-  @Column({ defaultValue: true })
+  @NotNull
+  @Column({ defaultValue: true, allowNull: false })
   isActive: boolean;
 
   // courses user enrolled to

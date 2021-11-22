@@ -1,20 +1,23 @@
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { OptionEntity } from './option.entity';
 import { QuizEntity } from './quiz.entity';
 
 @Table({ modelName: 'Question', timestamps: false })
 export class QuestionEntity extends Model {
-  @Column(DataType.TEXT)
+  @NotNull
+  @Column({ type: DataType.TEXT, allowNull: false })
   statement: string;
 
   @Column
   hint: string;
 
-  @Column(DataType.INTEGER)
+  @NotNull
+  @Column({ type: DataType.INTEGER, allowNull: false })
   points: number;
 
+  @NotNull
   @ForeignKey(() => QuizEntity)
-  @Column
+  @Column({ allowNull: false })
   quizId: number;
   @BelongsTo(() => QuizEntity)
   quiz: QuizEntity;

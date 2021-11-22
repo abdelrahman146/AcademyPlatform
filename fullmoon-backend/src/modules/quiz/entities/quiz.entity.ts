@@ -1,4 +1,4 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Max, Min, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Max, Min, Model, NotNull, Table } from 'sequelize-typescript';
 import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.entity';
 import { SectionEntity } from 'src/modules/course/entities/section.entity';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
@@ -6,28 +6,32 @@ import { QuestionEntity } from './question.entity';
 
 @Table({ modelName: 'Quiz' })
 export class QuizEntity extends Model {
-  @Column(DataType.STRING)
+  @NotNull
+  @Column({ allowNull: false })
   title: string;
 
   @Column(DataType.DATE)
-  startingDate: Date;
+  startingDate?: Date;
 
   @Column(DataType.DATE)
-  endingDate: Date;
+  endingDate?: Date;
 
+  @NotNull
   @Max(1)
   @Min(0)
-  @Column(DataType.DECIMAL)
+  @Column({ type: DataType.DECIMAL, allowNull: false })
   minScoreToPass: number;
 
-  @Column(DataType.BOOLEAN)
+  @NotNull
+  @Column({ type: DataType.BOOLEAN, allowNull: false })
   isLocked: boolean;
 
   @HasMany(() => QuestionEntity)
   questions: QuestionEntity;
 
+  @NotNull
   @ForeignKey(() => SectionEntity)
-  @Column
+  @Column({ allowNull: false })
   sectionId: number;
 
   @BelongsTo(() => SectionEntity)

@@ -1,18 +1,20 @@
-import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, NotNull, Table } from 'sequelize-typescript';
 import { CourseEntity } from 'src/modules/course/entities/course.entity';
 import { UserEntity } from './user.entity';
 
 @Table({ modelName: 'CartItem', timestamps: false })
 export class CartItemEntity extends Model {
+  @NotNull
   @ForeignKey(() => UserEntity)
-  @Column
+  @Column({ allowNull: false })
   userId: number;
 
   @BelongsTo(() => UserEntity)
   user: UserEntity;
 
+  @NotNull
   @ForeignKey(() => CourseEntity)
-  @Column
+  @Column({ allowNull: false })
   courseId: number;
 
   @BelongsTo(() => CourseEntity)

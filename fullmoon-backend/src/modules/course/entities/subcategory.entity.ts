@@ -1,10 +1,11 @@
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { CategoryEntity } from './category.entity';
 import { CourseEntity } from './course.entity';
 
 @Table({ modelName: 'SubCategory', timestamps: false })
 export class SubCategoryEntity extends Model {
-  @Column(DataType.STRING)
+  @NotNull
+  @Column({ allowNull: false })
   title: string;
 
   @Column(DataType.STRING)
@@ -13,8 +14,9 @@ export class SubCategoryEntity extends Model {
   @HasMany(() => CourseEntity)
   courses: CourseEntity[];
 
+  @NotNull
   @ForeignKey(() => CategoryEntity)
-  @Column
+  @Column({ allowNull: false })
   parentId: number;
 
   @BelongsTo(() => CategoryEntity)

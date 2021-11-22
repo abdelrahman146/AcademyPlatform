@@ -1,22 +1,19 @@
-import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, NotNull, Table } from 'sequelize-typescript';
 import { QuestionEntity } from 'src/modules/quiz/entities/question.entity';
 import { OptionEntity } from 'src/modules/quiz/entities/option.entity';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { AttendanceEntity } from './attendance.entity';
-import { IDField } from '@nestjs-query/query-graphql';
-import { ID } from '@nestjs/graphql';
 
 @Table({ modelName: 'Answer', timestamps: false })
 export class AnswerEntity extends Model {
-  @IDField(() => ID)
-  id!: number;
-
+  @NotNull
   @ForeignKey(() => UserEntity)
-  @Column
+  @Column({ allowNull: false })
   studentId: number;
 
+  @NotNull
   @ForeignKey(() => QuestionEntity)
-  @Column
+  @Column({ allowNull: false })
   questionId: number;
 
   @ForeignKey(() => OptionEntity)
@@ -25,8 +22,9 @@ export class AnswerEntity extends Model {
   @BelongsTo(() => OptionEntity)
   choosedOptionEntity: OptionEntity;
 
+  @NotNull
   @ForeignKey(() => AttendanceEntity)
-  @Column
+  @Column({ allowNull: false })
   attendanceId: number;
   @BelongsTo(() => AttendanceEntity)
   attendance: AttendanceEntity;

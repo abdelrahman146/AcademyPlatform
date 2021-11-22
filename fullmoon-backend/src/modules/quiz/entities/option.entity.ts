@@ -1,16 +1,19 @@
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, DataType, ForeignKey, Model, NotNull, Table } from 'sequelize-typescript';
 import { QuestionEntity } from './question.entity';
 
 @Table({ modelName: 'Option', timestamps: false })
 export class OptionEntity extends Model {
-  @Column(DataType.TEXT)
+  @NotNull
+  @Column({ type: DataType.TEXT, allowNull: false })
   statement: string;
 
-  @Column({ type: DataType.BOOLEAN, defaultValue: false })
+  @NotNull
+  @Column({ type: DataType.BOOLEAN, defaultValue: false, allowNull: false })
   isCorrect: boolean;
 
+  @NotNull
   @ForeignKey(() => QuestionEntity)
-  @Column
+  @Column({ allowNull: false })
   questionId: number;
 
   @BelongsTo(() => QuestionEntity)

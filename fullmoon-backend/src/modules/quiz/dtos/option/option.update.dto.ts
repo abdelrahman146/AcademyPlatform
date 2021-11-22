@@ -1,10 +1,15 @@
 import { Field, InputType } from '@nestjs/graphql';
+import { IsOptional, NotEquals } from 'class-validator';
 
 @InputType('OptionUpdateInput')
 export class OptionUpdateInputDTO {
-  @Field()
+  @Field({ nullable: true })
+  @NotEquals(null)
+  @IsOptional()
   statement?: string;
 
-  @Field()
+  @Field({ nullable: true })
+  @NotEquals(null)
+  @IsOptional()
   isCorrect?: boolean;
 }

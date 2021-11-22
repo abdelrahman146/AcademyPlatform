@@ -3,10 +3,254 @@
 # ------------------------------------------------------
 
 type Option {
+  id: ID!
   statement: String!
   isCorrect: Boolean!
   questionId: Float!
   question: Question!
+}
+
+type Category {
+  id: ID!
+  name: String!
+  headline: String!
+  image: String!
+  subCategories(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: SubCategoryFilter = {}
+
+    """Specify to sort results."""
+    sorting: [SubCategorySort!] = []
+  ): CategorySubCategoriesConnection!
+}
+
+input CursorPaging {
+  """Paginate before opaque cursor"""
+  before: ConnectionCursor
+
+  """Paginate after opaque cursor"""
+  after: ConnectionCursor
+
+  """Paginate first"""
+  first: Int
+
+  """Paginate last"""
+  last: Int
+}
+
+"""Cursor for paging through collections"""
+scalar ConnectionCursor
+
+input SubCategoryFilter {
+  and: [SubCategoryFilter!]
+  or: [SubCategoryFilter!]
+  id: IDFilterComparison
+  title: StringFieldComparison
+  parentId: NumberFieldComparison
+  parent: SubCategoryFilterCategoryFilter
+  courses: SubCategoryFilterCourseFilter
+}
+
+input IDFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: ID
+  neq: ID
+  gt: ID
+  gte: ID
+  lt: ID
+  lte: ID
+  like: ID
+  notLike: ID
+  iLike: ID
+  notILike: ID
+  in: [ID!]
+  notIn: [ID!]
+}
+
+input StringFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: String
+  neq: String
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  like: String
+  notLike: String
+  iLike: String
+  notILike: String
+  in: [String!]
+  notIn: [String!]
+}
+
+input NumberFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Float
+  neq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  in: [Float!]
+  notIn: [Float!]
+  between: NumberFieldComparisonBetween
+  notBetween: NumberFieldComparisonBetween
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
+}
+
+input SubCategoryFilterCategoryFilter {
+  and: [SubCategoryFilterCategoryFilter!]
+  or: [SubCategoryFilterCategoryFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+}
+
+input SubCategoryFilterCourseFilter {
+  and: [SubCategoryFilterCourseFilter!]
+  or: [SubCategoryFilterCourseFilter!]
+  id: IDFilterComparison
+  type: CourseTypeFilterComparison
+  title: StringFieldComparison
+  startingDate: DateFieldComparison
+  endingDate: DateFieldComparison
+  price: NumberFieldComparison
+  teacherId: NumberFieldComparison
+  subCategoryId: NumberFieldComparison
+  createdAt: DateFieldComparison
+  updatedAt: DateFieldComparison
+}
+
+input CourseTypeFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: CourseType
+  neq: CourseType
+  gt: CourseType
+  gte: CourseType
+  lt: CourseType
+  lte: CourseType
+  like: CourseType
+  notLike: CourseType
+  iLike: CourseType
+  notILike: CourseType
+  in: [CourseType!]
+  notIn: [CourseType!]
+}
+
+enum CourseType {
+  recorded
+  live
+}
+
+input DateFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: DateTime
+  neq: DateTime
+  gt: DateTime
+  gte: DateTime
+  lt: DateTime
+  lte: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  between: DateFieldComparisonBetween
+  notBetween: DateFieldComparisonBetween
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+input SubCategorySort {
+  field: SubCategorySortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum SubCategorySortFields {
+  id
+  title
+  parentId
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+type SubCategory {
+  id: ID!
+  title: String!
+  headline: String!
+  parentId: Float!
+  parent: Category!
+  courses(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: CourseFilter = {}
+
+    """Specify to sort results."""
+    sorting: [CourseSort!] = []
+  ): SubCategoryCoursesConnection!
+}
+
+input CourseFilter {
+  and: [CourseFilter!]
+  or: [CourseFilter!]
+  id: IDFilterComparison
+  type: CourseTypeFilterComparison
+  title: StringFieldComparison
+  startingDate: DateFieldComparison
+  endingDate: DateFieldComparison
+  price: NumberFieldComparison
+  teacherId: NumberFieldComparison
+  subCategoryId: NumberFieldComparison
+  createdAt: DateFieldComparison
+  updatedAt: DateFieldComparison
+}
+
+input CourseSort {
+  field: CourseSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum CourseSortFields {
+  id
+  type
+  title
+  startingDate
+  endingDate
+  price
+  teacherId
+  subCategoryId
+  createdAt
+  updatedAt
 }
 
 type CartItem {
@@ -38,28 +282,6 @@ type Enrollment {
   ): EnrollmentAttendancesConnection!
 }
 
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
-input CursorPaging {
-  """Paginate before opaque cursor"""
-  before: ConnectionCursor
-
-  """Paginate after opaque cursor"""
-  after: ConnectionCursor
-
-  """Paginate first"""
-  first: Int
-
-  """Paginate last"""
-  last: Int
-}
-
-"""Cursor for paging through collections"""
-scalar ConnectionCursor
-
 input AttendanceFilter {
   and: [AttendanceFilter!]
   or: [AttendanceFilter!]
@@ -74,63 +296,6 @@ input AttendanceFilter {
   lecture: AttendanceFilterLectureFilter
   student: AttendanceFilterUserFilter
   answers: AttendanceFilterAnswerFilter
-}
-
-input IDFilterComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: ID
-  neq: ID
-  gt: ID
-  gte: ID
-  lt: ID
-  lte: ID
-  like: ID
-  notLike: ID
-  iLike: ID
-  notILike: ID
-  in: [ID!]
-  notIn: [ID!]
-}
-
-input NumberFieldComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: Float
-  neq: Float
-  gt: Float
-  gte: Float
-  lt: Float
-  lte: Float
-  in: [Float!]
-  notIn: [Float!]
-  between: NumberFieldComparisonBetween
-  notBetween: NumberFieldComparisonBetween
-}
-
-input NumberFieldComparisonBetween {
-  lower: Float!
-  upper: Float!
-}
-
-input DateFieldComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: DateTime
-  neq: DateTime
-  gt: DateTime
-  gte: DateTime
-  lt: DateTime
-  lte: DateTime
-  in: [DateTime!]
-  notIn: [DateTime!]
-  between: DateFieldComparisonBetween
-  notBetween: DateFieldComparisonBetween
-}
-
-input DateFieldComparisonBetween {
-  lower: DateTime!
-  upper: DateTime!
 }
 
 input AttendanceFilterEnrollmentFilter {
@@ -185,23 +350,6 @@ enum LectureType {
   STREAM
   CONFERENCE
   ARTICLE
-}
-
-input StringFieldComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: String
-  neq: String
-  gt: String
-  gte: String
-  lt: String
-  lte: String
-  like: String
-  notLike: String
-  iLike: String
-  notILike: String
-  in: [String!]
-  notIn: [String!]
 }
 
 input AttendanceFilterUserFilter {
@@ -290,18 +438,6 @@ enum AttendanceSortFields {
   quizId
   createdAt
   updatedAt
-}
-
-"""Sort Directions"""
-enum SortDirection {
-  ASC
-  DESC
-}
-
-"""Sort Nulls Options"""
-enum SortNulls {
-  NULLS_FIRST
-  NULLS_LAST
 }
 
 type WishlistItem {
@@ -432,141 +568,6 @@ enum EnrollmentSortFields {
   passed
   studentId
   courseId
-  createdAt
-  updatedAt
-}
-
-type Category {
-  id: ID!
-  name: String!
-  headline: String!
-  image: String!
-  subCategories(
-    """Limit or page results."""
-    paging: CursorPaging = {first: 10}
-
-    """Specify to filter the records returned."""
-    filter: SubCategoryFilter = {}
-
-    """Specify to sort results."""
-    sorting: [SubCategorySort!] = []
-  ): CategorySubCategoriesConnection!
-}
-
-input SubCategoryFilter {
-  and: [SubCategoryFilter!]
-  or: [SubCategoryFilter!]
-  id: IDFilterComparison
-  title: StringFieldComparison
-  parentId: NumberFieldComparison
-  parent: SubCategoryFilterCategoryFilter
-  courses: SubCategoryFilterCourseFilter
-}
-
-input SubCategoryFilterCategoryFilter {
-  and: [SubCategoryFilterCategoryFilter!]
-  or: [SubCategoryFilterCategoryFilter!]
-  id: IDFilterComparison
-  name: StringFieldComparison
-}
-
-input SubCategoryFilterCourseFilter {
-  and: [SubCategoryFilterCourseFilter!]
-  or: [SubCategoryFilterCourseFilter!]
-  id: IDFilterComparison
-  type: CourseTypeFilterComparison
-  title: StringFieldComparison
-  startingDate: DateFieldComparison
-  endingDate: DateFieldComparison
-  price: NumberFieldComparison
-  teacherId: NumberFieldComparison
-  subCategoryId: NumberFieldComparison
-  createdAt: DateFieldComparison
-  updatedAt: DateFieldComparison
-}
-
-input CourseTypeFilterComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: CourseType
-  neq: CourseType
-  gt: CourseType
-  gte: CourseType
-  lt: CourseType
-  lte: CourseType
-  like: CourseType
-  notLike: CourseType
-  iLike: CourseType
-  notILike: CourseType
-  in: [CourseType!]
-  notIn: [CourseType!]
-}
-
-enum CourseType {
-  recorded
-  live
-}
-
-input SubCategorySort {
-  field: SubCategorySortFields!
-  direction: SortDirection!
-  nulls: SortNulls
-}
-
-enum SubCategorySortFields {
-  id
-  title
-  parentId
-}
-
-type SubCategory {
-  id: ID!
-  title: String!
-  headline: String!
-  parentId: Float!
-  parent: Category!
-  courses(
-    """Limit or page results."""
-    paging: CursorPaging = {first: 10}
-
-    """Specify to filter the records returned."""
-    filter: CourseFilter = {}
-
-    """Specify to sort results."""
-    sorting: [CourseSort!] = []
-  ): SubCategoryCoursesConnection!
-}
-
-input CourseFilter {
-  and: [CourseFilter!]
-  or: [CourseFilter!]
-  id: IDFilterComparison
-  type: CourseTypeFilterComparison
-  title: StringFieldComparison
-  startingDate: DateFieldComparison
-  endingDate: DateFieldComparison
-  price: NumberFieldComparison
-  teacherId: NumberFieldComparison
-  subCategoryId: NumberFieldComparison
-  createdAt: DateFieldComparison
-  updatedAt: DateFieldComparison
-}
-
-input CourseSort {
-  field: CourseSortFields!
-  direction: SortDirection!
-  nulls: SortNulls
-}
-
-enum CourseSortFields {
-  id
-  type
-  title
-  startingDate
-  endingDate
-  price
-  teacherId
-  subCategoryId
   createdAt
   updatedAt
 }
@@ -825,7 +826,6 @@ type Quiz {
   title: String!
   startingDate: DateTime!
   endingDate: DateTime!
-  article: String!
   isLocked: Boolean!
   minScoreToPass: Float!
   sectionId: Float!
@@ -885,6 +885,7 @@ type Question {
 input OptionFilter {
   and: [OptionFilter!]
   or: [OptionFilter!]
+  id: IDFilterComparison
   isCorrect: BooleanFieldComparison
   questionId: NumberFieldComparison
 }
@@ -896,6 +897,7 @@ input OptionSort {
 }
 
 enum OptionSortFields {
+  id
   isCorrect
   questionId
 }
@@ -1471,7 +1473,6 @@ type QuizDeleteResponse {
   title: String
   startingDate: DateTime
   endingDate: DateTime
-  article: String
   isLocked: Boolean
   minScoreToPass: Float
   sectionId: Float
@@ -1600,6 +1601,7 @@ type QuestionMaxAggregate {
 }
 
 type OptionDeleteResponse {
+  id: ID
   statement: String
   isCorrect: Boolean
   questionId: Float
@@ -1622,28 +1624,34 @@ type OptionConnection {
 }
 
 type OptionAggregateGroupBy {
+  id: ID
   isCorrect: Boolean
   questionId: Float
 }
 
 type OptionCountAggregate {
+  id: Int
   isCorrect: Int
   questionId: Int
 }
 
 type OptionSumAggregate {
+  id: Float
   questionId: Float
 }
 
 type OptionAvgAggregate {
+  id: Float
   questionId: Float
 }
 
 type OptionMinAggregate {
+  id: ID
   questionId: Float
 }
 
 type OptionMaxAggregate {
+  id: ID
   questionId: Float
 }
 
@@ -2266,14 +2274,10 @@ type Mutation {
   deleteManyUsers(input: DeleteManyUsersInput!): DeleteManyResponse!
   createOneWishlistItem(input: CreateOneWishlistItemInput!): WishlistItem!
   createManyWishlistItems(input: CreateManyWishlistItemsInput!): [WishlistItem!]!
-  updateOneWishlistItem(input: UpdateOneWishlistItemInput!): WishlistItem!
-  updateManyWishlistItems(input: UpdateManyWishlistItemsInput!): UpdateManyResponse!
   deleteOneWishlistItem(input: DeleteOneWishlistItemInput!): WishlistItemDeleteResponse!
   deleteManyWishlistItems(input: DeleteManyWishlistItemsInput!): DeleteManyResponse!
   createOneCartItem(input: CreateOneCartItemInput!): CartItem!
   createManyCartItems(input: CreateManyCartItemsInput!): [CartItem!]!
-  updateOneCartItem(input: UpdateOneCartItemInput!): CartItem!
-  updateManyCartItems(input: UpdateManyCartItemsInput!): UpdateManyResponse!
   deleteOneCartItem(input: DeleteOneCartItemInput!): CartItemDeleteResponse!
   deleteManyCartItems(input: DeleteManyCartItemsInput!): DeleteManyResponse!
   addAttendancesToEnrollment(input: AddAttendancesToEnrollmentInput!): Enrollment!
@@ -2477,18 +2481,17 @@ input UpdateOneUserInput {
 }
 
 input UserUpdateInput {
-  role: UserRole!
-  firstName: String!
-  lastName: String!
-  title: String!
+  role: UserRole
+  firstName: String
+  lastName: String
+  title: String
   dob: DateTime!
   gender: UserGender!
-  email: String!
-  password: String!
-  country: String!
-  avatar: String!
-  mobile: String!
-  bio: String!
+  email: String
+  country: String
+  avatar: String
+  mobile: String
+  bio: String
 }
 
 input UpdateManyUsersInput {
@@ -2547,48 +2550,17 @@ input UserDeleteFilter {
 
 input CreateOneWishlistItemInput {
   """The record to create"""
-  wishlistItem: CreateWishlistItem!
+  wishlistItem: WishlistItemCreateInput!
 }
 
-input CreateWishlistItem {
-  id: ID
-  userId: Float
-  courseId: Float
+input WishlistItemCreateInput {
+  userId: Float!
+  courseId: Float!
 }
 
 input CreateManyWishlistItemsInput {
   """Array of records to create"""
-  wishlistItems: [CreateWishlistItem!]!
-}
-
-input UpdateOneWishlistItemInput {
-  """The id of the record to update"""
-  id: ID!
-
-  """The update to apply."""
-  update: UpdateWishlistItem!
-}
-
-input UpdateWishlistItem {
-  id: ID
-  userId: Float
-  courseId: Float
-}
-
-input UpdateManyWishlistItemsInput {
-  """Filter used to find fields to update"""
-  filter: WishlistItemUpdateFilter!
-
-  """The update to apply to all records found using the filter"""
-  update: UpdateWishlistItem!
-}
-
-input WishlistItemUpdateFilter {
-  and: [WishlistItemUpdateFilter!]
-  or: [WishlistItemUpdateFilter!]
-  id: IDFilterComparison
-  userId: NumberFieldComparison
-  courseId: NumberFieldComparison
+  wishlistItems: [WishlistItemCreateInput!]!
 }
 
 input DeleteOneWishlistItemInput {
@@ -2611,48 +2583,17 @@ input WishlistItemDeleteFilter {
 
 input CreateOneCartItemInput {
   """The record to create"""
-  cartItem: CreateCartItem!
+  cartItem: CartItemCreateInput!
 }
 
-input CreateCartItem {
-  id: ID
-  userId: Float
-  courseId: Float
+input CartItemCreateInput {
+  userId: Float!
+  courseId: Float!
 }
 
 input CreateManyCartItemsInput {
   """Array of records to create"""
-  cartItems: [CreateCartItem!]!
-}
-
-input UpdateOneCartItemInput {
-  """The id of the record to update"""
-  id: ID!
-
-  """The update to apply."""
-  update: UpdateCartItem!
-}
-
-input UpdateCartItem {
-  id: ID
-  userId: Float
-  courseId: Float
-}
-
-input UpdateManyCartItemsInput {
-  """Filter used to find fields to update"""
-  filter: CartItemUpdateFilter!
-
-  """The update to apply to all records found using the filter"""
-  update: UpdateCartItem!
-}
-
-input CartItemUpdateFilter {
-  and: [CartItemUpdateFilter!]
-  or: [CartItemUpdateFilter!]
-  id: IDFilterComparison
-  userId: NumberFieldComparison
-  courseId: NumberFieldComparison
+  cartItems: [CartItemCreateInput!]!
 }
 
 input DeleteOneCartItemInput {
@@ -2799,19 +2740,18 @@ input RemoveSubCategoriesFromCategoryInput {
 
 input CreateOneCategoryInput {
   """The record to create"""
-  category: CreateCategory!
+  category: CategoryCreateInput!
 }
 
-input CreateCategory {
-  id: ID
-  name: String
+input CategoryCreateInput {
+  name: String!
   headline: String
   image: String
 }
 
 input CreateManyCategoriesInput {
   """Array of records to create"""
-  categories: [CreateCategory!]!
+  categories: [CategoryCreateInput!]!
 }
 
 input UpdateOneCategoryInput {
@@ -2819,12 +2759,11 @@ input UpdateOneCategoryInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateCategory!
+  update: CategoryUpdateInput!
 }
 
-input UpdateCategory {
-  id: ID
-  name: String
+input CategoryUpdateInput {
+  name: String!
   headline: String
   image: String
 }
@@ -2834,7 +2773,7 @@ input UpdateManyCategoriesInput {
   filter: CategoryUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateCategory!
+  update: CategoryUpdateInput!
 }
 
 input CategoryUpdateFilter {
@@ -2895,19 +2834,18 @@ input RemoveCoursesFromSubCategoryInput {
 
 input CreateOneSubCategoryInput {
   """The record to create"""
-  subCategory: CreateSubCategory!
+  subCategory: SubCategoryCreateInput!
 }
 
-input CreateSubCategory {
-  id: ID
-  title: String
+input SubCategoryCreateInput {
+  title: String!
   headline: String
-  parentId: Float
+  parentId: Float!
 }
 
 input CreateManySubCategoriesInput {
   """Array of records to create"""
-  subCategories: [CreateSubCategory!]!
+  subCategories: [SubCategoryCreateInput!]!
 }
 
 input UpdateOneSubCategoryInput {
@@ -2915,11 +2853,10 @@ input UpdateOneSubCategoryInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateSubCategory!
+  update: SubCategoryUpdateInput!
 }
 
-input UpdateSubCategory {
-  id: ID
+input SubCategoryUpdateInput {
   title: String
   headline: String
   parentId: Float
@@ -2930,7 +2867,7 @@ input UpdateManySubCategoriesInput {
   filter: SubCategoryUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateSubCategory!
+  update: SubCategoryUpdateInput!
 }
 
 input SubCategoryUpdateFilter {
@@ -2993,29 +2930,26 @@ input RemoveSectionsFromCourseInput {
 
 input CreateOneCourseInput {
   """The record to create"""
-  course: CreateCourse!
+  course: CourseCreateInput!
 }
 
-input CreateCourse {
-  id: ID
-  type: CourseType
-  title: String
+input CourseCreateInput {
+  type: CourseType!
+  title: String!
   headline: String
   description: String
   image: String
   introVideo: String
   startingDate: DateTime
   endingDate: DateTime
-  price: Float
-  teacherId: Float
-  subCategoryId: Float
-  createdAt: DateTime
-  updatedAt: DateTime
+  price: Float!
+  teacherId: Float!
+  subCategoryId: Float!
 }
 
 input CreateManyCoursesInput {
   """Array of records to create"""
-  courses: [CreateCourse!]!
+  courses: [CourseCreateInput!]!
 }
 
 input UpdateOneCourseInput {
@@ -3023,11 +2957,10 @@ input UpdateOneCourseInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateCourse!
+  update: CourseUpdateInput!
 }
 
-input UpdateCourse {
-  id: ID
+input CourseUpdateInput {
   type: CourseType
   title: String
   headline: String
@@ -3037,10 +2970,7 @@ input UpdateCourse {
   startingDate: DateTime
   endingDate: DateTime
   price: Float
-  teacherId: Float
   subCategoryId: Float
-  createdAt: DateTime
-  updatedAt: DateTime
 }
 
 input UpdateManyCoursesInput {
@@ -3048,7 +2978,7 @@ input UpdateManyCoursesInput {
   filter: CourseUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateCourse!
+  update: CourseUpdateInput!
 }
 
 input CourseUpdateFilter {
@@ -3263,24 +3193,21 @@ input RemoveAttendancesFromQuizInput {
 
 input CreateOneQuizInput {
   """The record to create"""
-  quiz: CreateQuiz!
+  quiz: QuizCreateInput!
 }
 
-input CreateQuiz {
-  title: String
+input QuizCreateInput {
+  title: String!
   startingDate: DateTime
   endingDate: DateTime
-  article: String
   isLocked: Boolean
-  minScoreToPass: Float
-  sectionId: Float
-  createdAt: DateTime
-  updatedAt: DateTime
+  minScoreToPass: Float!
+  sectionId: Float!
 }
 
 input CreateManyQuizzesInput {
   """Array of records to create"""
-  quizzes: [CreateQuiz!]!
+  quizzes: [QuizCreateInput!]!
 }
 
 input UpdateOneQuizInput {
@@ -3288,19 +3215,16 @@ input UpdateOneQuizInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateQuiz!
+  update: QuizUpdateInput!
 }
 
-input UpdateQuiz {
+input QuizUpdateInput {
   title: String
   startingDate: DateTime
   endingDate: DateTime
-  article: String
   isLocked: Boolean
   minScoreToPass: Float
   sectionId: Float
-  createdAt: DateTime
-  updatedAt: DateTime
 }
 
 input UpdateManyQuizzesInput {
@@ -3308,7 +3232,7 @@ input UpdateManyQuizzesInput {
   filter: QuizUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateQuiz!
+  update: QuizUpdateInput!
 }
 
 input QuizUpdateFilter {
@@ -3379,19 +3303,19 @@ input RemoveOptionsFromQuestionInput {
 
 input CreateOneQuestionInput {
   """The record to create"""
-  question: CreateQuestion!
+  question: QuestionCreateInput!
 }
 
-input CreateQuestion {
-  statement: String
+input QuestionCreateInput {
+  statement: String!
   hint: String
-  points: Float
-  quizId: Float
+  points: Float!
+  quizId: Float!
 }
 
 input CreateManyQuestionsInput {
   """Array of records to create"""
-  questions: [CreateQuestion!]!
+  questions: [QuestionCreateInput!]!
 }
 
 input UpdateOneQuestionInput {
@@ -3399,14 +3323,13 @@ input UpdateOneQuestionInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateQuestion!
+  update: QuestionUpdateInput!
 }
 
-input UpdateQuestion {
+input QuestionUpdateInput {
   statement: String
   hint: String
   points: Float
-  quizId: Float
 }
 
 input UpdateManyQuestionsInput {
@@ -3414,7 +3337,7 @@ input UpdateManyQuestionsInput {
   filter: QuestionUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateQuestion!
+  update: QuestionUpdateInput!
 }
 
 input QuestionUpdateFilter {
@@ -3449,18 +3372,18 @@ input SetQuestionOnOptionInput {
 
 input CreateOneOptionInput {
   """The record to create"""
-  option: CreateOption!
+  option: OptionCreateInput!
 }
 
-input CreateOption {
-  statement: String
-  isCorrect: Boolean
-  questionId: Float
+input OptionCreateInput {
+  statement: String!
+  isCorrect: Boolean!
+  questionId: Float!
 }
 
 input CreateManyOptionsInput {
   """Array of records to create"""
-  options: [CreateOption!]!
+  options: [OptionCreateInput!]!
 }
 
 input UpdateOneOptionInput {
@@ -3468,13 +3391,12 @@ input UpdateOneOptionInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateOption!
+  update: OptionUpdateInput!
 }
 
-input UpdateOption {
+input OptionUpdateInput {
   statement: String
   isCorrect: Boolean
-  questionId: Float
 }
 
 input UpdateManyOptionsInput {
@@ -3482,12 +3404,13 @@ input UpdateManyOptionsInput {
   filter: OptionUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateOption!
+  update: OptionUpdateInput!
 }
 
 input OptionUpdateFilter {
   and: [OptionUpdateFilter!]
   or: [OptionUpdateFilter!]
+  id: IDFilterComparison
   isCorrect: BooleanFieldComparison
   questionId: NumberFieldComparison
 }
@@ -3505,6 +3428,7 @@ input DeleteManyOptionsInput {
 input OptionDeleteFilter {
   and: [OptionDeleteFilter!]
   or: [OptionDeleteFilter!]
+  id: IDFilterComparison
   isCorrect: BooleanFieldComparison
   questionId: NumberFieldComparison
 }
@@ -3543,13 +3467,12 @@ input RemoveAttendancesFromLectureInput {
 
 input CreateOneLectureInput {
   """The record to create"""
-  lecture: CreateLecture!
+  lecture: LectureCreateInput!
 }
 
-input CreateLecture {
-  id: ID
-  type: LectureType
-  title: String
+input LectureCreateInput {
+  type: LectureType!
+  title: String!
   startingDate: DateTime
   endingDate: DateTime
   article: String
@@ -3557,14 +3480,12 @@ input CreateLecture {
   streamLink: String
   videoLink: String
   conferenceId: String
-  sectionId: Float
-  createdAt: DateTime
-  updatedAt: DateTime
+  sectionId: Float!
 }
 
 input CreateManyLecturesInput {
   """Array of records to create"""
-  lectures: [CreateLecture!]!
+  lectures: [LectureCreateInput!]!
 }
 
 input UpdateOneLectureInput {
@@ -3572,12 +3493,11 @@ input UpdateOneLectureInput {
   id: ID!
 
   """The update to apply."""
-  update: UpdateLecture!
+  update: LectureUpdateInput!
 }
 
-input UpdateLecture {
-  id: ID
-  type: LectureType
+input LectureUpdateInput {
+  type: LectureType!
   title: String
   startingDate: DateTime
   endingDate: DateTime
@@ -3587,8 +3507,6 @@ input UpdateLecture {
   videoLink: String
   conferenceId: String
   sectionId: Float
-  createdAt: DateTime
-  updatedAt: DateTime
 }
 
 input UpdateManyLecturesInput {
@@ -3596,7 +3514,7 @@ input UpdateManyLecturesInput {
   filter: LectureUpdateFilter!
 
   """The update to apply to all records found using the filter"""
-  update: UpdateLecture!
+  update: LectureUpdateInput!
 }
 
 input LectureUpdateFilter {

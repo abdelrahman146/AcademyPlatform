@@ -1,25 +1,28 @@
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { LectureEntity } from 'src/modules/lecture/entities/lecture.entity';
 import { QuizEntity } from 'src/modules/quiz/entities/quiz.entity';
 import { CourseEntity } from './course.entity';
 
 @Table({ modelName: 'Section', timestamps: false })
 export class SectionEntity extends Model {
-  @Column(DataType.SMALLINT)
+  @NotNull
+  @Column({ type: DataType.SMALLINT, defaultValue: 0, allowNull: false })
   order: number;
 
-  @Column(DataType.STRING)
+  @NotNull
+  @Column({ allowNull: false })
   title: string;
 
   @Column(DataType.STRING)
   headline: string;
 
+  @NotNull
   @ForeignKey(() => CourseEntity)
-  @Column
+  @Column({ allowNull: false })
   courseId: number;
 
   @BelongsTo(() => CourseEntity)
-  CourseEntity: CourseEntity;
+  course: CourseEntity;
 
   @HasMany(() => LectureEntity)
   lectures: LectureEntity[];

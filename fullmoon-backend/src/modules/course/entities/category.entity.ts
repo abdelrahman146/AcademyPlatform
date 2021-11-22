@@ -1,15 +1,16 @@
-import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Column, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { SubCategoryEntity } from './subCategory.entity';
 
 @Table({ modelName: 'Category', timestamps: false })
 export class CategoryEntity extends Model {
-  @Column(DataType.STRING)
-  name: string;
+  @NotNull
+  @Column({ allowNull: false })
+  name!: string;
 
-  @Column(DataType.STRING)
+  @Column
   headline: string;
 
-  @Column(DataType.STRING)
+  @Column({ allowNull: false })
   image: string;
 
   @HasMany(() => SubCategoryEntity)

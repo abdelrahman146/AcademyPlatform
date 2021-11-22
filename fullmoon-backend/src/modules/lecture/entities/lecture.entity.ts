@@ -1,4 +1,4 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, NotNull, Table } from 'sequelize-typescript';
 import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.entity';
 import { SectionEntity } from 'src/modules/course/entities/section.entity';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
@@ -12,22 +12,25 @@ enum LectureType {
 
 @Table({ modelName: 'Lecture' })
 export class LectureEntity extends Model {
-  @Column({ type: DataType.ENUM('video', 'stream', 'conference', 'article'), defaultValue: 'article' })
-  type: LectureType;
+  @NotNull
+  @Column({ type: DataType.ENUM('video', 'stream', 'conference', 'article'), defaultValue: 'article', allowNull: false })
+  type!: LectureType;
 
-  @Column(DataType.STRING)
-  title: string;
+  @NotNull
+  @Column({ allowNull: false })
+  title!: string;
 
   @Column(DataType.DATE)
-  startingDate: Date;
+  startingDate?: Date;
 
   @Column(DataType.DATE)
-  endingDate: Date;
+  endingDate?: Date;
 
   @Column(DataType.TEXT)
   article: string;
 
-  @Column({ type: DataType.BOOLEAN, defaultValue: true })
+  @NotNull
+  @Column({ type: DataType.BOOLEAN, defaultValue: true, allowNull: false })
   isLocked: boolean;
 
   @Column({ type: DataType.STRING })
@@ -39,8 +42,9 @@ export class LectureEntity extends Model {
   @Column({ type: DataType.STRING })
   conferenceId: string;
 
+  @NotNull
   @ForeignKey(() => SectionEntity)
-  @Column
+  @Column({ allowNull: false })
   sectionId: number;
 
   @BelongsTo(() => SectionEntity)

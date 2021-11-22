@@ -1,4 +1,4 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { EnrollmentEntity } from '../../user/entities/enrollment.entity';
 import { CourseType } from '../types/course.types';
@@ -7,10 +7,12 @@ import { SubCategoryEntity } from './subCategory.entity';
 
 @Table({ modelName: 'Course' })
 export class CourseEntity extends Model {
-  @Column({ type: DataType.ENUM('recorded', 'live'), defaultValue: 'recorded' })
+  @NotNull
+  @Column({ type: DataType.ENUM('recorded', 'live'), defaultValue: 'recorded', allowNull: false })
   type: CourseType;
 
-  @Column(DataType.STRING)
+  @NotNull
+  @Column({ allowNull: false })
   title: string;
 
   @Column(DataType.STRING)
@@ -31,7 +33,8 @@ export class CourseEntity extends Model {
   @Column(DataType.DATE)
   endingDate: Date;
 
-  @Column(DataType.NUMBER)
+  @NotNull
+  @Column({ allowNull: false })
   price: number;
 
   // course sections
@@ -39,8 +42,9 @@ export class CourseEntity extends Model {
   sections: SectionEntity[];
 
   // teacher of the course
+  @NotNull
   @ForeignKey(() => UserEntity)
-  @Column
+  @Column({ allowNull: false })
   teacherId: number;
   @BelongsTo(() => UserEntity)
   teacher: UserEntity;
@@ -50,8 +54,9 @@ export class CourseEntity extends Model {
   students: Array<UserEntity & { enrollment: EnrollmentEntity }>;
 
   // course subcategory
+  @NotNull
   @ForeignKey(() => SubCategoryEntity)
-  @Column
+  @Column({ allowNull: false })
   subCategoryId: number;
   @BelongsTo(() => SubCategoryEntity)
   subCategory: SubCategoryEntity;

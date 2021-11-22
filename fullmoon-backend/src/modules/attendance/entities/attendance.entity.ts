@@ -1,4 +1,4 @@
-import { Column, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
+import { Column, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { LectureEntity } from 'src/modules/lecture/entities/lecture.entity';
 import { QuizEntity } from 'src/modules/quiz/entities/quiz.entity';
 import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
@@ -7,20 +7,24 @@ import { AnswerEntity } from './answer.entity';
 
 @Table({ modelName: 'Attendance' })
 export class AttendanceEntity extends Model {
+  @NotNull
   @ForeignKey(() => UserEntity)
-  @Column
+  @Column({ allowNull: false })
   studentId: number;
 
+  @NotNull
   @ForeignKey(() => LectureEntity)
-  @Column
+  @Column({ allowNull: false })
   lectureId: number;
 
+  @NotNull
   @ForeignKey(() => EnrollmentEntity)
-  @Column
+  @Column({ allowNull: false })
   enrollmentId: number;
 
+  @NotNull
   @ForeignKey(() => QuizEntity)
-  @Column
+  @Column({ allowNull: false })
   quizId: number;
 
   @HasMany(() => AnswerEntity)

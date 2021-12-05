@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import * as dotenv from 'dotenv';
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { join } from 'path';
@@ -24,11 +25,15 @@ import { CourseModule } from './modules/course/course.module';
 import { LectureModule } from './modules/lecture/lecture.module';
 import { QuizModule } from './modules/quiz/quiz.module';
 import { UserModule } from './modules/user/user.module';
+import { AppController } from './app.controller';
+import { AuthModule } from './modules/auth/auth.module';
 
+dotenv.config();
 const infrastructurePath = join(process.cwd(), 'src/infrastructure');
 
 @Module({
   imports: [
+    AuthModule,
     UserModule,
     CourseModule,
     QuizModule,
@@ -60,7 +65,7 @@ const infrastructurePath = join(process.cwd(), 'src/infrastructure');
       autoSchemaFile: join(infrastructurePath, 'schema.gql'),
     }),
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

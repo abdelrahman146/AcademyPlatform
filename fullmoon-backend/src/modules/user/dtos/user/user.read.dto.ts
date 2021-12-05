@@ -20,7 +20,7 @@ export class UserDTO {
   firstName: string;
 
   @FilterableField()
-  lastname: string;
+  lastName: string;
 
   @FilterableField()
   title: string;

@@ -358,7 +358,7 @@ input AttendanceFilterUserFilter {
   id: IDFilterComparison
   role: UserRoleFilterComparison
   firstName: StringFieldComparison
-  lastname: StringFieldComparison
+  lastName: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
   gender: UserGenderFilterComparison
@@ -452,7 +452,7 @@ type User {
   id: ID!
   role: UserRole!
   firstName: String!
-  lastname: String!
+  lastName: String!
   title: String!
   dob: DateTime!
   gender: UserGender!
@@ -1659,7 +1659,7 @@ type UserDeleteResponse {
   id: ID
   role: UserRole
   firstName: String
-  lastname: String
+  lastName: String
   title: String
   dob: DateTime
   gender: UserGender
@@ -1693,7 +1693,7 @@ type UserAggregateGroupBy {
   id: ID
   role: UserRole
   firstName: String
-  lastname: String
+  lastName: String
   title: String
   dob: DateTime
   gender: UserGender
@@ -1709,7 +1709,7 @@ type UserCountAggregate {
   id: Int
   role: Int
   firstName: Int
-  lastname: Int
+  lastName: Int
   title: Int
   dob: Int
   gender: Int
@@ -1733,7 +1733,7 @@ type UserMinAggregate {
   id: ID
   role: UserRole
   firstName: String
-  lastname: String
+  lastName: String
   title: String
   dob: DateTime
   gender: UserGender
@@ -1748,7 +1748,7 @@ type UserMaxAggregate {
   id: ID
   role: UserRole
   firstName: String
-  lastname: String
+  lastName: String
   title: String
   dob: DateTime
   gender: UserGender
@@ -2184,7 +2184,7 @@ input UserFilter {
   id: IDFilterComparison
   role: UserRoleFilterComparison
   firstName: StringFieldComparison
-  lastname: StringFieldComparison
+  lastName: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
   gender: UserGenderFilterComparison
@@ -2218,7 +2218,7 @@ enum UserSortFields {
   id
   role
   firstName
-  lastname
+  lastName
   title
   dob
   gender
@@ -2508,7 +2508,7 @@ input UserUpdateFilter {
   id: IDFilterComparison
   role: UserRoleFilterComparison
   firstName: StringFieldComparison
-  lastname: StringFieldComparison
+  lastName: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
   gender: UserGenderFilterComparison
@@ -2536,7 +2536,7 @@ input UserDeleteFilter {
   id: IDFilterComparison
   role: UserRoleFilterComparison
   firstName: StringFieldComparison
-  lastname: StringFieldComparison
+  lastName: StringFieldComparison
   title: StringFieldComparison
   dob: DateFieldComparison
   gender: UserGenderFilterComparison

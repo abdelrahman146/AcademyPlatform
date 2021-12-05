@@ -22,3 +22,7 @@ registerEnumType(UserGender, {
 });
 
 export type EnrollmentType = CourseEntity & { enrollment: EnrollmentEntity };
+
+export type Payload = {
+  email: string;
+};

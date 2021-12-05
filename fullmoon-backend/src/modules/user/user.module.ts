@@ -15,6 +15,7 @@ import { CartItemEntity } from './entities/cartitem.entity';
 import { EnrollmentEntity } from './entities/enrollment.entity';
 import { UserEntity } from './entities/user.entity';
 import { WishlistItemEntity } from './entities/wishlistitem.entity';
+import { UserService } from './services/user.service';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { WishlistItemEntity } from './entities/wishlistitem.entity';
       ],
     }),
   ],
-  providers: [],
+  exports: [UserService],
+  providers: [UserService],
 })
 export class UserModule {}

@@ -17,16 +17,43 @@ import { SubCategoryCreateInputDTO } from './dtos/subCategory/subCategory.create
 import { SubCategoryUpdateInputDTO } from './dtos/subCategory/subCategory.update.dto';
 import { CategoryCreateInputDTO } from './dtos/category/category.create.dto';
 import { CategoryUpdateInputDTO } from './dtos/category/category.update.dto';
+import { GqlAuthGuard } from '../auth/guards/gql.jwt.guard';
+import { SectionCreateInputDTO } from './dtos/section/section.create.dto';
+import { SectionUpdateInputDTO } from './dtos/section/section.update.dto';
 
 @Module({
   imports: [
     NestjsQueryGraphQLModule.forFeature({
       imports: [NestjsQuerySequelizeModule.forFeature([CategoryEntity, SubCategoryEntity, CourseEntity, SectionEntity])],
       resolvers: [
-        { DTOClass: CategoryDTO, EntityClass: CategoryEntity, CreateDTOClass: CategoryCreateInputDTO, UpdateDTOClass: CategoryUpdateInputDTO },
-        { DTOClass: SubCategoryDTO, EntityClass: SubCategoryEntity, CreateDTOClass: SubCategoryCreateInputDTO, UpdateDTOClass: SubCategoryUpdateInputDTO },
-        { DTOClass: CourseDTO, EntityClass: CourseEntity, CreateDTOClass: CourseCreateInputDTO, UpdateDTOClass: CourseUpdateInputDTO },
-        { DTOClass: SectionDTO, EntityClass: SectionEntity },
+        {
+          DTOClass: CategoryDTO,
+          EntityClass: CategoryEntity,
+          CreateDTOClass: CategoryCreateInputDTO,
+          UpdateDTOClass: CategoryUpdateInputDTO,
+          guards: [GqlAuthGuard],
+        },
+        {
+          DTOClass: SubCategoryDTO,
+          EntityClass: SubCategoryEntity,
+          CreateDTOClass: SubCategoryCreateInputDTO,
+          UpdateDTOClass: SubCategoryUpdateInputDTO,
+          guards: [GqlAuthGuard],
+        },
+        {
+          DTOClass: CourseDTO,
+          EntityClass: CourseEntity,
+          CreateDTOClass: CourseCreateInputDTO,
+          UpdateDTOClass: CourseUpdateInputDTO,
+          guards: [GqlAuthGuard],
+        },
+        {
+          DTOClass: SectionDTO,
+          EntityClass: SectionEntity,
+          CreateDTOClass: SectionCreateInputDTO,
+          UpdateDTOClass: SectionUpdateInputDTO,
+          guards: [GqlAuthGuard],
+        },
       ],
     }),
   ],

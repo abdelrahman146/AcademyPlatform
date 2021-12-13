@@ -8,8 +8,11 @@ export class AnswerCreateInputDTO {
   @Field()
   questionId!: number;
 
+  @Field()
+  teacherId!: number;
+
   @Field({ nullable: true })
-  choosedOptionEntityId?: number;
+  choosedOptionId?: number;
 
   @Field()
   attendanceId!: number;

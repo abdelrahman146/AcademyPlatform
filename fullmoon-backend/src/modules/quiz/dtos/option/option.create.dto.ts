@@ -10,4 +10,10 @@ export class OptionCreateInputDTO {
 
   @Field()
   questionId!: number;
+
+  @Field()
+  teacherId!: number;
+
+  @Field()
+  courseId!: number;
 }

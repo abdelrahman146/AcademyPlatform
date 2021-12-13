@@ -13,4 +13,7 @@ export class SectionCreateInputDTO {
 
   @Field()
   courseId!: number;
+
+  @Field()
+  teacherId!: number;
 }

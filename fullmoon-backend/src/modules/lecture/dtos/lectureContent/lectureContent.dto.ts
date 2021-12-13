@@ -1,10 +1,11 @@
-import { FilterableField, IDField, Relation, Authorize, AuthorizationContext } from '@nestjs-query/query-graphql';
+import { AuthorizationContext, Authorize, FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { IsOptional } from 'class-validator';
 import { UserContext } from 'src/modules/user/types/auth.types';
 import { UserRole } from 'src/modules/user/types/user.types';
-import { QuestionDTO } from '../question/question.dto';
+import { LectureDTO } from '../lecture/lecture.dto';
 
-@ObjectType('Option')
+@ObjectType('LectureContent')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unreachable code error
 @Authorize({
@@ -19,19 +20,29 @@ import { QuestionDTO } from '../question/question.dto';
       };
   },
 })
-@Relation('question', () => QuestionDTO, { disableRemove: true })
-export class OptionDTO {
+@Relation('lecture', () => LectureDTO, { disableRemove: true })
+export class LectureContentDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
 
-  @Field()
-  statement: string;
+  @Field({ nullable: true })
+  @IsOptional()
+  article?: string;
+
+  @Field({ nullable: true })
+  @IsOptional()
+  streamLink?: string;
+
+  @Field({ nullable: true })
+  @IsOptional()
+  videoLink?: string;
+
+  @Field({ nullable: true })
+  @IsOptional()
+  conferenceId?: string;
 
   @FilterableField()
-  isCorrect: boolean;
-
-  @FilterableField()
-  questionId: number;
+  lectureId: number;
 
   @FilterableField()
   teacherId: number;

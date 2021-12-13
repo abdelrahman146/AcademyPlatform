@@ -1,5 +1,18 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Max, Min, Model, NotNull, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  BelongsToMany,
+  Column,
+  DataType,
+  ForeignKey,
+  HasMany,
+  Max,
+  Min,
+  Model,
+  NotNull,
+  Table,
+} from 'sequelize-typescript';
 import { AttendanceEntity } from 'src/modules/attendance/entities/attendance.entity';
+import { CourseEntity } from 'src/modules/course/entities/course.entity';
 import { SectionEntity } from 'src/modules/course/entities/section.entity';
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { QuestionEntity } from './question.entity';
@@ -39,4 +52,14 @@ export class QuizEntity extends Model {
 
   @BelongsToMany(() => UserEntity, () => AttendanceEntity)
   attendanceList: Array<UserEntity & { attendance: AttendanceEntity }>;
+
+  @NotNull
+  @ForeignKey(() => UserEntity)
+  @Column({ allowNull: false })
+  teacherId: number;
+
+  @NotNull
+  @ForeignKey(() => CourseEntity)
+  @Column({ allowNull: false })
+  courseId: number;
 }

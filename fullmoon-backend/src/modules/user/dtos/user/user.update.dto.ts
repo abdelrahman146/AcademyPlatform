@@ -25,16 +25,22 @@ export class UserUpdateInputDTO {
   @IsOptional()
   title?: string;
 
-  @Field(() => GraphQLISODateTime)
+  @Field(() => GraphQLISODateTime, { nullable: true })
   @IsDate()
   @IsOptional()
   dob?: Date;
 
-  @Field(() => UserGender)
+  @Field(() => UserGender, { nullable: true })
   @IsEnum(UserGender)
   @NotEquals(null)
   @IsOptional()
   gender?: UserGender;
+
+  @Field({ nullable: true })
+  @IsEmail()
+  @NotEquals(null)
+  @IsOptional()
+  password: string;
 
   @Field({ nullable: true })
   @IsEmail()

@@ -5,7 +5,7 @@ import { IsOptional } from 'class-validator';
 export class AnswerUpdateInputDTO {
   @Field({ nullable: true })
   @IsOptional()
-  choosedOptionEntityId?: number;
+  choosedOptionId?: number;
 
   @Field({ nullable: true })
   @IsOptional()

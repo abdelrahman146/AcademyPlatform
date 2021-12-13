@@ -27,6 +27,7 @@ import { QuizModule } from './modules/quiz/quiz.module';
 import { UserModule } from './modules/user/user.module';
 import { AppController } from './app.controller';
 import { AuthModule } from './modules/auth/auth.module';
+import { LectureContentEntity } from './modules/lecture/entities/lectureContent.entity';
 
 dotenv.config();
 const infrastructurePath = join(process.cwd(), 'src/infrastructure');
@@ -53,6 +54,7 @@ const infrastructurePath = join(process.cwd(), 'src/infrastructure');
         SectionEntity,
         SubCategoryEntity,
         LectureEntity,
+        LectureContentEntity,
         OptionEntity,
         QuestionEntity,
         QuizEntity,

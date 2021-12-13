@@ -1,10 +1,10 @@
-import { BelongsToMany, Column, DataType, Model, NotNull, Table } from 'sequelize-typescript';
+import { BeforeSave, BelongsToMany, Column, DataType, Model, NotNull, Table, Unique } from 'sequelize-typescript';
 import { CourseEntity } from 'src/modules/course/entities/course.entity';
-import { Exclude } from 'class-transformer';
 import { EnrollmentEntity } from 'src/modules/user/entities/enrollment.entity';
 import { CartItemEntity } from './cartitem.entity';
 import { WishlistItemEntity } from './wishlistitem.entity';
 import { UserGender, UserRole } from '../types/user.types';
+import Encryptor from 'src/lib/encryption';
 
 @Table({ modelName: 'User' })
 export class UserEntity extends Model {
@@ -27,11 +27,11 @@ export class UserEntity extends Model {
   @Column({ type: DataType.ENUM('male', 'female') })
   gender?: UserGender;
 
+  @Unique
   @NotNull
   @Column({ type: DataType.STRING, validate: { isEmail: true }, allowNull: false })
   email!: string;
 
-  @Exclude()
   @NotNull
   @Column({ allowNull: false })
   password!: string;
@@ -42,6 +42,7 @@ export class UserEntity extends Model {
   @Column(DataType.STRING)
   avatar: string;
 
+  @Unique(true)
   @Column(DataType.STRING)
   mobile: string;
 
@@ -52,15 +53,17 @@ export class UserEntity extends Model {
   @Column({ defaultValue: true, allowNull: false })
   isActive: boolean;
 
-  // courses user enrolled to
   @BelongsToMany(() => CourseEntity, () => EnrollmentEntity)
-  enrollments: Array<CourseEntity & { enrollment: EnrollmentEntity }>;
+  enrollments: Array<CourseEntity & { enrollmentInfo: EnrollmentEntity }>;
 
-  // courses user added to cart
   @BelongsToMany(() => CourseEntity, () => CartItemEntity)
   cart: CourseEntity[];
 
-  // courses user added to wishlist
   @BelongsToMany(() => CourseEntity, () => WishlistItemEntity)
   wishlist: CourseEntity[];
+
+  @BeforeSave
+  static async hashPassword(user: UserEntity) {
+    user.password = await Encryptor.hash(user.password);
+  }
 }

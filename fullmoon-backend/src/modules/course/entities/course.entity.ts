@@ -51,7 +51,7 @@ export class CourseEntity extends Model {
 
   // students who enrolled to the course
   @BelongsToMany(() => UserEntity, () => EnrollmentEntity)
-  students: Array<UserEntity & { enrollment: EnrollmentEntity }>;
+  students: Array<UserEntity & { enrollmentInfo: EnrollmentEntity }>;
 
   // course subcategory
   @NotNull

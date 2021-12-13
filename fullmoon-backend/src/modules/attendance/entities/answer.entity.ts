@@ -12,15 +12,20 @@ export class AnswerEntity extends Model {
   studentId: number;
 
   @NotNull
+  @ForeignKey(() => UserEntity)
+  @Column({ allowNull: false })
+  teacherId: number;
+
+  @NotNull
   @ForeignKey(() => QuestionEntity)
   @Column({ allowNull: false })
   questionId: number;
 
   @ForeignKey(() => OptionEntity)
   @Column
-  choosedOptionEntityId: number;
+  choosedOptionId: number;
   @BelongsTo(() => OptionEntity)
-  choosedOptionEntity: OptionEntity;
+  choosedOption: OptionEntity;
 
   @NotNull
   @ForeignKey(() => AttendanceEntity)

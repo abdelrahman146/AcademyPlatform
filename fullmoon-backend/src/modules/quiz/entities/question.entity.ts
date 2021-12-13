@@ -1,4 +1,6 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
+import { CourseEntity } from 'src/modules/course/entities/course.entity';
+import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { OptionEntity } from './option.entity';
 import { QuizEntity } from './quiz.entity';
 
@@ -24,4 +26,14 @@ export class QuestionEntity extends Model {
 
   @HasMany(() => OptionEntity)
   options: OptionEntity;
+
+  @NotNull
+  @ForeignKey(() => UserEntity)
+  @Column({ allowNull: false })
+  teacherId: number;
+
+  @NotNull
+  @ForeignKey(() => CourseEntity)
+  @Column({ allowNull: false })
+  courseId: number;
 }

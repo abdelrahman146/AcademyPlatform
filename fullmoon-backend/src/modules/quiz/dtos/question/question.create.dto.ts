@@ -13,4 +13,10 @@ export class QuestionCreateInputDTO {
 
   @Field()
   quizId!: number;
+
+  @Field()
+  teacherId!: number;
+
+  @Field()
+  courseId!: number;
 }

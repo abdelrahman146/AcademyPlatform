@@ -22,4 +22,10 @@ export class QuizCreateInputDTO {
 
   @Field()
   sectionId: number;
+
+  @Field()
+  teacherId!: number;
+
+  @Field()
+  courseId!: number;
 }

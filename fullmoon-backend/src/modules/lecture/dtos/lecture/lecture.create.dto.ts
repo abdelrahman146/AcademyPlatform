@@ -34,4 +34,10 @@ export class LectureCreateInputDTO {
 
   @Field()
   sectionId!: number;
+
+  @Field()
+  teacherId!: number;
+
+  @Field()
+  courseId!: number;
 }

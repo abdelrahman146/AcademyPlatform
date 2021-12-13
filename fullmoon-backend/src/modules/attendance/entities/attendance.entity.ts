@@ -13,6 +13,11 @@ export class AttendanceEntity extends Model {
   studentId: number;
 
   @NotNull
+  @ForeignKey(() => UserEntity)
+  @Column({ allowNull: false })
+  teacherId: number;
+
+  @NotNull
   @ForeignKey(() => LectureEntity)
   @Column({ allowNull: false })
   lectureId: number;

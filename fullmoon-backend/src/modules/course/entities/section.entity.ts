@@ -1,6 +1,7 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, NotNull, Table } from 'sequelize-typescript';
 import { LectureEntity } from 'src/modules/lecture/entities/lecture.entity';
 import { QuizEntity } from 'src/modules/quiz/entities/quiz.entity';
+import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { CourseEntity } from './course.entity';
 
 @Table({ modelName: 'Section', timestamps: false })
@@ -29,4 +30,9 @@ export class SectionEntity extends Model {
 
   @HasMany(() => QuizEntity)
   quizes: QuizEntity[];
+
+  @NotNull
+  @ForeignKey(() => UserEntity)
+  @Column({ allowNull: false })
+  teacherId: number;
 }

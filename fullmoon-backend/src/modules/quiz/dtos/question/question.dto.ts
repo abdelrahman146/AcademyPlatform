@@ -1,10 +1,12 @@
-import { FilterableField, IDField, Relation, Authorize, AuthorizationContext } from '@nestjs-query/query-graphql';
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { FilterableField, Relation, UnPagedRelation, Authorize, AuthorizationContext } from '@nestjs-query/query-graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
+import { IsOptional } from 'class-validator';
 import { UserContext } from 'src/modules/user/types/auth.types';
 import { UserRole } from 'src/modules/user/types/user.types';
-import { QuestionDTO } from '../question/question.dto';
+import { OptionDTO } from '../option/option.dto';
+import { QuizDTO } from '../quiz/quiz.dto';
 
-@ObjectType('Option')
+@ObjectType('Question')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unreachable code error
 @Authorize({
@@ -19,19 +21,21 @@ import { QuestionDTO } from '../question/question.dto';
       };
   },
 })
-@Relation('question', () => QuestionDTO, { disableRemove: true })
-export class OptionDTO {
-  @IDField(() => ID)
-  id: number;
+@Relation('quiz', () => QuizDTO, { disableRemove: true })
+@UnPagedRelation('options', () => OptionDTO, { enableTotalCount: true })
+export class QuestionDTO {
+  @Field()
+  statement!: string;
+
+  @Field({ nullable: true })
+  @IsOptional()
+  hint?: string;
 
   @Field()
-  statement: string;
+  points!: number;
 
   @FilterableField()
-  isCorrect: boolean;
-
-  @FilterableField()
-  questionId: number;
+  quizId!: number;
 
   @FilterableField()
   teacherId: number;

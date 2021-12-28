@@ -1,1 +1,0 @@
-exports.courses = require("./courses");

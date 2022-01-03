@@ -8,40 +8,81 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
+const security_service_1 = require("../../../lib/utils/security/security.service");
+const typeorm_2 = require("typeorm");
+const user_entity_1 = require("./user.entity");
 let UserService = class UserService {
-    constructor() {
-        this.users = {};
-        this.incrementor = 1;
+    constructor(securityService, userRepo) {
+        this.securityService = securityService;
+        this.userRepo = userRepo;
     }
-    findOne(id) {
-        return this.users[id];
+    async create(userData) {
+        const userWithSameEmail = await this.userRepo.findOne({ email: userData.email });
+        if (userWithSameEmail)
+            throw new common_1.ConflictException('Email Already Exists..');
+        userData.password = this.securityService.hashPassword(userData.password);
+        const user = this.userRepo.create(userData);
+        return this.userRepo.save(user);
     }
-    findOneByEmail(email) {
-        const [userId] = Object.keys(this.users).filter((id) => email === this.users[id].email);
-        return this.users[userId];
+    async findById(id) {
+        const user = await this.userRepo.findOne(id);
+        return user;
     }
-    findMany() {
-        return this.users;
+    async findBySlug(slug) {
+        const user = await this.userRepo.findOne({ slug });
+        return user;
     }
-    insertOne(user) {
-        this.users[this.incrementor] = Object.assign({ id: this.incrementor }, user);
-        return this.users[this.incrementor++];
+    async findByEmail(email) {
+        const user = await this.userRepo.findOne({ email });
+        return user;
     }
-    updateOne(id, user) {
-        this.users[id] = Object.assign(Object.assign({}, this.users[id]), user);
-        return this.users[id];
+    async update(id, userData) {
+        const user = await this.findById(id);
+        if (!user)
+            throw new common_1.NotFoundException('User Not Found ...');
+        Object.assign(user, userData);
+        return this.userRepo.save(user);
     }
-    deleteOne(id) {
-        delete this.users[id];
-        return true;
+    async updateSlug(id, slug) {
+        const userWithSameSLug = await this.findBySlug(slug);
+        if (userWithSameSLug)
+            throw new common_1.ConflictException('Slug Already Exists..');
+        const user = await this.findById(id);
+        if (!user)
+            throw new common_1.NotFoundException('User Not Found ...');
+        user.slug = slug;
+        return this.userRepo.save(user);
+    }
+    async updateEmail(id, email) {
+        const userWithSameEmail = await this.findByEmail(email);
+        if (userWithSameEmail)
+            throw new common_1.ConflictException('Email Already Exists..');
+        const user = await this.findById(id);
+        if (!user)
+            throw new common_1.NotFoundException('User Not Found ...');
+        user.email = email;
+        return this.userRepo.save(user);
+    }
+    async updatePassword(id, newpass) {
+        const user = await this.findById(id);
+        if (!user)
+            throw new common_1.NotFoundException('User Not Found ...');
+        user.password = this.securityService.hashPassword(newpass);
+        return this.userRepo.save(user);
     }
 };
 UserService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [])
+    __param(1, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
+    __metadata("design:paramtypes", [security_service_1.SecurityService,
+        typeorm_2.Repository])
 ], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

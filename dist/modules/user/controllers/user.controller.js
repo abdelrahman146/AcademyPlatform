@@ -14,7 +14,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 const serializer_interceptor_1 = require("../../../lib/pipes/serializer.interceptor");
+const currentUser_decorator_1 = require("../../auth/decorators/currentUser.decorator");
 const create_user_dto_1 = require("../dtos/create-user.dto");
 const update_email_dto_1 = require("../dtos/update-email.dto");
 const update_password_dto_1 = require("../dtos/update-password.dto");
@@ -30,17 +32,17 @@ let UserController = class UserController {
     create(user) {
         return this.userService.create(user);
     }
-    update(id, user) {
-        return this.userService.update(id, user);
+    update(user, body) {
+        return this.userService.update(user.id, body);
     }
-    updatePassword(id, body) {
-        return this.userService.updatePassword(id, body.newpass);
+    updatePassword(user, body) {
+        return this.userService.updatePassword(user.id, body.newpass);
     }
-    updateEmail(id, body) {
-        return this.userService.updateEmail(id, body.newEmail);
+    updateEmail(user, body) {
+        return this.userService.updateEmail(user.id, body.newEmail);
     }
-    updateSlug(id, body) {
-        return this.userService.updateSlug(id, body.slug);
+    updateSlug(user, body) {
+        return this.userService.updateSlug(user.id, body.slug);
     }
 };
 __decorate([
@@ -52,41 +54,43 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "create", null);
 __decorate([
-    (0, common_1.Patch)('/update/info/:id'),
+    (0, common_1.Patch)('/update/info'),
     (0, common_1.UseInterceptors)(new serializer_interceptor_1.SerializeTo(user_dto_1.UserDto)),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
+    __param(0, (0, currentUser_decorator_1.CurrentUser)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDto]),
+    __metadata("design:paramtypes", [Object, update_user_dto_1.UpdateUserDto]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "update", null);
 __decorate([
-    (0, common_1.Patch)('/update/password/:id'),
+    (0, common_1.Patch)('/update/password'),
     (0, common_1.UseInterceptors)(new serializer_interceptor_1.SerializeTo(user_dto_1.UserDto)),
-    (0, common_1.UseGuards)(validPassword_guard_1.ValidPasswordGuard),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), validPassword_guard_1.ValidPasswordGuard),
+    __param(0, (0, currentUser_decorator_1.CurrentUser)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_password_dto_1.UpdatePasswordDto]),
+    __metadata("design:paramtypes", [Object, update_password_dto_1.UpdatePasswordDto]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updatePassword", null);
 __decorate([
-    (0, common_1.Patch)('/update/email/:id'),
+    (0, common_1.Patch)('/update/email'),
     (0, common_1.UseInterceptors)(new serializer_interceptor_1.SerializeTo(user_dto_1.UserDto)),
-    (0, common_1.UseGuards)(validPassword_guard_1.ValidPasswordGuard),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), validPassword_guard_1.ValidPasswordGuard),
+    __param(0, (0, currentUser_decorator_1.CurrentUser)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_email_dto_1.UpdateEmailDto]),
+    __metadata("design:paramtypes", [Object, update_email_dto_1.UpdateEmailDto]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updateEmail", null);
 __decorate([
-    (0, common_1.Patch)('/update/slug/:id'),
+    (0, common_1.Patch)('/update/slug'),
     (0, common_1.UseInterceptors)(new serializer_interceptor_1.SerializeTo(user_dto_1.UserDto)),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
+    __param(0, (0, currentUser_decorator_1.CurrentUser)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_slug_dto_1.UpdateSlugDto]),
+    __metadata("design:paramtypes", [Object, update_slug_dto_1.UpdateSlugDto]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updateSlug", null);
 UserController = __decorate([

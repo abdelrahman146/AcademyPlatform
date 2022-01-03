@@ -14,14 +14,15 @@ const user_entity_1 = require("./user.entity");
 const user_service_1 = require("./user.service");
 const profile_controller_1 = require("./controllers/profile.controller");
 const validPassword_guard_1 = require("./guards/validPassword.guard");
+const authorizedRoles_guard_1 = require("./guards/authorizedRoles.guard");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User])],
         controllers: [user_controller_1.UserController, profile_controller_1.ProfileController],
-        providers: [user_service_1.UserService, validPassword_guard_1.ValidPasswordGuard],
-        exports: [user_service_1.UserService]
+        providers: [user_service_1.UserService, validPassword_guard_1.ValidPasswordGuard, authorizedRoles_guard_1.AuthorizedRolesGuard],
+        exports: [user_service_1.UserService, authorizedRoles_guard_1.AuthorizedRolesGuard, validPassword_guard_1.ValidPasswordGuard]
     })
 ], UserModule);
 exports.UserModule = UserModule;

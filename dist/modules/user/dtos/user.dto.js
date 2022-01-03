@@ -11,7 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDto = void 0;
 const class_transformer_1 = require("class-transformer");
-const user_types_1 = require("../types/user.types");
+const userGender_type_1 = require("../types/userGender.type");
+const userRole_type_1 = require("../types/userRole.type");
 class UserDto {
 }
 __decorate([

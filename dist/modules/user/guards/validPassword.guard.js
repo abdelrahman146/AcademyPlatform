@@ -17,10 +17,9 @@ let ValidPasswordGuard = class ValidPasswordGuard {
         this.userService = userService;
     }
     async canActivate(context) {
-        const { password } = context.switchToHttp().getRequest().body;
-        const { id } = context.switchToHttp().getRequest().params;
-        const user = await this.userService.findById(id);
-        return password && password === user.password;
+        const { user, body } = context.switchToHttp().getRequest();
+        const { password } = await this.userService.findById(user.id);
+        return body && body.password && password === body.password;
     }
 };
 ValidPasswordGuard = __decorate([

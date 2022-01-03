@@ -1,3 +1,4 @@
+import { LoggedUser } from 'src/modules/auth/types/loggedUser.type';
 import { CreateUserDto } from '../dtos/create-user.dto';
 import { UpdateEmailDto } from '../dtos/update-email.dto';
 import { UpdatePasswordDto } from '../dtos/update-password.dto';
@@ -8,8 +9,8 @@ export declare class UserController {
     private userService;
     constructor(userService: UserService);
     create(user: CreateUserDto): Promise<import("../user.entity").User>;
-    update(id: string, user: UpdateUserDto): Promise<import("../user.entity").User>;
-    updatePassword(id: string, body: UpdatePasswordDto): Promise<import("../user.entity").User>;
-    updateEmail(id: string, body: UpdateEmailDto): Promise<import("../user.entity").User>;
-    updateSlug(id: string, body: UpdateSlugDto): Promise<import("../user.entity").User>;
+    update(user: LoggedUser, body: UpdateUserDto): Promise<import("../user.entity").User>;
+    updatePassword(user: LoggedUser, body: UpdatePasswordDto): Promise<import("../user.entity").User>;
+    updateEmail(user: LoggedUser, body: UpdateEmailDto): Promise<import("../user.entity").User>;
+    updateSlug(user: LoggedUser, body: UpdateSlugDto): Promise<import("../user.entity").User>;
 }

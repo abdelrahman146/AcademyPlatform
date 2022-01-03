@@ -1,4 +1,5 @@
-import { UserGender, UserRole } from "../types/user.types";
+import { UserGender } from "../types/userGender.type";
+import { UserRole } from "../types/userRole.type";
 export declare class UserDto {
     id: string;
     role: UserRole;

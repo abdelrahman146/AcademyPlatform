@@ -1,0 +1,12 @@
+APPCONFIG:
+  HOST: localhost
+  PORT: 3000
+  JWT_SECRET: 142a4ff372efe26658aaddc890413dbe3333bd6a903f966
+  JWT_EXP: 360d
+  COOKIE_TOKEN: AUTH_TOKEN
+  COOKIE_SECRET: GWxOp0AEOITTQNsChKmhYQF54l4UkB1m0otLzSZPWTk
+  UPLOADS_DIR: /home/abdel/Workspace/fullmoonacademy.co/uploads
+
+DATABASE:
+  TYPE: sqlite
+  NAME: db

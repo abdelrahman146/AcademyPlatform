@@ -9,7 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UploadModule = void 0;
 const common_1 = require("@nestjs/common");
 const platform_express_1 = require("@nestjs/platform-express");
-const upload_service_1 = require("./upload.service");
+const config_1 = require("@nestjs/config");
+const multer_factory_1 = require("./multer.factory");
 let UploadModule = class UploadModule {
 };
 UploadModule = __decorate([
@@ -17,11 +18,11 @@ UploadModule = __decorate([
     (0, common_1.Module)({
         imports: [
             platform_express_1.MulterModule.registerAsync({
-                useClass: upload_service_1.UploadService
+                useFactory: multer_factory_1.default,
+                inject: [config_1.ConfigService]
             })
         ],
-        providers: [upload_service_1.UploadService],
-        exports: [upload_service_1.UploadService]
+        exports: [platform_express_1.MulterModule]
     })
 ], UploadModule);
 exports.UploadModule = UploadModule;

@@ -9,6 +9,8 @@ import config from '../config/configLoader';
 import * as cookieParser from 'cookie-parser';
 import { SecurityModule } from 'src/lib/utils/security/security.module';
 import { StaticsModule } from './modules/statics/statics.module';
+import { UploadModule } from 'src/lib/utils/upload/upload.module';
+import { CourseModule } from './modules/course/course.module';
 
 
 @Module({
@@ -23,7 +25,9 @@ import { StaticsModule } from './modules/statics/statics.module';
       entities: [User],
       synchronize: true,
     }),
-    UserModule, AuthModule, SecurityModule, StaticsModule],
+    UploadModule,
+    SecurityModule,
+    UserModule, AuthModule, StaticsModule, CourseModule],
   providers: [
     {
       provide: APP_PIPE,

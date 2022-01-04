@@ -1,4 +1,5 @@
-import { Column, Entity, Generated, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Generated, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Course } from '../course/entities/course.entity';
 import { UserGender } from "./types/userGender.type";
 import { UserRole } from "./types/userRole.type";
 
@@ -59,4 +60,7 @@ export class User {
 
     @Column({ type: 'boolean', nullable: false, default: false })
     isVerified!: boolean;
+
+    @OneToMany(() => Course, (course) => course.teacher)
+    courses: Course[];
 }

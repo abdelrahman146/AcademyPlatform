@@ -8,7 +8,9 @@ import { ValidPasswordGuard } from './guards/validPassword.guard';
 import { AuthorizedRolesGuard } from './guards/authorizedRoles.guard';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [
+    TypeOrmModule.forFeature([User]),
+  ],
   controllers: [UserController, ProfileController],
   providers: [UserService, ValidPasswordGuard, AuthorizedRolesGuard],
   exports: [UserService, AuthorizedRolesGuard, ValidPasswordGuard]

@@ -12,7 +12,7 @@ import { UserDto } from '../dtos/user.dto';
 import { ValidPasswordGuard } from '../guards/validPassword.guard';
 import { UserService } from '../user.service';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { createMulterOptions } from 'src/lib/utils/upload/multer-options';
+import { FormatFilter } from 'src/lib/utils/upload/filters/file-format.filter';
 
 @Controller('user')
 export class UserController {
@@ -28,17 +28,15 @@ export class UserController {
     }
 
     @Patch('/update/info')
-    @UseInterceptors(FileInterceptor('avatar', createMulterOptions('uploads', {
+    @UseInterceptors(FileInterceptor('avatar', {
         fileFilter: (req: Request, file: Express.Multer.File, cb) => {
-
-            if (['png', 'jpg', 'jpeg'].includes(file.mimetype.split('/')[1])) {
+            if (FormatFilter(file, ['png', 'jpg', 'jpeg'])) {
                 cb(null, true);
             } else {
                 cb(new NotAcceptableException('File is not Valid'), false);
             }
-
         }
-    })), new SerializeTo(UserDto))
+    }), new SerializeTo(UserDto))
     @UseGuards(AuthGuard('jwt'))
     update(@CurrentUser() user: LoggedUser, @Body() body: UpdateUserDto, @UploadedFile() avatar: Express.Multer.File) {
         if (avatar) body.avatar = avatar.filename;

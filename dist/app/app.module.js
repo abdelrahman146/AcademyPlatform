@@ -21,6 +21,7 @@ const configLoader_1 = require("../config/configLoader");
 const cookieParser = require("cookie-parser");
 const security_module_1 = require("../lib/utils/security/security.module");
 const statics_module_1 = require("./modules/statics/statics.module");
+const upload_module_1 = require("../lib/utils/upload/upload.module");
 let AppModule = class AppModule {
     constructor(configService) {
         this.configService = configService;
@@ -42,7 +43,9 @@ AppModule = __decorate([
                 entities: [user_entity_1.User],
                 synchronize: true,
             }),
-            user_module_1.UserModule, auth_module_1.AuthModule, security_module_1.SecurityModule, statics_module_1.StaticsModule
+            upload_module_1.UploadModule,
+            security_module_1.SecurityModule,
+            user_module_1.UserModule, auth_module_1.AuthModule, statics_module_1.StaticsModule
         ],
         providers: [
             {

@@ -26,7 +26,7 @@ const user_dto_1 = require("../dtos/user.dto");
 const validPassword_guard_1 = require("../guards/validPassword.guard");
 const user_service_1 = require("../user.service");
 const platform_express_1 = require("@nestjs/platform-express");
-const multer_options_1 = require("../../../../lib/utils/upload/multer-options");
+const file_format_filter_1 = require("../../../../lib/utils/upload/filters/file-format.filter");
 let UserController = class UserController {
     constructor(userService) {
         this.userService = userService;
@@ -59,16 +59,16 @@ __decorate([
 ], UserController.prototype, "create", null);
 __decorate([
     (0, common_1.Patch)('/update/info'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('avatar', (0, multer_options_1.createMulterOptions)('uploads', {
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('avatar', {
         fileFilter: (req, file, cb) => {
-            if (['png', 'jpg', 'jpeg'].includes(file.mimetype.split('/')[1])) {
+            if ((0, file_format_filter_1.FormatFilter)(file, ['png', 'jpg', 'jpeg'])) {
                 cb(null, true);
             }
             else {
                 cb(new common_1.NotAcceptableException('File is not Valid'), false);
             }
         }
-    })), new serializer_interceptor_1.SerializeTo(user_dto_1.UserDto)),
+    }), new serializer_interceptor_1.SerializeTo(user_dto_1.UserDto)),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     __param(0, (0, currentUser_decorator_1.CurrentUser)()),
     __param(1, (0, common_1.Body)()),

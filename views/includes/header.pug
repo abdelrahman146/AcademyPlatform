@@ -1,8 +1,0 @@
-include ../mixins/breadcrumb
-.d-flex.flex-column.flex-md-row.align-items-center.text-center.text-sm-left
-    .flex.d-flex.flex-column.flex-sm-row.align-items-center.mb-24pt.mb-md-0
-        .mb-24pt.mb-sm-0.mr-sm-24pt
-            h2.mb-0= page_title
-                +breadcrumb(path)
-    .row(role='tablist')
-        block header-side
